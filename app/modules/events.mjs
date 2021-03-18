@@ -7,7 +7,7 @@ import { page } from  "/app/modules/page.mjs";
 import { idb } from  "/app/modules/idb.mjs";
 import { enc } from  "/app/modules/enc.mjs";
 import { ls, ss } from  "/app/modules/storage.mjs";
-import { cookie_warn, time_line, to_top, scroll_percent, share_block } from "/app/modules/components.mjs";
+import { cookie_warn, time_line, to_top, share_block } from "/app/modules/components.mjs";
 
 
 const events = {
@@ -47,10 +47,6 @@ const events = {
 
         if(config.to_top){
           sub_content.append(new to_top(config.to_top_dest))
-        }
-
-        if(config.scroll_percent){
-          sub_content.append(new scroll_percent())
         }
 
         if(config.cookie_warn && !ls.get('cookie_warn')){
@@ -107,7 +103,7 @@ const events = {
     try {
 
       window.onhashchange = function(){
-          g.cl('hit')
+        //g.cl('hit')
         events.rerout(config);
       }
 
@@ -135,9 +131,10 @@ const events = {
       main.innerHTML = '';
       document.title = dest[0];
       ls.set('path', dest)
-      try {
+    try {
       page[dest[0]](main, function(cnf){
         events.trigger('sidebar', cnf.sidebar);
+
       });
     } catch (err) {
       if(err){
@@ -149,7 +146,9 @@ const events = {
   },
   toggle_sidebar(i){
     ss.set('sidebar', false);
-    let sib = 'previousSibling';
+
+    let sib = 'previousSibling',
+    menu_right = document.getElementById('menu_right');
     if(!i){
       sib = 'nextSibling';
     }
@@ -158,6 +157,7 @@ const events = {
       let item = document.getElementById('main-content');
       if(!evt){
         if(ss.get('sidebar') !== false) {
+          menu_right.classList.add('hidden')
           item.classList.remove('col-lg-9');
           item.classList.add('col-lg-12')
           item[sib].classList.add('hidden');
@@ -165,6 +165,7 @@ const events = {
         }
       } else {
         if(ss.get('sidebar') !== true) {
+          menu_right.classList.remove('hidden')
           item.classList.remove('col-lg-12');
           item.classList.add('col-lg-9')
           item[sib].classList.remove('hidden');

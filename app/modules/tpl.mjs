@@ -17,9 +17,17 @@ const tpl = {
     )
 
     if(config.sb_first){
-      sidesel.append(tpl.sidebar(config), h('div#main-content.col-lg-9'))
+      sidesel.append(tpl.sidebar(config), h('div#main-content.col-lg-9'), h('span#menu_right.icon-menu.menu-link.float-right',{
+        onclick(){
+          utils.toggle_sb(this)
+        }
+      }))
     } else {
-      sidesel.append(h('div#main-content.col-lg-9'), tpl.sidebar(config))
+      sidesel.append(h('div#main-content.col-lg-9'), tpl.sidebar(config),h('span#menu_right.icon-menu.menu-link.float-right',{
+        onclick(){
+          utils.toggle_sb(this)
+        }
+      }))
     }
 
     if(config.main_container){
@@ -190,12 +198,7 @@ const tpl = {
           ),
           h('span',
             h('span.anc-m.d-lg-none.d-xl-none', 'Nomatec Labs')
-          ),
-          h('span#menu_right.icon-menu.menu-link.float-right',{
-            onclick(){
-              document.getElementById('side-content').classList.toggle('show')
-            }
-          })
+          )
         ),
         navul
       )

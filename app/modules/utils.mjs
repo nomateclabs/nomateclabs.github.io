@@ -7,7 +7,7 @@ import { enc } from "/app/modules/enc.mjs";
 
 //utils.load_cached({index: 'cache', id: "discus_count", })
 const utils = {
-  d_check: function(){
+  d_check(){
     var accepted_domains=new Array("wsabstract.com","javascriptkit.com")
 
     var domaincheck=document.location.href //retrieve the current URL of user browser
@@ -29,7 +29,7 @@ const utils = {
         history.back(-1)
     }
   },
-  add_hitcount: function(config, cb){
+  add_hitcount(config, cb){
     if(!config.nomatec_rest.hitcount.enabled){
       return cb(false)
     }
@@ -76,7 +76,7 @@ const utils = {
     })
 
   },
-  add_hit: function(config, item, cb){
+  add_hit(config, item, cb){
 
     item = JSON.stringify(item);
 
@@ -159,7 +159,7 @@ const utils = {
 
     }
   },
-  add_theme: function(data, toAdd){
+  add_theme(data, toAdd){
     let themeURL = URL.createObjectURL(data);
 
     if(toAdd){
@@ -173,7 +173,7 @@ const utils = {
       document.getElementById('theme').href = themeURL;
     }
   },
-  update_theme: function(src, title, cb){
+  update_theme(src, title, cb){
 
     fetch(src, {
       method: 'GET',
@@ -208,7 +208,7 @@ const utils = {
       cb(err);
     })
   },
-  detect_crawler: function(cb){
+  detect_crawler(cb){
     let bot_test = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|linkedin|Facebot|Twitterbot/i.test(navigator.userAgent);
     if(bot_test){
       fetch('./app/config/crawler.json', {
@@ -247,13 +247,13 @@ const utils = {
       return cb();
     }
   },
-  prop_meta: function(i,e){
+  prop_meta(i,e){
     return h('meta', {
       itemprop: i,
       content: e
     })
   },
-  prop_org: function(org_cnf){
+  prop_org(org_cnf){
     return h('span', {
         itemprop: 'publisher',
         itemscope: '',
@@ -271,7 +271,7 @@ const utils = {
       utils.prop_meta('name', org_cnf.name)
     )
   },
-  format_date: function(i){
+  format_date(i){
     let date = new Date(i),
     dd = date.getDate(),
     mm = date.getMonth()+1,
@@ -287,22 +287,22 @@ const utils = {
 
     return [yyyy, mm, dd].join('-')
   },
-  get_year: function(){
+  get_year(){
     let d = new Date();
     return d.getFullYear();
   },
-  load_cached: function(obj){
+  load_cached(obj){
     idb.get({index: obj.index, id: obj.id}, function(err,res){
       if(err || !res){return main.remove();}
 
     })
   },
-  empty: function(i){
+  empty(i){
     while (i.firstChild) {
       i.removeChild(i.firstChild);
     }
   },
-  detect_device: function(cb){
+  detect_device(cb){
     var isMobile = false;
     (function (a) {if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) isMobileOnly = true})(navigator.userAgent || navigator.vendor || window.opera);
 
@@ -313,21 +313,12 @@ const utils = {
       // body...
     }
   },
-  hashchange: function(){
+  hashchange(){
     window.dispatchEvent(
       new HashChangeEvent("hashchange")
     )
   },
-  page_percent: function(){
-    let a = document.documentElement.scrollTop /*+ window.innerHeight*/,
-    b = (document.documentElement.scrollHeight + window.innerHeight) / 2,
-    c = Math.floor(a / b * 100);
-    if(c > 100){
-      return 100;
-    }
-    return c;
-  },
-  debounce: function(func, wait, immediate) {
+  debounce(func, wait, immediate) {
   	var timeout;
   	return function() {
   		var context = this, args = arguments;
@@ -341,7 +332,7 @@ const utils = {
   		if (callNow) func.apply(context, args);
   	};
   },
-  capitalize: function(str) {
+  capitalize(str) {
    try {
      let x = str[0] || str.charAt(0);
      return x  ? x.toUpperCase() + str.substr(1) : '';
@@ -349,39 +340,39 @@ const utils = {
      if(err){return str;}
    }
   },
-  is_email: function(email){
+  is_email(email){
    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
      return true;
     }
     return false;
   },
-  is_letters: function(txt){
+  is_letters(txt){
     if(txt.match(/^[A-Za-z]+$/)){
       return true;
     }
     return false;
   },
-  is_alphanumeric: function(txt){
+  is_alphanumeric(txt){
     if(txt.match(/^[0-9a-zA-Z]+$/)) {
       return true;
     }
     return false;
   },
-  snake_case: function(str){
+  snake_case(str){
     try {
       return str.replace(/ /g, '_');
     } catch (err) {
       if(err){return str;}
     }
   },
-  un_snake_case: function(str){
+  un_snake_case(str){
     try {
       return str.replace(/_/g, ' ');
     } catch (err) {
       if(err){return str;}
     }
   },
-  formatBytes: function(bytes, decimals) {
+  formatBytes(bytes, decimals) {
     if (bytes === 0) return '0 Bytes';
 
     const k = 1024;
@@ -392,13 +383,13 @@ const utils = {
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   },
-  ts2datetime: function(i){
+  ts2datetime(i){
     return new Date(i).toLocaleString()
   },
-  ts2date: function(i){
+  ts2date(i){
     return new Date(i).toLocaleDateString()
   },
-  ms2dh: function(ms){
+  ms2dh(ms){
     let days = Math.floor(ms / (24*60*60*1000)),
     daysms = ms % (24*60*60*1000),
     hours = Math.floor((daysms)/(60*60*1000)),
@@ -406,17 +397,17 @@ const utils = {
     minutes = Math.floor((hoursms)/(60*1000));
     return [days,hours,minutes].join(':');
   },
-  getPostByDate: function(i){
+  getPostByDate(i){
     let src = new Date(i).toDateString().toLowerCase().split(' ').slice(1)
     src = ['', 'post', src[2], src[0], i].join('/')
     return src;
   },
-  getNewsByDate: function(i){
+  getNewsByDate(i){
     let src = new Date(i).toDateString().toLowerCase().split(' ').slice(1)
     src = ['', 'entries', src[2], i].join('/')
     return src;
   },
-  add_history: function(items, dest){
+  add_history(items, dest){
     let item = h('div#'+ dest +'list.card-body');
 
     for (let i = 0; i < items.length; i++) {
@@ -427,7 +418,7 @@ const utils = {
     dest.parentNode.replaceChild(item, dest)
 
   },
-  del_saved: function(sel, main, obj){
+  del_saved(sel, main, obj){
 
     idb.get({index: 'saved', id: sel}, function(err,res){
       if(err || !res){return main.remove();}
@@ -451,7 +442,7 @@ const utils = {
       })
     })
   },
-  sort_favorites: function(item, config){
+  sort_favorites(item, config){
 
     item.setAttribute('disabled', true);
     utils.empty(item);
@@ -553,14 +544,14 @@ const utils = {
     })
 
   },
-  totop: function(i){
+  totop(i){
     window.scroll({
       top: i,
       left: 0,
       behavior: 'smooth'
     });
   },
-  append_feed_item: function(feedarr, obj, feedcnf){
+  append_feed_item(feedarr, obj, feedcnf){
     let item = h('option'),
     title = 'blog_'+ obj.type +'.' + feedarr;
     if(obj.ext){
@@ -588,7 +579,7 @@ const utils = {
     }
     return item;
   },
-  calc_showing: function(len, ttl){
+  calc_showing(len, ttl){
     const pag_chunk = ls.get('config').paginate_max,
     pag = ss.get('pag-current'),
     min = ((pag -1) * pag_chunk) + 1,
@@ -596,10 +587,10 @@ const utils = {
     max = (min + len - 1);
     return ['Showing', min, 'to', max, 'of', count, ttl].join(' ')
   },
-  sort_type: function(sort_order){
+  sort_type(sort_order){
     let sort_arr = ['newest', 'oldest'],
     sort_sel = h('select.form-control.form-control-sm', {
-      onchange: function(){
+      onchange(){
         ls.set('nomatec_sort', this.value);
         utils.hashchange();
       }
@@ -622,7 +613,7 @@ const utils = {
     }
     return sort_sel;
   },
-  fade_out: function(obj){
+  fade_out(obj){
     setTimeout(function(){
       let count = 0.9,
       evt = setInterval(function(){
@@ -637,10 +628,14 @@ const utils = {
       },obj.duration * 100 || 100)
     },obj.delay * 1000 || 0)
   },
-  menu_rout: function(dest, src){
+  menu_rout(dest, src){
     location.hash = dest;
     utils.totop(0);
     document.getElementById(src).classList.remove('show');
+  },
+  toggle_sb(ele){
+    ele.classList.toggle('show');
+    document.getElementById('side-content').classList.toggle('show')
   }
 }
 

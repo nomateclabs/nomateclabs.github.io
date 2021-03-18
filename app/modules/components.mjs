@@ -590,26 +590,6 @@ class bread_crumb extends HTMLElement {
   }
 }
 
-class scroll_percent extends HTMLElement {
-  constructor() {
-    super();
-    const $this = this;
-
-    window.addEventListener('scroll', function(){
-      let top = window.pageYOffset || document.scrollTop;
-      if(top === NaN || !top){
-        $this.classList.add('hidden')
-      } else if($this.classList.contains('hidden')){
-        $this.classList.remove('hidden');
-      }
-      return $this.innerText = utils.page_percent()+ '%'
-    })
-
-    this.classList.add('scroll-percent', 'hidden');
-    return this;
-  }
-}
-
 class to_top extends HTMLElement {
   constructor(i) {
     super(i);
@@ -796,7 +776,6 @@ class light_box extends HTMLElement {
 customElements.define('bot-net', bot_net);
 customElements.define('rest-range', rest_range);
 customElements.define('to-top', to_top);
-customElements.define('scroll-percent', scroll_percent);
 customElements.define('bread-crumb', bread_crumb);
 customElements.define('welcome-msg', welcome_msg);
 customElements.define('cookie-warn', cookie_warn);
@@ -814,4 +793,4 @@ customElements.define('user-cnf', user_cnf);
 customElements.define('side-menu', side_menu);
 customElements.define('light-box', light_box);
 
-export { bot_net, rest_range, to_top, scroll_percent, bread_crumb, welcome_msg, cookie_warn, time_line, blog_prev, news_prev, cattag_link, blog_his, blog_item, news_item, share_item, search_box, share_block, user_cnf, side_menu, light_box }
+export { bot_net, rest_range, to_top, bread_crumb, welcome_msg, cookie_warn, time_line, blog_prev, news_prev, cattag_link, blog_his, blog_item, news_item, share_item, search_box, share_block, user_cnf, side_menu, light_box }
