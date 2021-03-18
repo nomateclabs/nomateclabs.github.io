@@ -180,6 +180,7 @@ const utils = {
       headers: g.headers.css_cors
     })
     .then(function(res){
+      console.log(res)
       if (res.status >= 200 && res.status < 300) {
         return res.text();
       } else {

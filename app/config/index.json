@@ -26,7 +26,7 @@
     "base_url": "/app/css/bootstrap.min.css",
     "base_hash": "",
     "base_theme": "default",
-    "links_url": "https://bootswatch.com/4/{{theme}}/bootstrap.min.css",
+    "links_url": "https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/{{theme}}/bootstrap.min.css",
     "links": [
       "cerulean",
       "cosmo",

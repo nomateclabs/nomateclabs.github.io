@@ -94,7 +94,8 @@ const tpl = {
       h('div.w-90',
         h('div.row',
           h('div#copyright.col-12.text-center',
-            h('p', copyright)
+            h('p', copyright),
+            h('p', 'ABN: '+ config.app.abn)
           ),
           footer_left,
           footer_right
@@ -182,7 +183,7 @@ const tpl = {
       )
     }
 
-    return h('nav#top-nav.navbar.navbar-expand-lg.navbar-light.bg-light',
+    return h('nav#top-nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top',
       h('div.container-fluid',
         h('div.navbar-brand.nav-alt',
           h('span#menu_left.icon-menu.menu-link.float-left',{

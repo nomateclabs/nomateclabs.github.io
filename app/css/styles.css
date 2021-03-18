@@ -273,10 +273,12 @@ margin-top: .2rem;
 .foot-lnk{
   font-size: .8rem;
   font-weight: bold;
+  color: black;
 }
 
 .foot-lnk:hover{
   color:grey!important;
+  text-decoration: none;
 }
 
 .w-90{
@@ -498,7 +500,6 @@ margin-top: .2rem;
   }
 }
 
-
 #sidebar-nav{
   position: fixed;
   left: -300px;
@@ -508,7 +509,7 @@ margin-top: .2rem;
   box-shadow: 0 0 6px;
   top: 74px;
   overflow: scroll;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
   transition: left 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   z-index: 99999;
 }
@@ -605,4 +606,9 @@ margin-top: .2rem;
       right: 300px;
       z-index: 998;
   }
+}
+
+.container-fluid {
+    padding-right: 25px;
+    padding-left: 25px;
 }
