@@ -448,6 +448,11 @@ margin-top: .2rem;
   width: 100%
 }
 
+#main-content{
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
 @media (max-width: 992px){
   .navbar-nav.nav-lnks{
     display: none!important;
@@ -471,9 +476,6 @@ margin-top: .2rem;
   }
   #sidebar-main{
     margin-bottom: 80px;
-  }
-  #main-content{
-    min-height: 100vh;
   }
   #top-nav{
       position: fixed;

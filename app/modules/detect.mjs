@@ -32,11 +32,12 @@ const detect = {
     })
     .then(function(data) {
       ls.set('config', data);
+      location.hash = '/'+ data.navlinks[0]
       meta.init(data.meta);
       if(data.comments.enabled){
 
       }
-      
+
         idb.req({index: 'posts'}, function(err){
           if(err){return cb(err, data)}
           return cb(false, data)

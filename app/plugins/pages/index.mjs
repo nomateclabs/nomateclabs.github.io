@@ -8,7 +8,7 @@ import { enc } from  "/app/modules/enc.mjs";
 import { ls,ss } from  "/app/modules/storage.mjs";
 
 const pages = {
-home: function(main, cnf){cnf({sidebar: false});main.append(h('p', 'page home working'));},contact: function(main, cnf){cnf({sidebar: true});let config = ls.get('config'),
+home: function(main, cnf){cnf({sidebar: false});main.append(h('p', 'page home working'));},contact: function(main, cnf){cnf({sidebar: false});let config = ls.get('config'),
 name_imp = h('input.form-control', {
   type: 'text',
   placeholder: 'enter name'
@@ -195,7 +195,7 @@ main.append(
       )
     )
   )
-);},sitemap: function(main, cnf){cnf({sidebar: true});
+);},sitemap: function(main, cnf){cnf({sidebar: false});
 let config = ls.get('config'),
   lg_obj = config.sitemap,
   lg_main = h('div.list-group',
@@ -225,7 +225,7 @@ main.append(
     h('h3', 'sitemap'),
     lg_main
   )
-);},terms: function(main, cnf){cnf({sidebar: true});
+);},terms: function(main, cnf){cnf({sidebar: false});
 let hr = h('hr');
 fetch('./app/config/terms.json', {
     method: 'GET',

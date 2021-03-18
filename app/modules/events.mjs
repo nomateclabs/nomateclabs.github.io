@@ -145,10 +145,11 @@ const events = {
     }
   },
   toggle_sidebar(i){
-    ss.set('sidebar', false);
+    ss.set('sidebar', true);
 
     let sib = 'previousSibling',
     menu_right = document.getElementById('menu_right');
+
     if(!i){
       sib = 'nextSibling';
     }
@@ -156,7 +157,7 @@ const events = {
       evt = evt.detail;
       let item = document.getElementById('main-content');
       if(!evt){
-        if(ss.get('sidebar') !== false) {
+        if(ss.get('sidebar') !== false){
           menu_right.classList.add('hidden')
           item.classList.remove('col-lg-9');
           item.classList.add('col-lg-12')
