@@ -543,7 +543,7 @@ class cookie_warn extends HTMLElement {
     this.classList.add('cookie-warn');
     this.append(
       h('div.container',
-        h('p.text-right', msg,
+        h('p', msg,
           h('span.text-muted.cookie-accept', {
             onclick: function(){
               ls.set('cookie_warn', true)
