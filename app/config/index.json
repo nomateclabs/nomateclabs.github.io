@@ -1,0 +1,294 @@
+{
+  "app": {
+    "title": "Nomatec Labs"
+  },
+  "tawk": {
+    "url": "https://embed.tawk.to",
+    "api": "604ab4ae385de407571f3cab/1f0ht3ivf"
+  },
+  "seo": {
+    "org": {
+      "name": "Nomatec Labs",
+      "img": "https://localhost.com/app/images/lg_50.png",
+      "width": "50",
+      "height": "50"
+    }
+  },
+  "css": [
+    {
+      "title": "styles",
+      "hash": ""
+    }
+  ],
+  "theme": {
+    "enabled": true,
+    "base_url": "/app/css/bootstrap.min.css",
+    "base_hash": "",
+    "base_theme": "default",
+    "links_url": "https://bootswatch.com/4/{{theme}}/bootstrap.min.css",
+    "links": [
+      "cerulean",
+      "cosmo",
+      "darkly",
+      "flatly",
+      "journal",
+      "litera",
+      "lumen",
+      "lux",
+      "materia",
+      "minty",
+      "pulse",
+      "sandstone",
+      "simplex",
+      "sketchy",
+      "slate",
+      "solar",
+      "spacelab",
+      "superhero",
+      "united",
+      "yeti"
+    ]
+  },
+  "settings": {
+    "enabled": true
+  },
+  "navlinks": [
+    "home",
+    "blog",
+    "news",
+    "contact",
+    "terms",
+    "sitemap"
+  ],
+  "footer_nav": {
+    "left": {
+      "contact": "contact",
+      "history": "history",
+      "saved": "saved",
+      "categories": "categories",
+      "tags": "tags"
+    },
+    "right": {
+      "api": "api",
+      "feed": "feed",
+      "rss_atom": "rss/atom",
+      "sitemap": "sitemap",
+      "terms": "terms"
+    }
+  },
+  "logo": {
+    "base": "./app/images/lg_50.png",
+    "min": "./app/images/logo.png"
+  },
+  "news": {
+    "head_img": "./app/images/blog/default.png",
+    "extra_keywords": [
+      "news"
+    ]
+  },
+  "meta": [],
+  "sb_first": false,
+  "theme_dark": false,
+  "main_container": false,
+  "user_config": {
+    "enabled": true,
+    "version": 1
+  },
+  "to_top": true,
+  "to_top_dest": 0,
+  "scroll_percent": true,
+  "cookie_warn": true,
+  "cookie_warn_msg": "this site uses cookies to improve user performance",
+  "welcome_back": true,
+  "welcome_back_msg": "welcome back, it has been {{date}} since your last visit.",
+  "copyright_msg": "© {{year}} Nomatec Labs",
+  "pagination": true,
+  "paginate_max": 20,
+  "list_pagination": true,
+  "list_paginate_max": 1000,
+  "search": {
+    "enabled": true,
+    "timeout": false,
+    "timeout_sec": 60,
+    "timeout_msg": "seconds till next search",
+    "char_min": 3,
+    "char_min_msg": "character min"
+  },
+  "sidebar": {
+    "history": true,
+    "recent": true,
+    "saved": true,
+    "catlist": true,
+    "taglist": true,
+    "timeline": true
+  },
+  "history_max": 5,
+  "favorite_max": 5,
+  "recent_max": 5,
+  "history_db": {
+    "max": 50,
+    "max_age": 604800000
+  },
+  "favorite_db": {
+    "max": 50,
+    "max_age": 604800000
+  },
+  "timeline": {
+    "years": [
+      2020,
+      2019
+    ],
+    "months": [
+      "jan",
+      "feb",
+      "mar",
+      "apr",
+      "may",
+      "jun",
+      "jul",
+      "aug",
+      "sep",
+      "oct",
+      "nov",
+      "dec"
+    ]
+  },
+  "pluggins": {
+    "pre": [],
+    "sidebar": [],
+    "misc": [
+      {
+        "title": "mailchimp_signup",
+        "path": "misc",
+        "is_module": true,
+        "config": {}
+      }
+    ]
+  },
+  "idb": {
+    "version": 1,
+    "objects": [
+      "posts",
+      "entries",
+      "saved",
+      "cache"
+    ],
+    "posts": {
+      "max_age": 604800000
+    },
+    "entries": {
+      "max_age": 604800000
+    },
+    "history": {
+      "max_age": 604800000
+    },
+    "saved": {
+      "max_age": 604800000
+    }
+  },
+  "comments": {
+    "enabled": true,
+    "div_id": "disqus_thread",
+    "settings": {
+      "src": "blog-4l5uws4c2a",
+      "language": "en",
+      "site_base_url": "https://localhost"
+    }
+  },
+  "share": {
+    "enabled": true,
+    "div_id": "nomatec_share",
+    "items": [
+      {
+        "title": "share on facebook",
+        "text": "Share",
+        "href": "https://www.facebook.com/sharer/sharer.php?u=",
+        "icon": "icon-facebook",
+        "class": "share_facebook"
+      },
+      {
+        "title": "share on linkedin",
+        "text": "Share",
+        "href": "https://www.linkedin.com/sharing/share-offsite/?url=",
+        "icon": "icon-linkedin",
+        "class": "share_linkedin"
+      },
+      {
+        "title": "share on twitter",
+        "text": "Tweet",
+        "href": "https://twitter.com/intent/tweet?text=",
+        "icon": "icon-twitter",
+        "class": "share_twitter"
+      }
+    ]
+  },
+  "share_block": {
+    "enabled": true,
+    "side": "left",
+    "items": [
+      {
+        "title": "follow us on facebook",
+        "href": "https://www.facebook.com/Nomatec-Labs-102083311959313",
+        "icon": "icon-facebook",
+        "class": "share_facebook"
+      },
+      {
+        "title": "follow us on linkedin",
+        "href": "https://www.linkedin.com",
+        "icon": "icon-linkedin",
+        "class": "share_linkedin"
+      },
+      {
+        "title": "follow us on twitter",
+        "href": "https://twitter.com/nomateclabs",
+        "icon": "icon-twitter",
+        "class": "share_twitter"
+      }
+    ]
+  },
+  "contact": {
+    "id": "958567",
+    "hash": "02af845bf05"
+  },
+  "nomatec_rest": {
+    "enabled": true,
+    "base_url": "https://localhost:5500/blog",
+    "hitcount": {
+      "enabled": false,
+      "api": "b81c04950f25897b4087b8c6ee83647a",
+      "db_url": "https://gitlab.com/angeal185/nomatec-store/-/raw/master/api/hitcount.json",
+      "max_age": 60000
+    },
+    "mail": {
+      "enabled": true,
+      "subscribe": "b81c04950f25897b4087b8c6ee83647a",
+      "unsubscribe": "b81c04950f25897b4087b8c6ee83647a"
+    },
+    "contact": {
+      "enabled": true,
+      "api": "b81c04950f25897b4087b8c6ee83647a",
+      "max_len": 1024,
+      "min_len": 8
+    }
+  },
+  "botnet": {
+    "remove": true,
+    "delay": 10000
+  },
+  "sitemap": {
+    "Home": "home",
+    "Blog": "blog",
+    "News": "news",
+    "Contact": "contact",
+    "Terms": "terms",
+    "Sitemap": "sitemap",
+    "History": "history",
+    "Saved": "saved",
+    "API": "api",
+    "Feed": "feed",
+    "Settings": "settings",
+    "RSS/ATOM": "rss_atom",
+    "Categories": "list/categories",
+    "Tags": "list/tags"
+  }
+}

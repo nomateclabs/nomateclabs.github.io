@@ -1,0 +1,20 @@
+{
+  "RSA_OAEP": {
+    "contact": {
+      "alg": "RSA-OAEP-512",
+      "e": "AQAB",
+      "ext": true,
+      "key_ops": ["encrypt"],
+      "kty": "RSA",
+      "n": "lT8avCklRUp-o3jG6yGq2KIYagvchGQwyEF-QNSHLu7W4pV61_b7KuC0fNygZchamZk1j5CkyFmt5FQxrWlnCeK1Ko2QKS__01wNZlI76D_h0cKci9FOQCQrzcuuvNf4MngqRtk9xgNsY2IIOcVrhYneo1HwAjN-wKOc4TQxyRR65BIXAgffWlGEzMR-sJ-0iaXS9HH_JHGbm40swVy7VLo9nnvzvNVaJ5hen6du8mgmufMFqDWrMyFdwKVPQrhzYpkfoad961XVAC5VEun98EyBn32Fq3JEAs9pd9N-VfMG7jXY3Q4Ee16GKCS9z2UirqwhcXdvZZ10fIpbnctPy-w39e54Grr9qT0K4cKPRX_3hmtga44DbDs7glzYBqBVwJU_gcRsI2TJnfhZ1CEfYtNs0xmCCjSegaK2WXPWuyBhaiH9n1ngAJT6y_2TKVFqr9RhNNPw0isb_b_86jnAhx0uJcazRjXWgI2x3HyM7XdQOBUiTszbXf55X7ySp0QHWMbo0gyArpRqQm5sAsi1Dd3s3V0ZEmDeN-IB30p8kd7ceJxX_7RcLigDTSSI6c_Q1xVK4T3gMHHVFwLGv-_BoXbGo8121hzfmtxBitZytagQqyvFcc45-pQYwNlicaKjymPbg0bstBKouBLwm7lrggVazSv6DgXELyNx_Dzp3ds"
+    },
+    "subscribe": {
+      "alg": "RSA-OAEP-512",
+      "e": "AQAB",
+      "ext": true,
+      "key_ops": ["encrypt"],
+      "kty": "RSA",
+      "n": "0qIoj353tUAworRRkozIDQyUTheGygwhTEtJNOnLwPoSGenwYkBW7sIuemLiW0jCNNmQO1u4xD4cF4aPkH2DzVHS9WAS6HYoRjYI8pH9J45UHgOPROMd0gU-0Z9LDbBAcdYNL3HecMjLltZQWNEwAe2lO6EV4jOKHD6rekFYWYI4dkxcfkYt6f09ajb_ehYM5r1xa-oJOk_1Y23mSJfjmVj8FMCd0g9CmK611sJgTHhGsyPfoC0uRY9OYFAQJMCeiUE8xXj1D7JhsQ6iQNSkHR0MAk8l05EMWjXRSVkrMAuIg5iH31Rc9WdhvW6M28BsvZyNyjV5PbV7DbwB4iM_iKoWcwRCKteQjY44Sqe0ISp_HUNMB_vRC3Tdkjb7KqJIxgKDwZdOab9xCSolbFZ3iOFBtJ5ZASYN-hhgAJ469Tj3QhOaKUnOOnQIe2wx9vK_KjeX6YaYJxCKvbUObP7ka_t-w2ROL7oF-ZNP7vr7peq7R5nMpP-O9VVkZjjuiAqZM0Lo1hMUudnjVkEX0iTDoHhsKqZRuNGexvUr3hsvcPZeppaz4j__dRzhr7JDDM-yF_iCLJe2I7ndeCdHW_YE_MB6yoXhEW6xVwUcz3a3sR0M0chm2T4344DIx8D4RPD4379B_vv6HRuJxFiyqFH8Cmyhx4QWhoA852FgehJsBQc"
+    }
+  }
+}

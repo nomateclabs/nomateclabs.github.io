@@ -1,0 +1,104 @@
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Site name",
+  "url": "http://example.com",
+  "sameAs": ["https://facebook.com/page", "https://plus.google.com/site", "https://twitter.com/name"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http://example.com/pages/search_results?q={search_term}",
+    "query-input": "required name=search_term"
+  },
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebSite",
+        "@id": "https://example.com",
+        "name": "Website Name"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/blog",
+        "name": "Blog"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/news/",
+        "name": "News"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/sitemap",
+        "name": "Sitemap"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/api",
+        "name": "Api"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/rss_atom",
+        "name": "RSS/ATOM"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/feed",
+        "name": "Feed"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/contact",
+        "name": "Contact"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/list/categories",
+        "name": "Categories"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://example.com/#/list/tags",
+        "name": "Tags"
+      }
+    }
+  ]
+}

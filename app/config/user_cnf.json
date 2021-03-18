@@ -1,0 +1,11 @@
+{
+  "sb_first": {
+    "val": false,
+    "msg": "sidebar on left"
+  },
+  "theme_dark": {
+    "val": false,
+    "msg": "enable dark theme"
+  },
+  "version": 1
+}
