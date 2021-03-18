@@ -259,6 +259,6 @@ fetch('./app/config/terms.json', {
     hr = null;
 
   })
-}
+},services: function(main, cnf){cnf({sidebar: false});main.append(h('p', 'page services working'));},about: function(main, cnf){cnf({sidebar: false});main.append(h('p', 'page about working'));}
 }
 export { pages }

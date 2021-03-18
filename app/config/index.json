@@ -55,11 +55,11 @@
   },
   "navlinks": [
     "home",
+    "about",
+    "services",
     "blog",
     "news",
-    "contact",
-    "terms",
-    "sitemap"
+    "contact"
   ],
   "footer_nav": {
     "left": {
