@@ -7,21 +7,19 @@ const global = {
   SS: sessionStorage,
   headers: {
     json: {
-      'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip',
       'Sec-Fetch-Dest': 'object',
       'Sec-Fetch-mode': 'same-origin',
       'Sec-Fetch-Site': 'same-origin'
     },
     json_cors: {
-      'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip',
       'Sec-Fetch-Dest': 'object',
       'Sec-Fetch-mode': 'cors',
       'Sec-Fetch-Site': 'cross-site'
     },
     css_cors: {
-      'Content-Type': 'text/css',
+      'Accept-Encoding': 'gzip',
       'Sec-Fetch-Dest': 'style',
       'Sec-Fetch-mode': 'cors',
       'Sec-Fetch-Site': 'cross-site'
