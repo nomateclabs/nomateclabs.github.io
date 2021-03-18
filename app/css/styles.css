@@ -44,8 +44,18 @@
 .anc-fnt{
   font-size: 1.6rem;
   margin-left: 1rem;
+  top: 2rem;
   position: absolute;
-  top: 1.2rem;
+}
+
+.anc-m{
+  font-size: 1.6rem;
+  margin-left: 1rem;
+      line-height: 3rem;
+}
+
+.logo-m{
+      margin-top: .8rem;
 }
 
  [class^="icon-"]:before, [class*=" icon-"]:before {

@@ -182,8 +182,15 @@ const tpl = {
               document.getElementById('sidebar-nav').classList.toggle('show')
             }
           }),
-          h('img.img-fluid', {src: config.logo.base}),
-          h('span.anc-fnt', 'Nomatec Labs'),
+          h('span.d-none.d-lg-block.d-xl-block.logo-m',
+            h('span.d-inline-block',
+              h('img.img-fluid', {src: config.logo.base})
+            ),
+            h('span.anc-fnt', 'Nomatec Labs')
+          ),
+          h('span',
+            h('span.anc-m.d-lg-none.d-xl-none', 'Nomatec Labs')
+          ),
           h('span#menu_right.icon-menu.menu-link.float-right',{
             onclick(){
               document.getElementById('side-content').classList.toggle('show')
