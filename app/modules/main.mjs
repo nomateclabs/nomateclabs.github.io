@@ -9,6 +9,7 @@ import { ls, ss } from  "/app/modules/storage.mjs";
 import { domcache } from "/app/modules/domcache.mjs";
 import { clean } from "/app/modules/clean.mjs";
 
+ss.del('sidebar')
 // detect browser errors
 detect.init(function(err, config){
   if(err){return g.cl(err)};

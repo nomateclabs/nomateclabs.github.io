@@ -11,6 +11,7 @@ import { idb } from "/app/modules/idb.mjs";
 import { blog_item, news_item } from "/app/modules/components.mjs";
 import { comments } from "/app/modules/comments.mjs";
 
+
 let page = {
   blog: function(main, cnf){
     let dest = 'search/index',

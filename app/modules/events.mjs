@@ -134,8 +134,8 @@ const events = {
     try {
       page[dest[0]](main, function(cnf){
         events.trigger('sidebar', cnf.sidebar);
-
       });
+
     } catch (err) {
       if(err){
         g.ce(err)
@@ -145,7 +145,6 @@ const events = {
     }
   },
   toggle_sidebar(i){
-    ss.set('sidebar', true);
 
     let sib = 'previousSibling',
     menu_right = document.getElementById('menu_right');
@@ -174,6 +173,7 @@ const events = {
         }
       }
     })
+
   },
   trigger(evt, data){
     var event = new CustomEvent(evt, {

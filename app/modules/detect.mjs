@@ -32,8 +32,9 @@ const detect = {
     })
     .then(function(data) {
       ls.set('config', data);
-      location.hash = '/'+ data.navlinks[0]
+
       meta.init(data.meta);
+
       if(data.comments.enabled){
 
       }

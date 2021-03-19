@@ -34,7 +34,7 @@ const tpl = {
       contype = 'container'
     }
 
-    sidesel = h('div.'+ contype, sidesel);
+    sidesel = h('div.app-main.'+ contype, sidesel);
 
     if(config.welcome_back && ls.get('welcome_msg')){
       bc.append(new welcome_msg(config.welcome_back_msg, ls.get('welcome_msg')))
@@ -48,10 +48,16 @@ const tpl = {
 
     return h('div',
       new bot_net(),
+      h('img#para', {src: config.img.bg}),
       tpl.sidebar_nav(config),
       tpl.navbar(config),
-      h('nav.container-fluid', bc),
+
+      h('div.container-fluid.h12',
+        h('div.header-main', bc)
+
+      ),
       sidesel,
+      tpl.rest_signup(config.nomatec_rest),
       tpl.footer(config),
       tpl.analytics(config)
     )
@@ -222,11 +228,7 @@ const tpl = {
 
     newdiv = null;
 
-    if(config.nomatec_rest.enabled && !ls.get('is_subscribed') && !ls.get('is_bot')) {
-      main_sub.append(
-        tpl.rest_signup(config.nomatec_rest)
-      )
-    }
+
 
     return h('div.container-fluid',
       h('div.row',
@@ -1285,6 +1287,20 @@ const tpl = {
         )
       )
     )
+  },
+  user_contact(i){
+    let item = h('div.col-12.col-md-6.col-lg-4.text-center',
+      h('div.card.mb-3',
+        h('div.card-content',
+          h('div.bg-white.rounded.shadow-sm.py-5.px-4',
+            h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
+            h('h5.mb-0',i.name,),
+            h('h3.small.text-uppercase.text-muted', i.title)
+          )
+        )
+      )
+    )
+    return item;
   }
 }
 

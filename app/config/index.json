@@ -1,12 +1,27 @@
 {
   "app": {
     "title": "Nomatec Labs",
+    "address": "Melbourne, Australia 3000",
     "abn": "59420730506"
+  },
+  "img": {
+    "bg": "./app/images/bg.jpg"
   },
   "tawk": {
     "url": "https://embed.tawk.to",
     "api": "604ab4ae385de407571f3cab/1f0ht3ivf"
   },
+  "users": [{
+    "name": "Ben Eaves",
+    "img": "./app/images/author/avatar.jpeg",
+    "title": "CEO | Founder | LEAD DEVELOPER",
+    "contact": "support@nomateclabs.com"
+  },{
+    "name": "Andrew Laird",
+    "img": "./app/images/author/avatar.jpeg",
+    "title": "CEO | Founder | CORPORATE",
+    "contact": "contact@nomateclabs.com"
+  }],
   "seo": {
     "org": {
       "name": "Nomatec Labs",
