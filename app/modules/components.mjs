@@ -135,10 +135,10 @@ class blog_prev extends HTMLElement {
     const $this = this;
     this.classList.add('post-item')
 
-    let tag_div = h('span.icon-tags.mr-2', {
+    let tag_div = h('span.fa.fa-tags.mr-2', {
       title: 'tags'
     }),
-    hits = h('span'),
+    hits = h('span.fa'),
     hits_enabled = config.nomatec_rest.hitcount.enabled,
     read_lnk = h('button.btn.btn-outline-primary.btn-sm.float-right.sh-95', {
       title: 'Read post',
@@ -149,7 +149,7 @@ class blog_prev extends HTMLElement {
     },'Read post');
 
     if(hits_enabled){
-      hits.classList.add('icon-eye', 'mr-2');
+      hits.classList.add('fa-eye', 'mr-2');
       hits.title = 'views'
     }
 
@@ -160,17 +160,17 @@ class blog_prev extends HTMLElement {
     let m_body = h('div.media-body',
       h('h5', obj.title, h('small.float-right', utils.ts2datetime(obj.date))),
       h('div.card-text.mb-4', obj.preview + '...'),
-      h('span.icon-user.mr-2.cp', {
+      h('span.fa.fa-user.mr-2.cp', {
         title: 'author',
         onclick: function(){
           location.hash = '/author/'+ utils.snake_case(obj.author);
         }
       }, obj.author),
-/*      h('span.icon-comment.mr-2',{
+/*      h('span.fa.fa-comment.mr-2',{
 
 }), */
       hits,
-      h('span.icon-tag.mr-2.cp', {
+      h('span.fa.fa-tag.mr-2.cp', {
         title: 'category'
       }, new cattag_link('categories', obj.category)),
       tag_div,
@@ -229,7 +229,7 @@ class news_prev extends HTMLElement {
     super(obj, config);
     this.classList.add('post-item')
 
-    let hits = h('span'),
+    let hits = h('span.fa'),
     hits_enabled = config.nomatec_rest.hitcount.enabled,
     read_lnk = h('button.btn.btn-outline-primary.btn-sm.float-right.sh-95', {
       title: 'read news',
@@ -241,7 +241,7 @@ class news_prev extends HTMLElement {
     },'Read news');
 
     if(hits_enabled){
-      hits.classList.add('icon-eye', 'mr-2');
+      hits.classList.add('fa-eye', 'mr-2');
       hits.title = 'views'
     }
 
@@ -254,17 +254,17 @@ class news_prev extends HTMLElement {
         h('div.media-body',
           h('h5', obj.title, h('small.float-right', utils.ts2datetime(obj.date))),
           h('div.card-text.mb-4', obj.preview + '...'),
-          h('span.icon-user.mr-2.cp', {
+          h('span.fa.fa-user.mr-2.cp', {
             title: 'author',
             onclick: function(){
               location.hash = '/author/'+ utils.snake_case(obj.author);
             }
           }, obj.author),
-          h('span.icon-comment.disqus-comment-count.mr-2',{
+          h('span.fa.fa-comment.disqus-comment-count.mr-2',{
             'data-disqus-identifier': ['news', obj.date].join('_')
           }),
           hits,
-          h('span.icon-tag.mr-2.cp', {
+          h('span.fa.fa-tag.mr-2.cp', {
             title: 'category'
           }, new cattag_link('news_categories', obj.category)),
           read_lnk
@@ -304,8 +304,8 @@ class blog_his extends HTMLElement {
     this.append(
       h('div.media.mb-3',
         h('div.media-body',
-          h('h6', obj.title, h('small.float-right.icon-calendar', utils.ts2date(obj.id))),
-          h('span.icon-user.mt-2.float-left.cp', {
+          h('h6', obj.title, h('small.float-right.fa.fa-calendar', utils.ts2date(obj.id))),
+          h('span.fa.fa-user.mt-2.float-left.cp', {
             title: 'author',
             onclick: function(){
               location.hash = '/author/'+ utils.snake_case(obj.author);
@@ -328,7 +328,7 @@ class blog_his extends HTMLElement {
 class blog_item extends HTMLElement {
   constructor(obj) {
     super(obj);
-    let tag_span = h('span.icon-tags.mr-2', {
+    let tag_span = h('span.fa.fa-tags.mr-2', {
       title: 'tags'
     }),
     img_box = h('div.blog-img'),
@@ -350,7 +350,7 @@ class blog_item extends HTMLElement {
     }
 
     nomatec_share.append(
-      h('span.share-btn.share_rss.icon-rss',{
+      h('span.share-btn.share_rss.rss',{
         onclick: function(){
           location.hash = '/rss_atom';
         },
@@ -382,7 +382,7 @@ class blog_item extends HTMLElement {
           itemprop: 'articleBody',
           innerHTML: obj.body
         }),
-        h('span.icon-user.mr-2', {
+        h('span.fa.fa-user.mr-2', {
           title: 'author',
           itemprop: 'author',
           itemscope: '',
@@ -393,7 +393,7 @@ class blog_item extends HTMLElement {
         }, h('span', {
           itemprop: 'name'
         }, obj.author)),
-        h('span.icon-tag.mr-2', {
+        h('span.fa.fa-tag.mr-2', {
           title: 'category'
         }, new cattag_link('categories', obj.category)),
         tag_span,
@@ -432,7 +432,7 @@ class news_item extends HTMLElement {
     }
 
     nomatec_share.append(
-      h('span.share-btn.share_rss.icon-rss',{
+      h('span.share-btn.share_rss.rss',{
         onclick: function(){
           location.hash = '/rss_atom';
         },
@@ -464,7 +464,7 @@ class news_item extends HTMLElement {
           itemprop: 'articleBody',
           innerHTML: obj.body
         }),
-        h('span.icon-user.mr-2', {
+        h('span.fa.fa-user.mr-2', {
           title: 'author',
           itemprop: 'author',
           itemscope: '',
@@ -475,7 +475,7 @@ class news_item extends HTMLElement {
         }, h('span', {
           itemprop: 'name'
         }, obj.author)),
-        h('span.icon-tag.mr-2', {
+        h('span.fa.fa-tag.mr-2', {
           title: 'category'
         }, new cattag_link('news_categories', obj.category)),
         nomatec_share,
@@ -524,7 +524,7 @@ class share_block extends HTMLElement {
     this.classList.add('nomatec_share_block', s_share.side);
     for (let i = 0; i < s_items.length; i++) {
       this.append(
-        h(['div', 'share-block', s_items[i].class, s_items[i].icon].join('.'),{
+        h(['div', 'share-block.fa', s_items[i].class, s_items[i].icon].join('.'),{
           target: '_blank',
           href: s_items[i].href + encodeURIComponent(location.origin),
           title: s_items[i].title
@@ -611,7 +611,7 @@ class to_top extends HTMLElement {
       utils.totop(i);
     }
     this.append(
-      h('i.icon-up-open')
+      h('i.fa.fa-chevron-up')
     )
     return this;
   }
@@ -647,7 +647,7 @@ class search_box extends HTMLElement {
           }
         }),
         h('div.input-group-append',
-          h('button#search-btn.btn.btn-outline-secondary.icon-search',{
+          h('button#search-btn.btn.btn-outline-secondary.fa.fa-search',{
             type: 'button',
             onclick: function(){
 
@@ -671,7 +671,7 @@ class search_box extends HTMLElement {
                 ls.set('nomatec_sto', (Date.now() + obj.timeout_sec * 1000));
               }
 
-              this.classList.remove('icon-search');
+              this.classList.remove('search');
               this.setAttribute('disabled', 'true');
               this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Searching...');
 
@@ -694,7 +694,7 @@ class user_cnf extends HTMLElement {
     const $this = this;
 
     this.append(
-      h('i.icon-up-open')
+      h('i.fa.fa-chevron-up')
     )
     return this;
   }

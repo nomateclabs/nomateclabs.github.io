@@ -6,24 +6,34 @@ import { workers } from "/app/modules/workers.mjs";
 import { events } from "/app/modules/events.mjs";
 import { enc } from "/app/modules/enc.mjs";
 import { ls } from  "/app/modules/storage.mjs";
+import { countUp } from  "/app/modules/countUp.mjs";
+import { Waypoint } from  "/app/modules/waypoint.mjs";
 import { bot_net, rest_range, bread_crumb, welcome_msg, search_box, blog_prev } from "/app/modules/components.mjs";
 
 const tpl = {
   build(config){
-    let sidesel = h('div.row'),
+    let sidesel = h('div.row.bg-white'),
     contype = 'container-fluid',
     bc = h('div.row',
       new bread_crumb(config.navlinks[0])
     )
 
+    window.bgChange = function(x){
+      if(x){
+        sidesel.classList.remove('bg-white')
+      } else {
+        sidesel.classList.add('bg-white')
+      }
+    }
+
     if(config.sb_first){
-      sidesel.append(tpl.sidebar(config), h('div#main-content.col-lg-9'), h('span#menu_right.icon-menu.menu-link.float-right',{
+      sidesel.append(tpl.sidebar(config), h('div#main-content.col-lg-9'), h('span#menu_right.fa.fa-bars.menu-link.float-right',{
         onclick(){
           utils.toggle_sb(this)
         }
       }))
     } else {
-      sidesel.append(h('div#main-content.col-lg-9'), tpl.sidebar(config),h('span#menu_right.icon-menu.menu-link.float-right',{
+      sidesel.append(h('div#main-content.col-lg-9'), tpl.sidebar(config),h('span#menu_right.fa.fa-bars.menu-link.float-right',{
         onclick(){
           utils.toggle_sb(this)
         }
@@ -73,7 +83,7 @@ const tpl = {
       window.Tawk_LoadStart = new Date();
 
       return h('script', {
-        src: [config.tawk.url,config.tawk.api].join('/'),
+        //src: [config.tawk.url,config.tawk.api].join('/'),
         charset: 'UTF-8',
         crossorigin: '*',
         defer: ''
@@ -156,7 +166,7 @@ const tpl = {
             }
             utils.menu_rout(dest + pag_lnks[i], 'sidebar-nav');
           }
-        }, utils.un_snake_case(pag_lnks[i]), h('span.icon-right-open.float-right'))
+        }, utils.un_snake_case(pag_lnks[i]), h('span.fa.fa-chevron-right.float-right'))
       )
     }
 
@@ -166,7 +176,7 @@ const tpl = {
           onclick(){
             utils.menu_rout('/' + key, 'sidebar-nav');
           }
-        }, obj[key], h('span.icon-right-open.float-right'))
+        }, obj[key], h('span.fa.fa-chevron-right.float-right'))
       )
     }
 
@@ -192,7 +202,7 @@ const tpl = {
     return h('nav#top-nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top',
       h('div.container-fluid',
         h('div.navbar-brand.nav-alt',
-          h('span#menu_left.icon-menu.menu-link.float-left',{
+          h('span#menu_left.fa.fa-bars.menu-link.float-left',{
             onclick(){
               document.getElementById('sidebar-nav').classList.toggle('show')
             }
@@ -220,6 +230,8 @@ const tpl = {
     config = ls.get('config'),
     newdiv;
 
+    bgChange(false);
+
     for (let i = 0; i < div_arr.length; i++) {
       newdiv = div.cloneNode();
       newdiv.id = div_arr[i];
@@ -230,7 +242,7 @@ const tpl = {
 
 
 
-    return h('div.container-fluid',
+    return h('div.container-fluid.bg-white',
       h('div.row',
         h('div.col-6',
           h('h3#pag_info','')
@@ -276,6 +288,8 @@ const tpl = {
   },
   news(sort_order){
 
+    bgChange(false);
+    
     return h('div.container-fluid',
       h('div.row',
         h('div.col-6',
@@ -863,12 +877,12 @@ const tpl = {
         'data-id': title
       },
       h('div.cattag-item.list-group-item.d-flex.justify-content-between.align-items-center.cp.mb-4',
-        h('h6', h('span.icon-'+ ico +'.mr-4'), title),
+        h('h6', h('span.'+ ico +'.mr-4'), title),
         h('div',
           h('span.badge.badge-primary.badge-pill.mr-2', {
             title: count + ' posts'
           },count),
-          h('span.icon-right-open')
+          h('span.fa.fa-chevron-right')
         ),{
           onclick(){
             location.hash = [path, title].join('/')
@@ -1300,6 +1314,89 @@ const tpl = {
         )
       )
     )
+    return item;
+  },
+  countr(obj){
+
+    let arr = obj.items,
+    item = h('div.row.text-center.countr',
+      h('div.col-12', h('h2.mb-5',obj.title))
+    );
+
+    for (let i = 0; i < arr.length; i++) {
+      item.append(h('div.col-md-6.col-lg-3',
+        h('div.counter.sh-95',
+          h('i.fa.fa-2x.'+ arr[i].ico),
+          h('h2.timer.count-title.count-number', '0'),
+          h('p.count-text', arr[i].txt)
+        )
+      ))
+    }
+
+
+      var waypoint = new Waypoint({
+        element: item,
+        handler: function(direction) {
+          console.log(this.id + ' hit');
+          let ele = document.getElementsByClassName('count-number');
+
+          countUp(ele, obj.count, {
+              startVal: 0,
+              decimalPlaces: 0,
+              duration: 2,
+              useEasing: true,
+              useGrouping: true,
+              smartEasingThreshold: 999,
+              smartEasingAmount: 333,
+              separator: ',',
+              decimal: '.',
+              prefix: '',
+              suffix: ''
+          })
+
+        }
+      })
+
+
+
+    return item;
+
+  },
+  serviceEle(arr){
+    let item = h('div.row');
+
+    for (let i = 0; i < arr.length; i++) {
+      item.append(
+        h('div.col-lg-4.col-md-6',
+          h('div.single-service',
+            h('i', arr[i].ico),
+            h('h4', arr[i].head),
+            h('p', arr[i].sub)
+          )
+        )
+      )
+    }
+
+    return item;
+  },
+  services(arr){
+
+    let item = h('section.services.pt-100.pb-50',
+      h('div.container-fluid',
+        h('div.row',
+          h('div.col-xl-6.mx-auto.text-center',
+            h('div.section-title.mb-100',
+              h('p', obj.sub),
+              h('h4', obj.head)
+            )
+          )
+        ),
+        tpl.serviceEle(obj.items)
+      )
+    )
+
+
+
     return item;
   }
 }

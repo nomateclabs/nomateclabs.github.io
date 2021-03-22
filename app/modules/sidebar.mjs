@@ -8,7 +8,7 @@ const sidebar = {
         onclick: function(){
           utils.menu_rout('/settings', 'side-content');
         }
-      }, h('i.icon-cog-alt.float-right')),
+      }, h('i.fa.fa-cogs.float-right')),
     )
   },
   recent: function(){

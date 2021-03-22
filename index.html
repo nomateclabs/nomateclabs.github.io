@@ -1,1 +1,177 @@
-<!doctype html><html><head><meta charset=utf-8><meta content=! name=fragment><meta content="width=device-width,initial-scale=1" name=viewport><link href=./app/images/lg_32.png rel="shortcut icon"><link href=./app/images/logo/lg_144.png rel=icon><link href=./api/rss/news.xml rel=alternate title="Subscribe to new news" type=application/rss+xml><link href=./api/rss/posts.xml rel=alternate title="Subscribe to new posts" type=application/rss+xml><link href=./api/atom/news.xml rel=alternate title="Subscribe to new news" type=application/atom+xml><link href=./api/atom/posts.xml rel=alternate title="Subscribe to new posts" type=application/atom+xml><link href=/manifest.json rel=manifest><script type="module" src=./app/modules/main.mjs></script><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Site name","url":"http://example.com","sameAs":["https://facebook.com/page","https://plus.google.com/site","https://twitter.com/name"],"potentialAction":{"@type":"SearchAction","target":"http://example.com/pages/search_results?q={search_term}","query-input":"required name=search_term"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebSite","@id":"https://example.com","name":"Website Name"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://example.com/#/blog","name":"Blog"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://example.com/#/news/","name":"News"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://example.com/#/sitemap","name":"Sitemap"}},{"@type":"ListItem","position":5,"item":{"@type":"WebPage","@id":"https://example.com/#/api","name":"Api"}},{"@type":"ListItem","position":6,"item":{"@type":"WebPage","@id":"https://example.com/#/rss_atom","name":"RSS/ATOM"}},{"@type":"ListItem","position":7,"item":{"@type":"WebPage","@id":"https://example.com/#/feed","name":"Feed"}},{"@type":"ListItem","position":8,"item":{"@type":"WebPage","@id":"https://example.com/#/contact","name":"Contact"}},{"@type":"ListItem","position":9,"item":{"@type":"WebPage","@id":"https://example.com/#/list/categories","name":"Categories"}},{"@type":"ListItem","position":10,"item":{"@type":"WebPage","@id":"https://example.com/#/list/tags","name":"Tags"}}]}]}</script></head><body></body></html>
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta content=! name=fragment>
+    <title>Nomatec Labs</title>
+    <link rel="stylesheet" href="./app/css/style.css">
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+    <style>
+      body {
+        background: #000;
+        text-align: center;
+      }
+      .title {
+        color: #111;
+        font-family: sans-serif;
+        font-size: 4rem;
+        margin-top: 3rem;
+      }
+      #canvasbg,
+      #canvas {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        background: transparent;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="title">COMING SOON</div>
+    <canvas id="canvasbg"></canvas>
+    <canvas id="canvas"></canvas>
+    <script>
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+
+    var Bubbles = function () {
+        function Bubbles(_settings) {
+            _classCallCheck(this, Bubbles);
+
+            this.bRuning = false;
+            this.canvas = document.getElementById('canvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.canvas.height = window.innerHeight;
+            this.canvas.width = window.innerWidth;
+            this.canvasbg = document.getElementById('canvasbg');
+            this.ctxbg = this.canvasbg.getContext('2d');
+            this.canvasbg.height = window.innerHeight;
+            this.canvasbg.width = window.innerWidth;
+            this.aBubbles = [];
+            this.aBgBubbles = [];
+        }
+
+        Bubbles.prototype.addBubble = function addBubble() {
+            this.aBubbles.push(new Bubble());
+        };
+
+        Bubbles.prototype.addBgBubble = function addBgBubble() {
+            this.aBgBubbles.push(new Bubble('rgba(51,51,51,0.5)', 4.5)); // Color x amount
+        };
+
+        Bubbles.prototype.update = function update() {
+
+            for (var i = this.aBubbles.length - 1; i >= 0; i--) {
+
+                this.aBubbles[i].update();
+
+                if (!this.aBubbles[i].life) this.aBubbles.splice(i, 1);
+            }
+
+            for (var i = this.aBgBubbles.length - 1; i >= 0; i--) {
+
+                this.aBgBubbles[i].update();
+
+                if (!this.aBgBubbles[i].life) this.aBgBubbles.splice(i, 1);
+            }
+
+            if (this.aBubbles.length < window.innerWidth / 4) this.addBubble();
+
+            if (this.aBgBubbles.length < window.innerWidth / 12) this.addBgBubble();
+        };
+
+        Bubbles.prototype.draw = function draw() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctxbg.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            for (var i = this.aBgBubbles.length - 1; i >= 0; i--) {
+                this.aBgBubbles[i].draw(this.ctxbg);
+            }
+
+            for (var i = this.aBubbles.length - 1; i >= 0; i--) {
+                this.aBubbles[i].draw(this.ctx);
+            }
+        };
+
+        Bubbles.prototype.run = function run() {
+
+            this.update();
+            this.draw();
+
+            if (this.bRuning) requestAnimationFrame(this.run.bind(this));
+        };
+
+        Bubbles.prototype.start = function start() {
+            this.bRuning = true;
+            this.run();
+        };
+
+        Bubbles.prototype.stop = function stop() {
+            this.bRuning = false;
+        };
+
+        return Bubbles;
+    }();
+
+    var Bubble = function () {
+        function Bubble() {
+            var _c = arguments.length <= 0 || arguments[0] === undefined ? 'rgba(111,59,59,0.5)' : arguments[0];
+
+            var _y = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+
+            _classCallCheck(this, Bubble);
+
+            this.r = rand(20, 120);
+            this.life = true;
+            this.x = rand(-this.r, window.innerWidth);
+            this.y = rand(window.innerHeight + this.r, window.innerHeight + this.r + 20);
+            this.vy = rand(.1, .5) + _y;
+            this.vr = 0;
+            this.vx = rand(-3, 3);
+            this.c = _c;
+        }
+
+        Bubble.prototype.update = function update() {
+
+            this.vy += .07;
+            this.vr += .012;
+            this.y -= this.vy;
+            this.x += this.vx;
+
+            if (this.r > 1) this.r -= this.vr;
+
+            if (this.r <= 1) this.life = false;
+        };
+
+        Bubble.prototype.draw = function draw(ctx) {
+
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx.fillStyle = this.c;
+            ctx.fill();
+        };
+
+        return Bubble;
+    }();
+
+    var rand = function rand(min, max) {
+        return Math.random() * (max - min) + min;
+    };
+    var onresize = function onresize() {
+        oBubbles.canvasbg.width = window.innerWidth;oBubbles.canvasbg.height = window.innerHeight;oBubbles.canvas.width = window.innerWidth;oBubbles.canvas.height = window.innerHeight;
+    };
+    var oBubbles = undefined;
+    var init = function init() {
+        oBubbles = new Bubbles();
+        oBubbles.start();
+    };
+    window.onresize = onresize;
+    window.onload = init;
+    </script>
+  </body>
+</html>

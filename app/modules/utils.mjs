@@ -159,16 +159,31 @@ const utils = {
 
     }
   },
-  add_theme(data, toAdd){
+  add_theme(data, toAdd, css){
     let themeURL = URL.createObjectURL(data);
 
     if(toAdd){
+      let cnf = {
+        link: h('link',{
+          rel: 'stylesheet',
+          href: ''
+        })
+      },
+      item;
+
       document.head.append(
         h('link#theme',{
           rel: 'stylesheet',
           href: themeURL
         })
       )
+
+      for (let i = 0; i < css.length; i++) {
+        item = cnf.link.cloneNode(true);
+        item.href = './app/css/'+ css[i].title + '.css';
+        document.head.append(item)
+      }
+
     } else {
       document.getElementById('theme').href = themeURL;
     }

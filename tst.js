@@ -1,26 +1,115 @@
-/*
-<div class="col-xl-3 col-sm-6 mb-5">
-    <div class="bg-white rounded shadow-sm py-5 px-4">
-        <img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-2.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-        <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-        <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-    </div>
-</div>
-*/
 
-user_contact(config){
-  let item = h('div.col-6',
-    h('div.bg-white.rounded.shadow-sm.py-5.px-4',
-      h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm'),
-      h('h5.mb-0',
-        config.name,
-        h('span.small.text-uppercase.text-muted', config.title)
-      )
-    )
-  )
-}
+  function CountTo(ele, options) {
+    this.$element = ele;
+    this.options  = Object.assign(CountTo.DEFAULTS, options);
+    this.init();
+  };
+
+  CountTo.DEFAULTS = {
+    from: 0,               // the number the element should start at
+    to: 0,                 // the number the element should end at
+    speed: 1000,           // how long it should take to count between the target numbers
+    refreshInterval: 100,  // how often the element should be updated
+    decimals: 0,           // the number of decimal places to show
+    formatter: formatter,  // handler for formatting the value before rendering
+    onUpdate: null,        // callback method for every time the element is updated
+    onComplete: null       // callback method for when the element finishes updating
+  };
+
+  CountTo.prototype.init = function () {
+    this.value     = this.options.from;
+    this.loops     = Math.ceil(this.options.speed / this.options.refreshInterval);
+    this.loopCount = 0;
+    this.increment = (this.options.to - this.options.from) / this.loops;
+  };
+
+  CountTo.prototype.dataOptions = function () {
+    var options = {
+      from:            this.$element.data('from'),
+      to:              this.$element.data('to'),
+      speed:           this.$element.data('speed'),
+      refreshInterval: this.$element.data('refresh-interval'),
+      decimals:        this.$element.data('decimals')
+    };
+
+    var keys = Object.keys(options);
+
+    for (var i in keys) {
+      var key = keys[i];
+
+      if (typeof(options[key]) === 'undefined') {
+        delete options[key];
+      }
+    }
+
+    return options;
+  };
+
+  CountTo.prototype.update = function () {
+    this.value += this.increment;
+    this.loopCount++;
+
+    this.render();
+
+    if (typeof(this.options.onUpdate) == 'function') {
+      this.options.onUpdate.call(this.$element, this.value);
+    }
+
+    if (this.loopCount >= this.loops) {
+      clearInterval(this.interval);
+      this.value = this.options.to;
+
+      if (typeof(this.options.onComplete) == 'function') {
+        this.options.onComplete.call(this.$element, this.value);
+      }
+    }
+  };
+
+  CountTo.prototype.render = function () {
+    var formattedValue = this.options.formatter.call(this.$element, this.value, this.options);
+    this.$element.textContent = formattedValue;
+  };
+
+  CountTo.prototype.restart = function () {
+    this.stop();
+    this.init();
+    this.start();
+  };
+
+  CountTo.prototype.start = function () {
+    this.stop();
+    this.render();
+    this.interval = setInterval(this.update.bind(this), this.options.refreshInterval);
+  };
+
+  CountTo.prototype.stop = function () {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  };
+
+  CountTo.prototype.toggle = function () {
+    if (this.interval) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  };
+
+  function formatter(value, options) {
+    return value.toFixed(options.decimals);
+  }
+
+
+let tst = document.getElementById('test')
+
+new CountTo(tst, {
+  from: 0,               // the number the element should start at
+  to: 1000,                 // the number the element should end at
+  speed: 10000,           // how long it should take to count between the target numbers
+  refreshInterval: 100,  // how often the element should be updated
+  decimals: 0,           // the number of decimal places to show
+  formatter: formatter,  // handler for formatting the value before rendering
+  onUpdate: null,        // callback method for every time the element is updated
+  onComplete: null       // callback method for when the element finishes updating
+})

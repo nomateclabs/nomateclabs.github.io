@@ -219,21 +219,21 @@
         "title": "share on facebook",
         "text": "Share",
         "href": "https://www.facebook.com/sharer/sharer.php?u=",
-        "icon": "icon-facebook",
+        "icon": "fa-facebook",
         "class": "share_facebook"
       },
       {
         "title": "share on linkedin",
         "text": "Share",
         "href": "https://www.linkedin.com/sharing/share-offsite/?url=",
-        "icon": "icon-linkedin",
+        "icon": "fa-linkedin",
         "class": "share_linkedin"
       },
       {
         "title": "share on twitter",
         "text": "Tweet",
         "href": "https://twitter.com/intent/tweet?text=",
-        "icon": "icon-twitter",
+        "icon": "fa-twitter",
         "class": "share_twitter"
       }
     ]
@@ -245,19 +245,19 @@
       {
         "title": "follow us on facebook",
         "href": "https://www.facebook.com/Nomatec-Labs-102083311959313",
-        "icon": "icon-facebook",
+        "icon": "fa-facebook",
         "class": "share_facebook"
       },
       {
         "title": "follow us on linkedin",
         "href": "https://www.linkedin.com",
-        "icon": "icon-linkedin",
+        "icon": "fa-linkedin",
         "class": "share_linkedin"
       },
       {
         "title": "follow us on twitter",
         "href": "https://twitter.com/nomateclabs",
-        "icon": "icon-twitter",
+        "icon": "fa-twitter",
         "class": "share_twitter"
       }
     ]
@@ -306,5 +306,35 @@
     "RSS/ATOM": "rss_atom",
     "Categories": "list/categories",
     "Tags": "list/tags"
+  },
+  "counters":{
+    "main": {
+      "title": "Some title here",
+      "count": [6666, 5755, 4474, 7777],
+      "items": [{
+        "txt": "Happy customers.",
+        "ico": "fa-cogs"
+      },{
+        "txt": "Happy customers.",
+        "ico": "fa-cogs"
+      },{
+        "txt": "Happy customers.",
+        "ico": "fa-cogs"
+      },{
+        "txt": "Happy customers.",
+        "ico": "fa-cogs"
+      }]
+    }
+  },
+  "services":{
+    "main": {
+      "head": "Our Services",
+      "sub": "What we do",
+      "items": [{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      }]
+    }
   }
 }

@@ -36,7 +36,7 @@ const workers = {
         dest = document.getElementById('search-btn');
         setTimeout(function(){
           utils.empty(dest);
-          dest.classList.add('icon-search');
+          dest.classList.add('fa fa-search');
           dest.removeAttribute('disabled');
 
           if(data.code){

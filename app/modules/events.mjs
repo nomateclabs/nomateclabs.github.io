@@ -13,24 +13,17 @@ import { cookie_warn, time_line, to_top, share_block } from "/app/modules/compon
 const events = {
   init(config, cb){
 
-    let cnf = {
-      link: h('link',{
-        rel: 'stylesheet',
-        href: ''
-      })
-    },
-    sub_content = h('div#sub-content'),
-    body = document.body,
-    item;
+    let sub_content = h('div#sub-content'),
+    body = document.body;
 
     idb.get({index: 'cache', id: 'theme'}, function(err,res){
       if(err || !res){
         utils.update_theme(config.theme.base_url, config.theme.base_theme, function(err, data){
           if(err){return g.ce(err)};
-          utils.add_theme(data.data, true);
+          utils.add_theme(data.data, true, config.css);
         })
       } else {
-        utils.add_theme(res.data, true);
+        utils.add_theme(res.data, true, config.css);
       }
 
 
@@ -39,11 +32,7 @@ const events = {
 
         console.log('start2')
 
-        for (let i = 0; i < config.css.length; i++) {
-          item = cnf.link.cloneNode(true);
-          item.href = './app/css/'+ config.css[i].title + '.css';
-          document.head.append(item)
-        }
+
 
         if(config.to_top){
           sub_content.append(new to_top(config.to_top_dest))
@@ -119,6 +108,7 @@ const events = {
     }
   },
   rerout(config){
+
       let dest = location.hash.slice(2).split('/'),
       main = document.getElementById('main-content'),
       bcdest = '';

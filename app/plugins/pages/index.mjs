@@ -8,7 +8,15 @@ import { enc } from  "/app/modules/enc.mjs";
 import { ls,ss } from  "/app/modules/storage.mjs";
 
 const pages = {
-home: function(main, cnf){cnf({sidebar: false});main.append(h('p', 'page home working'));},contact: function(main, cnf){cnf({sidebar: false});var parser = new DOMParser();
+home: function(main, cnf){cnf({sidebar: false});let config = ls.get('config');
+
+bgChange(true);
+
+main.append(
+    tpl.countr(config.counters.main)
+);
+
+},contact: function(main, cnf){cnf({sidebar: false});var parser = new DOMParser();
 var grp = h('div');
 
 
