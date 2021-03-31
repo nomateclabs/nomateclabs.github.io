@@ -104,6 +104,7 @@ const events = {
       }
 
       document.getElementById('bc').innerText = bcdest;
+      document.getElementById('ttl').innerText = utils.capitalize(bcdest);
       main.innerHTML = '';
       document.title = dest[0];
       ls.set('path', dest)

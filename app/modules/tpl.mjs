@@ -64,7 +64,11 @@ const tpl = {
       tpl.navbar(config),
 
       h('div.container-fluid.h12',
-        h('div.header-main', bc)
+        h('div.header-main', bc),
+        h('div.head-lbl',
+          h('span#ttl.head-txt', config.navlinks[0])
+        )
+
 
       ),
       sidesel,
@@ -180,10 +184,9 @@ const tpl = {
 
     sb_nav.append(
       h('div.sb_nav_head',
-        h('img', {
-          src: config.logo.base
-        }),
-        h('span', config.app.title)
+        h('img.img-fluid.img-logo', {
+          src: config.logo.dark
+        })
       )
     )
 
