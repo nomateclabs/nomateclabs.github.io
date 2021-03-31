@@ -34,6 +34,9 @@
   font-weight:400;font-style:normal
 }
 
+body {
+  font-family: 'Oxygen', sans-serif;
+}
 
 .img-logo{
   max-height: 4rem;
@@ -752,7 +755,7 @@ padding: 3rem 0;
 .al-services {
      min-height:100vh;
      background:white;
-     font-family: 'Lato', sans-serif;
+     font-family: 'Oxygen', sans-serif;
 }
  .al-services-header h2 {
      color:#576975;

@@ -17,7 +17,7 @@ bgChange(true);
 
 
 
-let ele = h('div.row.text-center.srvs');
+let ele = h('div');
 
 //ele.innerHTML = ''
 

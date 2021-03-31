@@ -333,27 +333,75 @@
       "head": "Services",
       "sub": "Services we offer.",
       "items": [{
-        "head": "Mobile Applications",
+        "head": "Web Development",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       },{
-        "head": "Mobile Applications",
+        "head": "Web Hosting",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       },{
-        "head": "Mobile Applications",
+        "head": "Web admin and management",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       },{
-        "head": "Mobile Applications",
+        "head": "Web framework development",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       },{
-        "head": "Mobile Applications",
+        "head": "Web maintenance and updates",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       },{
-        "head": "Mobile Applications",
+        "head": "Hybrid Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Hybrid Desktop Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Browser plugins",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Single page applications (SPA)",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Progressive web applications (PWA)",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Ecommerce / Forum / Blog",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "SEO",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Database management",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Database migrations",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Code migrations",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Security hardening",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Penetration testing",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Consultations",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       }]
