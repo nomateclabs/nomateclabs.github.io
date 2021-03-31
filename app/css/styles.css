@@ -660,7 +660,17 @@ padding: 3rem 0;
   box-shadow: 0 0 6px white;
 }
 
+.light-sec{
+  background: white;
+  color: black;
+  padding: 2rem;
+}
 
+.dark-sec{
+  background: rgb(0 0 0 / 72%);
+  color: white;
+  padding: 2rem;
+}
 
 #para {
   position: fixed;

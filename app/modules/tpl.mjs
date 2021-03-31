@@ -1352,6 +1352,134 @@ const tpl = {
     )
     return item;
   },
+  contact(){
+
+    let config = ls.get('config'),
+    name_imp = h('input.form-control', {
+      type: 'text',
+      placeholder: 'enter name'
+    }),
+    email_imp = h('input.form-control', {
+      type: 'email',
+      placeholder: 'enter email'
+    }),
+    msg_count = h('small.form-text.text-muted', '0'),
+    msg_imp = h('textarea.form-control', {
+      rows: 6,
+      placeholder: 'enter message',
+      onchange: function(){
+        let msg = this.value;
+        msg_count.innerText = msg.length;
+      },
+      onkeyup: function(){
+        let msg = this.value;
+        msg_count.innerText = msg.length;
+      }
+    }),
+    ele = h('div.row.justify-content-around');
+
+    for (let i = 0; i < config.users.length; i++) {
+      ele.append(tpl.user_contact(config.users[i]))
+    }
+
+    return h('div',
+      h('div.bgw',
+        h('div.container',
+            h('div.card',
+              h('div.card-body',
+                h('h3.text-center', 'Contact form'),
+                h('form.row',
+                  h('div.col-md-6',
+                    h('div.form-group',
+                      name_imp
+                    )
+                  ),
+                  h('div.col-md-6',
+                    h('div.form-group',
+                      email_imp
+                    )
+                  ),
+                  h('div.col-12',
+                    h('div.form-group',
+                      msg_imp,
+                      msg_count
+                    )
+                  ),
+                  h('div.col-12',
+                    h('button.btn.btn-outline-primary.btn-block', {
+                      onclick: function(){
+                        let dest = this.parentNode;
+                        this.setAttribute('disabled', true);
+                        utils.empty(this);
+                        this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
+                        setTimeout(function(){
+                          utils.empty(dest);
+                          dest.append(new rest_range())
+                        },3000)
+                      }
+                    },'i am not a robot')
+                  ),
+                  h('input.bnet', {
+                    type: 'text',
+                    onchange: function(){
+                      ls.set('is_bot', true);
+                    }
+                  }),
+                  h('button#rest-submit.btn.btn-outline-primary.btn-block.hidden', {
+                    type: 'button',
+                    onclick: function(){
+                      if(ls.get('is_bot')){
+                        return;
+                      }
+                      if(this.previousSibling.value !== ''){
+                        return ls.set('is_bot', true);
+                      }
+
+                      let $this = this,
+                      max_len = config.nomatec_rest.contact.max_len,
+                      min_len = config.nomatec_rest.contact.min_len,
+                      obj = {
+                        name: name_imp.value,
+                        email: email_imp.value,
+                        msg: msg_imp.value
+                      },
+                      hdiv = $this.nextSibling;
+
+
+                      if(!utils.is_email(obj.email)){
+                        hdiv.style.color = 'red';
+                        return hdiv.innerText = 'invalid email address';
+                      }
+
+                      if(!utils.is_letters(obj.name)){
+                        hdiv.style.color = 'red';
+                        return hdiv.innerText = 'name can only contain letters';
+                      }
+
+                      if(obj.msg.length <  min_len || obj.msg.length > max_len){
+                        hdiv.style.color = 'red';
+                        return hdiv.innerText = 'message must be between '+ min_len +' - '+ max_len + ' characters';
+                      }
+
+                      this.setAttribute('disabled', true);
+                      utils.empty(this);
+                      this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'sending message...');
+
+
+                    }
+                  }, 'send'),
+                  h('small.mt-2')
+                )
+              )
+            )
+          )
+      ),
+      h('div.bgd.mt-4', ele),
+      h('div.map-local',
+        h('img.map-img', {src: './app/images/map_local.png'})
+      )
+    );
+  },
   countr(obj){
 
     let arr = obj.items,
@@ -1432,6 +1560,33 @@ const tpl = {
     }
 
     return item;
+  },
+  about(){
+    let item = h('div.row')
+
+    utils.get('data/about', function(err, data){
+      if(err){return console.error(err)}
+      item.append(
+        h('div.col-md-12.col-lg-6.text-center.light-sec.wow.fadeInLeft',
+          h('h3.mb-4', data.sect1.head),
+          h('p', data.sect1.txt)
+        ),
+        h('div.col-md-12.col-lg-6.text-center.dark-sec.wow.fadeInDown',
+          h('h3.mb-4', data.sect2.head),
+          h('p', data.sect2.txt)
+        ),
+        h('div.col-md-12.col-lg-6.text-center.dark-sec.wow.fadeInUp',
+          h('h3.mb-4', data.sect3.head),
+          h('p', data.sect3.txt)
+        ),
+        h('div.col-md-12.col-lg-6.text-center.light-sec.wow.fadeInRight',
+          h('h3.mb-4', data.sect4.head),
+          h('p', data.sect4.txt)
+        )
+      )
+    })
+
+    return h('div', item);
   }
 }
 

@@ -311,17 +311,17 @@
   },
   "counters":{
     "main": {
-      "title": "Some title here",
-      "count": [6666, 5755, 4474, 7777],
+      "title": "",
+      "count": [6666, 4573, 99999, 7777],
       "items": [{
         "txt": "Happy customers.",
-        "ico": "fa-cogs"
+        "ico": "fa-heart"
       },{
-        "txt": "Happy customers.",
-        "ico": "fa-cogs"
+        "txt": "Websites hosted.",
+        "ico": "fa-cloud"
       },{
-        "txt": "Happy customers.",
-        "ico": "fa-cogs"
+        "txt": "Hours worked.",
+        "ico": "fa-clock-o"
       },{
         "txt": "Happy customers.",
         "ico": "fa-cogs"

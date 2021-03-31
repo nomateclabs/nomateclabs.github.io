@@ -7,6 +7,27 @@ import { enc } from "/app/modules/enc.mjs";
 
 //utils.load_cached({index: 'cache', id: "discus_count", })
 const utils = {
+  get(src, cb){
+
+    fetch('./app/'+ src +'.json', {
+      method: 'GET',
+      headers: g.headers.json
+    })
+    .then(function(res){
+      console.log(res)
+      if (res.status >= 200 && res.status < 300) {
+        return res.json().then(function(data){
+          cb(false, data)
+        });
+      } else {
+        return Promise.reject(new Error(res.statusText))
+      }
+    })
+    .catch(function(err){
+      cb(err);
+    })
+
+  },
   d_check(){
     var accepted_domains=new Array("wsabstract.com","javascriptkit.com")
 
