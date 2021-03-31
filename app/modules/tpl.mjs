@@ -1055,12 +1055,8 @@ const tpl = {
             h('form',
               h('div.form-group.form-group-sm.mb-3',
                 h('input.form-control.tinput', {
-                  type: 'text'
-                })
-              ),
-              h('div.form-group.form-group-sm.mb-3',
-                h('input.form-control.tinput', {
-                  type: 'email'
+                  type: 'email',
+                  placeholder: 'enter email...'
                 })
               )
             ),
