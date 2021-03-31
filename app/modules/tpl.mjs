@@ -12,19 +12,11 @@ import { bot_net, rest_range, bread_crumb, welcome_msg, search_box, blog_prev } 
 
 const tpl = {
   build(config){
-    let sidesel = h('div.row.bg-white'),
+    let sidesel = h('div.row'),
     contype = 'container-fluid',
     bc = h('div.row',
       new bread_crumb(config.navlinks[0])
     )
-
-    window.bgChange = function(x){
-      if(x){
-        sidesel.classList.remove('bg-white')
-      } else {
-        sidesel.classList.add('bg-white')
-      }
-    }
 
     if(config.sb_first){
       sidesel.append(tpl.sidebar(config), h('div#main-content.col-lg-9'), h('span#menu_right.fa.fa-bars.menu-link.float-right',{
@@ -44,7 +36,15 @@ const tpl = {
       contype = 'container'
     }
 
-    sidesel = h('div.app-main.'+ contype, sidesel);
+    sidesel = h('div.app-main.bg-white.'+ contype, sidesel);
+
+    window.bgChange = function(x){
+      if(x){
+        sidesel.classList.remove('bg-white')
+      } else {
+        sidesel.classList.add('bg-white')
+      }
+    }
 
     if(config.welcome_back && ls.get('welcome_msg')){
       bc.append(new welcome_msg(config.welcome_back_msg, ls.get('welcome_msg')))
@@ -60,6 +60,7 @@ const tpl = {
       new bot_net(),
       h('img#para', {src: config.img.bg}),
       tpl.sidebar_nav(config),
+      tpl.top_bar(config),
       tpl.navbar(config),
 
       h('div.container-fluid.h12',
@@ -70,6 +71,27 @@ const tpl = {
       tpl.rest_signup(config.nomatec_rest),
       tpl.footer(config),
       tpl.analytics(config)
+    )
+
+  },
+  top_bar(config){
+
+    let x = h('div.col-6.text-right'),
+    arr = config.share_block.items;
+
+    for (let i = 0; i < arr.length; i++) {
+      x.append(h('i.top-ico.sh-95.fa.'+ arr[i].icon, {
+        href: arr[i].href,
+        target: '_blank',
+        title: arr[i].title
+      }))
+    }
+
+    return h('nav.navbar.top-bar',
+      h('div.col-6',
+        h('div.text-left', h('i.fa.fa-phone.mr-2'), config.app.mob)
+      ),
+      x
     )
 
   },
@@ -110,11 +132,20 @@ const tpl = {
       h('div.w-90',
         h('div.row',
           h('div#copyright.col-12.text-center',
-            h('p', copyright),
-            h('p', 'ABN: '+ config.app.abn)
+            h('img.img-fluid.img-logo.mb-2', {
+              src: config.logo.dark,
+              onclick(){
+                location.hash = '/'+ config.navlinks[0];
+                utils.totop(0);
+              }
+            })
           ),
           footer_left,
-          footer_right
+          footer_right,
+          h('div.col-12.text-center',
+            h('p.foot-copy', copyright),
+            h('small', 'ABN: '+ config.app.abn)
+          )
         )
       )
     )
@@ -193,7 +224,8 @@ const tpl = {
       navul.append(
         h('a.nav-link', {
           onclick(){
-            location.hash = '/'+ lnks[i]
+            location.hash = '/'+ lnks[i];
+            utils.totop(0);
           }
         },config.navlinks[i])
       )
@@ -209,9 +241,14 @@ const tpl = {
           }),
           h('span.d-none.d-lg-block.d-xl-block.logo-m',
             h('span.d-inline-block',
-              h('img.img-fluid', {src: config.logo.base})
-            ),
-            h('span.anc-fnt', 'Nomatec Labs')
+              h('img.img-fluid.img-logo', {
+                src: config.logo.base,
+                onclick(){
+                  location.hash = '/'+ config.navlinks[0];
+                  utils.totop(0);
+                }
+              })
+            )
           ),
           h('span',
             h('span.anc-m.d-lg-none.d-xl-none', 'Nomatec Labs')
@@ -263,6 +300,8 @@ const tpl = {
     config = ls.get('config'),
     c_path = ls.get('path')[0];
 
+    bgChange(false);
+
     for (let i = 0; i < res.items.length; i++) {
       res.items[i].del_item = true;
       res.items[i].del_type = c_path;
@@ -289,7 +328,7 @@ const tpl = {
   news(sort_order){
 
     bgChange(false);
-    
+
     return h('div.container-fluid',
       h('div.row',
         h('div.col-6',
@@ -912,7 +951,9 @@ const tpl = {
         let val = this.value,
         dest = config.theme.links_url.replace('{{theme}}', val),
         new_mask = tpl.theme_mask();
+
         document.getElementById('sub-content').append(new_mask);
+
         utils.update_theme(dest, val, function(err,res){
           if(err){
             new_mask.firstChild.lastChild.innerText = 'Failed'
@@ -1001,27 +1042,21 @@ const tpl = {
   },
   rest_signup(config){
 
-    return h('div.card#rest-signup',
-      h('div.card-body',
+    return h('div#rest-signup.card',
+      h('div.card-body.wow.fadeInUp',
         h('div.row',
           h('div.col-md-6.align-self-center',
-            h('h3.text-center', 'signup to our news letter')
+            h('h3.text-center.text-white', 'signup to our news letter')
           ),
           h('div.col-md-6',
             h('form',
-              h('div.input-group.input-group-sm.mb-3',
-                h('div.input-group-prepend',
-                  h('span.input-group-text', 'name')
-                ),
-                h('input.form-control', {
+              h('div.form-group.form-group-sm.mb-3',
+                h('input.form-control.tinput', {
                   type: 'text'
                 })
               ),
-              h('div.input-group.input-group-sm.mb-3',
-                h('div.input-group-prepend',
-                  h('span.input-group-text', 'email')
-                ),
-                h('input.form-control', {
+              h('div.form-group.form-group-sm.mb-3',
+                h('input.form-control.tinput', {
                   type: 'email'
                 })
               )
@@ -1304,12 +1339,13 @@ const tpl = {
   },
   user_contact(i){
     let item = h('div.col-12.col-md-6.col-lg-4.text-center',
-      h('div.card.mb-3',
+      h('div.card.mb-3.usrcrd',
         h('div.card-content',
           h('div.bg-white.rounded.shadow-sm.py-5.px-4',
             h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
             h('h5.mb-0',i.name,),
-            h('h3.small.text-uppercase.text-muted', i.title)
+            h('h3.small.text-uppercase.text-muted', i.title),
+            h('a.small', {href: 'mailto://'+ i.contact}, i.contact)
           )
         )
       )
@@ -1338,6 +1374,7 @@ const tpl = {
         element: item,
         handler: function(direction) {
           console.log(this.id + ' hit');
+
           let ele = document.getElementsByClassName('count-number');
 
           countUp(ele, obj.count, {
@@ -1354,7 +1391,10 @@ const tpl = {
               suffix: ''
           })
 
-        }
+          this.destroy()
+
+        },
+        offset: '50%'
       })
 
 
@@ -1363,39 +1403,33 @@ const tpl = {
 
   },
   serviceEle(arr){
-    let item = h('div.row');
-
-    for (let i = 0; i < arr.length; i++) {
-      item.append(
-        h('div.col-lg-4.col-md-6',
-          h('div.single-service',
-            h('i', arr[i].ico),
-            h('h4', arr[i].head),
-            h('p', arr[i].sub)
-          )
-        )
-      )
-    }
-
-    return item;
-  },
-  services(arr){
-
-    let item = h('section.services.pt-100.pb-50',
-      h('div.container-fluid',
-        h('div.row',
-          h('div.col-xl-6.mx-auto.text-center',
-            h('div.section-title.mb-100',
-              h('p', obj.sub),
-              h('h4', obj.head)
-            )
-          )
+    let item = h('div.col-sm-6.col-md-6.col-lg-4',
+      h('div.al-service-box.pt-5.pb-4.px-5.text-center.sh-95',
+        h('span.al-service-icon',
+          h('i.fa.'+ arr.ico)
         ),
-        tpl.serviceEle(obj.items)
+        h('h3.mt-3', arr.head),
+        h('p.mt-3', arr.sub),
+        h('a.btn.btn-outline-primary.mt-3', 'more info')
       )
     )
 
+    return item;
+  },
+  services(obj){
 
+    let item = h('div.row.text-center.srvs',
+      h('div.col-12',
+        h('div.al-services-header.text-center',
+          h('h2', obj.head),
+          h('p', obj.sub)
+        )
+      )
+    )
+
+    for (let i = 0; i < obj.items.length; i++) {
+      item.append(tpl.serviceEle(obj.items[i]))
+    }
 
     return item;
   }

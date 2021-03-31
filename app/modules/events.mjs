@@ -7,25 +7,14 @@ import { page } from  "/app/modules/page.mjs";
 import { idb } from  "/app/modules/idb.mjs";
 import { enc } from  "/app/modules/enc.mjs";
 import { ls, ss } from  "/app/modules/storage.mjs";
-import { cookie_warn, time_line, to_top, share_block } from "/app/modules/components.mjs";
+import { cookie_warn, time_line, to_top } from "/app/modules/components.mjs";
 
 
 const events = {
   init(config, cb){
 
-    let sub_content = h('div#sub-content'),
+    let sub_content = h('div'),
     body = document.body;
-
-    idb.get({index: 'cache', id: 'theme'}, function(err,res){
-      if(err || !res){
-        utils.update_theme(config.theme.base_url, config.theme.base_theme, function(err, data){
-          if(err){return g.ce(err)};
-          utils.add_theme(data.data, true, config.css);
-        })
-      } else {
-        utils.add_theme(res.data, true, config.css);
-      }
-
 
       utils.add_hitcount(config, function(err){
         if(err){g.ce(err)}
@@ -35,15 +24,11 @@ const events = {
 
 
         if(config.to_top){
-          sub_content.append(new to_top(config.to_top_dest))
+          document.body.append(to_top(config.to_top_dest))
         }
 
         if(config.cookie_warn && !ls.get('cookie_warn')){
           sub_content.append(new cookie_warn(config.cookie_warn_msg))
-        }
-
-        if(config.share_block.enabled){
-          sub_content.append(new share_block(config))
         }
 
         body.append(
@@ -85,7 +70,8 @@ const events = {
 
         return cb(false);
       })
-    })
+
+
 
   },
   rout(config, cb){

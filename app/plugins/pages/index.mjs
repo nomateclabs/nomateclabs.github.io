@@ -12,8 +12,18 @@ home: function(main, cnf){cnf({sidebar: false});let config = ls.get('config');
 
 bgChange(true);
 
+
+
+
+
+
+let ele = h('div.row.text-center.srvs');
+
+//ele.innerHTML = ''
+
 main.append(
-    tpl.countr(config.counters.main)
+    tpl.countr(config.counters.main),
+    tpl.services(config.services.main)
 );
 
 },contact: function(main, cnf){cnf({sidebar: false});var parser = new DOMParser();
@@ -21,7 +31,7 @@ var grp = h('div');
 
 
 
-
+bgChange(true);
 
 
 let config = ls.get('config'),
@@ -46,177 +56,183 @@ msg_imp = h('textarea.form-control', {
     msg_count.innerText = msg.length;
   }
 }),
-ele = h('div.row.justify-content-around.bgw');
+ele = h('div.row.justify-content-around');
 
 for (let i = 0; i < config.users.length; i++) {
   ele.append(tpl.user_contact(config.users[i]))
 }
     
 main.append(
-    ele,
-  h('div.container',
-    h('div.card',
-      h('div.card-body',
-        h('h3.text-center', 'Contact form'),
-        h('form.row',
-          h('div.col-md-6',
-            h('div.form-group',
-              name_imp
-            )
-          ),
-          h('div.col-md-6',
-            h('div.form-group',
-              email_imp
-            )
-          ),
-          h('div.col-12',
-            h('div.form-group',
-              msg_imp,
-              msg_count
-            )
-          ),
-          h('div.col-12',
-            h('button.btn.btn-outline-primary.btn-block', {
-              onclick: function(){
-                let dest = this.parentNode;
-                this.setAttribute('disabled', true);
-                utils.empty(this);
-                this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
-                setTimeout(function(){
-                  utils.empty(dest);
-                  dest.append(new rest_range())
-                },3000)
-              }
-            },'i am not a robot')
-          ),
-          h('input.bnet', {
-            type: 'text',
-            onchange: function(){
-              ls.set('is_bot', true);
-            }
-          }),
-          h('button#rest-submit.btn.btn-outline-primary.btn-block.hidden', {
-            type: 'button',
-            onclick: function(){
-              if(ls.get('is_bot')){
-                return;
-              }
-              if(this.previousSibling.value !== ''){
-                return ls.set('is_bot', true);
-              }
-
-              let $this = this,
-              max_len = config.spartan_rest.contact.max_len,
-              min_len = config.spartan_rest.contact.min_len,
-              obj = {
-                name: name_imp.value,
-                email: email_imp.value,
-                msg: msg_imp.value
-              },
-              hdiv = $this.nextSibling;
-
-
-              if(!utils.is_email(obj.email)){
-                hdiv.style.color = 'red';
-                return hdiv.innerText = 'invalid email address';
-              }
-
-              if(!utils.is_letters(obj.name)){
-                hdiv.style.color = 'red';
-                return hdiv.innerText = 'name can only contain letters';
-              }
-
-              if(obj.msg.length <  min_len || obj.msg.length > max_len){
-                hdiv.style.color = 'red';
-                return hdiv.innerText = 'message must be between '+ min_len +' - '+ max_len + ' characters';
-              }
-
-              this.setAttribute('disabled', true);
-              utils.empty(this);
-              this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'encrypting message...');
-
-              fetch('./app/config/cert.json', {
-                method: 'GET',
-                headers: g.headers.json
-              }).then(function(res) {
-                if (res.status >= 200 && res.status < 300) {
-                  return res.json();
-                } else {
-                  return Promise.reject(new Error(res.statusText));
-                }
-              }).then(function(rsakey) {
-                rsakey = rsakey.RSA_OAEP.contact;
-                enc.rsa_aes_enc(g.js(obj), rsakey, '512', function(err,ctext){
-                  if(err){
-                    g.ce(err);
-                    return cb(err);
+  h('div.bgd', ele),
+  h('div.map-local',
+    h('img.map-img', {src: './app/images/map_local.png'})
+  ),
+  h('div.bgw',
+    h('div.container',
+        h('div.card',
+          h('div.card-body',
+            h('h3.text-center', 'Contact form'),
+            h('form.row',
+              h('div.col-md-6',
+                h('div.form-group',
+                  name_imp
+                )
+              ),
+              h('div.col-md-6',
+                h('div.form-group',
+                  email_imp
+                )
+              ),
+              h('div.col-12',
+                h('div.form-group',
+                  msg_imp,
+                  msg_count
+                )
+              ),
+              h('div.col-12',
+                h('button.btn.btn-outline-primary.btn-block', {
+                  onclick: function(){
+                    let dest = this.parentNode;
+                    this.setAttribute('disabled', true);
+                    utils.empty(this);
+                    this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
+                    setTimeout(function(){
+                      utils.empty(dest);
+                      dest.append(new rest_range())
+                    },3000)
                   }
-
-
-                let final = {
-                  data: ctext
+                },'i am not a robot')
+              ),
+              h('input.bnet', {
+                type: 'text',
+                onchange: function(){
+                  ls.set('is_bot', true);
                 }
-
-                setTimeout(function(){
-
-                  utils.empty($this);
-                  $this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...');
-
-                  enc.sha({data: navigator.userAgent, hash: 256}, function(err, res){
-                    if(err){
-                      g.ce(err)
-                      return $this.innerHTML = 'unable to send message';
+              }),
+              h('button#rest-submit.btn.btn-outline-primary.btn-block.hidden', {
+                type: 'button',
+                onclick: function(){
+                  if(ls.get('is_bot')){
+                    return;
+                  }
+                  if(this.previousSibling.value !== ''){
+                    return ls.set('is_bot', true);
+                  }
+    
+                  let $this = this,
+                  max_len = config.spartan_rest.contact.max_len,
+                  min_len = config.spartan_rest.contact.min_len,
+                  obj = {
+                    name: name_imp.value,
+                    email: email_imp.value,
+                    msg: msg_imp.value
+                  },
+                  hdiv = $this.nextSibling;
+    
+    
+                  if(!utils.is_email(obj.email)){
+                    hdiv.style.color = 'red';
+                    return hdiv.innerText = 'invalid email address';
+                  }
+    
+                  if(!utils.is_letters(obj.name)){
+                    hdiv.style.color = 'red';
+                    return hdiv.innerText = 'name can only contain letters';
+                  }
+    
+                  if(obj.msg.length <  min_len || obj.msg.length > max_len){
+                    hdiv.style.color = 'red';
+                    return hdiv.innerText = 'message must be between '+ min_len +' - '+ max_len + ' characters';
+                  }
+    
+                  this.setAttribute('disabled', true);
+                  utils.empty(this);
+                  this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'encrypting message...');
+    
+                  fetch('./app/config/cert.json', {
+                    method: 'GET',
+                    headers: g.headers.json
+                  }).then(function(res) {
+                    if (res.status >= 200 && res.status < 300) {
+                      return res.json();
+                    } else {
+                      return Promise.reject(new Error(res.statusText));
                     }
-                    final.key = config.spartan_rest.contact.api + res;
-
-                    fetch([config.spartan_rest.base_url,'contact'].join('/'), {
-                      method: 'POST',
-                      headers: g.headers.json_cors,
-                      body: JSON.stringify(final)
-                    }).then(function(res) {
-                      if (res.status >= 200 && res.status < 300) {
-                        return res.json();
-                      } else {
-                        return Promise.reject(new Error(res.statusText));
+                  }).then(function(rsakey) {
+                    rsakey = rsakey.RSA_OAEP.contact;
+                    enc.rsa_aes_enc(g.js(obj), rsakey, '512', function(err,ctext){
+                      if(err){
+                        g.ce(err);
+                        return cb(err);
                       }
-                    }).then(function(data) {
-                      if(data.msg && data.msg !== ''){
-                        setTimeout(function(){
-                          $this.innerHTML = data.msg;
-
-                        },1000);
-                      } else {
-                        $this.innerHTML = 'unable to send message';
-                      }
-
-                      if(data.success){
-                        return hdiv.innerText = '';
-                      }
-                    }).catch(function(err){
-                      g.ce(err)
-                      $this.innerHTML = 'unable to send message';
-                    })
-
+    
+    
+                    let final = {
+                      data: ctext
+                    }
+    
+                    setTimeout(function(){
+    
+                      utils.empty($this);
+                      $this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...');
+    
+                      enc.sha({data: navigator.userAgent, hash: 256}, function(err, res){
+                        if(err){
+                          g.ce(err)
+                          return $this.innerHTML = 'unable to send message';
+                        }
+                        final.key = config.spartan_rest.contact.api + res;
+    
+                        fetch([config.spartan_rest.base_url,'contact'].join('/'), {
+                          method: 'POST',
+                          headers: g.headers.json_cors,
+                          body: JSON.stringify(final)
+                        }).then(function(res) {
+                          if (res.status >= 200 && res.status < 300) {
+                            return res.json();
+                          } else {
+                            return Promise.reject(new Error(res.statusText));
+                          }
+                        }).then(function(data) {
+                          if(data.msg && data.msg !== ''){
+                            setTimeout(function(){
+                              $this.innerHTML = data.msg;
+    
+                            },1000);
+                          } else {
+                            $this.innerHTML = 'unable to send message';
+                          }
+    
+                          if(data.success){
+                            return hdiv.innerText = '';
+                          }
+                        }).catch(function(err){
+                          g.ce(err)
+                          $this.innerHTML = 'unable to send message';
+                        })
+    
+                      })
+                    },1000)
+    
                   })
-                },1000)
-
-              })
-
-        
-
-              }).catch(function(err){
-                g.cl(err)
-                $this.innerHTML = 'unable to send message';
-              })
-
-
-            }
-          }, 'send'),
-          h('small.mt-2')
+    
+            
+    
+                  }).catch(function(err){
+                    g.cl(err)
+                    $this.innerHTML = 'unable to send message';
+                  })
+    
+    
+                }
+              }, 'send'),
+              h('small.mt-2')
+            )
+          )
         )
       )
-    )
   )
+  
 );},sitemap: function(main, cnf){cnf({sidebar: false});
 let config = ls.get('config'),
   lg_obj = config.sitemap,

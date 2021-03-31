@@ -2,7 +2,8 @@
   "app": {
     "title": "Nomatec Labs",
     "address": "Melbourne, Australia 3000",
-    "abn": "59420730506"
+    "abn": "59420730506",
+    "mob": "+61 477 590 110"
   },
   "img": {
     "bg": "./app/images/bg.jpg"
@@ -14,12 +15,12 @@
   "users": [{
     "name": "Ben Eaves",
     "img": "./app/images/author/avatar.jpeg",
-    "title": "CEO | Founder | LEAD DEVELOPER",
+    "title": "CEO | Founder | Lead Developer",
     "contact": "support@nomateclabs.com"
   },{
     "name": "Andrew Laird",
     "img": "./app/images/author/avatar.jpeg",
-    "title": "CEO | Founder | CORPORATE",
+    "title": "CEO | Founder | Sales",
     "contact": "contact@nomateclabs.com"
   }],
   "seo": {
@@ -93,7 +94,8 @@
     }
   },
   "logo": {
-    "base": "./app/images/lg_50.png",
+    "base": "./app/images/logo_full_light.png",
+    "dark": "./app/images/logo_full_dark.png",
     "min": "./app/images/logo.png"
   },
   "news": {
@@ -249,16 +251,16 @@
         "class": "share_facebook"
       },
       {
-        "title": "follow us on linkedin",
-        "href": "https://www.linkedin.com",
-        "icon": "fa-linkedin",
-        "class": "share_linkedin"
-      },
-      {
         "title": "follow us on twitter",
         "href": "https://twitter.com/nomateclabs",
         "icon": "fa-twitter",
         "class": "share_twitter"
+      },
+      {
+        "title": "follow us on youtube",
+        "href": "https://youtube.com/nomateclabs",
+        "icon": "fa-youtube",
+        "class": "share_youtube"
       }
     ]
   },
@@ -328,9 +330,29 @@
   },
   "services":{
     "main": {
-      "head": "Our Services",
-      "sub": "What we do",
+      "head": "Services",
+      "sub": "Services we offer.",
       "items": [{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
         "head": "Mobile Applications",
         "sub": "What develop mobile applications.",
         "ico": "fa-code"

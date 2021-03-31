@@ -516,25 +516,6 @@ class share_item extends HTMLElement {
   }
 }
 
-class share_block extends HTMLElement {
-  constructor(config) {
-    super(config);
-    let s_share = config.share_block,
-    s_items = config.share_block.items
-    this.classList.add('nomatec_share_block', s_share.side);
-    for (let i = 0; i < s_items.length; i++) {
-      this.append(
-        h(['div', 'share-block.fa', s_items[i].class, s_items[i].icon].join('.'),{
-          target: '_blank',
-          href: s_items[i].href + encodeURIComponent(location.origin),
-          title: s_items[i].title
-        })
-      )
-    }
-
-    return this;
-  }
-}
 
 class cookie_warn extends HTMLElement {
   constructor(msg) {
@@ -590,31 +571,27 @@ class bread_crumb extends HTMLElement {
   }
 }
 
-class to_top extends HTMLElement {
-  constructor(i) {
-    super(i);
-    const $this = this;
+function to_top(i) {
+    let ele = h('div.t-top.hidden.sh-9', {
+      onclick(){
+         utils.totop(i)
+       }
+    },h('i.fa.fa-chevron-up'));
 
     window.addEventListener('scroll', utils.debounce(function(evt){
       let top = window.pageYOffset || document.scrollTop;
 
       if(top === NaN || !top){
-        $this.classList.add('hidden')
-      } else if($this.classList.contains('hidden')){
-        $this.classList.remove('hidden');
+        ele.classList.add('hidden')
+      } else if(ele.classList.contains('hidden')){
+        ele.classList.remove('hidden');
       }
       top = null;
       return;
     }, 250))
-    this.classList.add('to-top', 'hidden', 'sh-9');
-    this.onclick = function(){
-      utils.totop(i);
-    }
-    this.append(
-      h('i.fa.fa-chevron-up')
-    )
-    return this;
-  }
+
+    return ele;
+
 }
 
 class search_box extends HTMLElement {
@@ -775,7 +752,6 @@ class light_box extends HTMLElement {
 
 customElements.define('bot-net', bot_net);
 customElements.define('rest-range', rest_range);
-customElements.define('to-top', to_top);
 customElements.define('bread-crumb', bread_crumb);
 customElements.define('welcome-msg', welcome_msg);
 customElements.define('cookie-warn', cookie_warn);
@@ -788,9 +764,14 @@ customElements.define('blog-item', blog_item);
 customElements.define('news-item', news_item);
 customElements.define('share-item', share_item);
 customElements.define('search-box', search_box);
-customElements.define('share-block', share_block);
+
 customElements.define('user-cnf', user_cnf);
 customElements.define('side-menu', side_menu);
 customElements.define('light-box', light_box);
 
-export { bot_net, rest_range, to_top, bread_crumb, welcome_msg, cookie_warn, time_line, blog_prev, news_prev, cattag_link, blog_his, blog_item, news_item, share_item, search_box, share_block, user_cnf, side_menu, light_box }
+export {
+  bot_net, rest_range, to_top, bread_crumb, welcome_msg, cookie_warn,
+  time_line, blog_prev, news_prev, cattag_link, blog_his, blog_item,
+  news_item, share_item, search_box, user_cnf, side_menu,
+  light_box
+}
