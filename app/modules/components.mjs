@@ -214,9 +214,6 @@ class blog_prev extends HTMLElement {
     this.append(
       h('hr'),
       h('div.media.mb-3',
-        h('img.mr-3',{
-          src: './app/images/lg_50.png'
-        }),
         m_body
       )
     )
@@ -248,9 +245,6 @@ class news_prev extends HTMLElement {
     this.append(
       h('hr'),
       h('div.media.mb-3',
-        h('img.mr-3',{
-          src: './app/images/lg_50.png'
-        }),
         h('div.media-body',
           h('h5', obj.title, h('small.float-right', utils.ts2datetime(obj.date))),
           h('div.card-text.mb-4', obj.preview + '...'),

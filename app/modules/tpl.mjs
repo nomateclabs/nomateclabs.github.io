@@ -68,8 +68,6 @@ const tpl = {
         h('div.head-lbl',
           h('span#ttl.head-txt', config.navlinks[0])
         )
-
-
       ),
       sidesel,
       tpl.rest_signup(config.nomatec_rest),
@@ -282,7 +280,7 @@ const tpl = {
 
 
 
-    return h('div.container-fluid.bg-white',
+    return h('div.bg-white',
       h('div.row',
         h('div.col-6',
           h('h3#pag_info','')
@@ -332,7 +330,7 @@ const tpl = {
 
     bgChange(false);
 
-    return h('div.container-fluid',
+    return h('div',
       h('div.row',
         h('div.col-6',
           h('h3#pag_info','')

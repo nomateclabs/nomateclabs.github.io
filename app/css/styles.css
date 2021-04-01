@@ -555,7 +555,7 @@ color: rgb(255 255 255 / 50%)!important;
 
 #rest-signup div.card-body{
   background: rgb(0 0 0 / 72%);
-  margin: 3rem;
+    margin: 0 7.5px 3rem 7.5px;
   padding: 2rem;
   border-radius: 6px;
 }
