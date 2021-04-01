@@ -192,11 +192,6 @@ color: rgb(255 255 255 / 50%)!important;
       margin-top: .66rem;
 }
 
-.menu-link:hover{
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
 
 .navbar-nav a{
   cursor: pointer;
@@ -458,6 +453,11 @@ color: rgb(255 255 255 / 50%)!important;
   min-height: 100vh;
 }
 
+.auth-name{
+  font-family: 'Oxygen', sans-serif;
+margin-left: .5rem;
+}
+
 @media (max-width: 992px){
   .navbar-nav.nav-lnks{
     display: none!important;
@@ -477,7 +477,7 @@ color: rgb(255 255 255 / 50%)!important;
   #side-content.show{
     right: 0;
     z-index: 999;
-    background: rgba(255, 255, 255, 0.7);
+    background: white;
   }
   #sidebar-main{
     margin-bottom: 80px;
@@ -486,7 +486,7 @@ color: rgb(255 255 255 / 50%)!important;
       position: fixed;
   }
   bread-crumb, welcome-msg{
-    padding-top: 80px;
+    padding-top: 2rem;
   }
   .nav-alt{
     width: 100%;
@@ -604,12 +604,14 @@ color: rgb(255 255 255 / 50%)!important;
 
 #menu_right {
     right: 0;
-    top: 50%;
+    height: 2.8rem;
+    top: calc(50% - 1.4rem);
     padding: .5rem;
     position: fixed;
     box-shadow: 0 0 6px black;
     background: rgb(255 255 255 / 80%);
     transition: right 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
 }
 
 @media (max-width: 992px){

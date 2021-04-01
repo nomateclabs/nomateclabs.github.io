@@ -282,10 +282,10 @@ const tpl = {
 
     return h('div.bg-white',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('div.form-group.float-right',
             utils.sort_type(sort_order)
           )
@@ -316,10 +316,10 @@ const tpl = {
 
     return h('div.container-fluid',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3', [utils.capitalize(c_path), 'items'].join(' '))
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h5#item_count.text-right', ['Showing', res.items.length, 'items'].join(' '))
         )
       ),
@@ -332,10 +332,10 @@ const tpl = {
 
     return h('div',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('div.form-group.float-right',
             utils.sort_type(sort_order)
           )
@@ -407,10 +407,10 @@ const tpl = {
     return h('div.container-fluid',
       auth_data,
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h5.float-right', 'Author: '+ ls.get('path')[1])
         )
       ),
@@ -423,10 +423,10 @@ const tpl = {
   categories(obj){
     return h('div.container-fluid',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h5.float-right', 'Category: '+ ls.get('path')[1])
         )
       ),
@@ -439,10 +439,10 @@ const tpl = {
   tags(){
     return h('div.container-fluid',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h5.float-right', 'Tag: '+ ls.get('path')[1])
         )
       ),
@@ -455,10 +455,10 @@ const tpl = {
   timeline(){
     return h('div.container-fluid',
       h('div.row',
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h3#pag_info','')
         ),
-        h('div.col-6',
+        h('div.col-md-12.col-lg-6',
           h('h5.float-right', 'Timeline: ')
         )
       ),

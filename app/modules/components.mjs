@@ -72,7 +72,7 @@ class rest_range extends HTMLElement {
 class cattag_link extends HTMLElement {
   constructor(i,e) {
     super(i,e);
-    this.classList.add('badge','badge-secondary','mr-2', 'mb-2', 'cp', 'sh-95')
+    this.classList.add('badge','badge-secondary','ml-1','mr-1', 'mb-2', 'cp', 'sh-95')
     this.innerText = e;
     this.onclick = function(){
       location.hash = ['', i, e].join('/');
@@ -165,7 +165,9 @@ class blog_prev extends HTMLElement {
         onclick: function(){
           location.hash = '/author/'+ utils.snake_case(obj.author);
         }
-      }, obj.author),
+      }, h('span.auth-name', {
+        itemprop: 'name'
+      }, obj.author)),
 /*      h('span.fa.fa-comment.mr-2',{
 
 }), */
@@ -253,7 +255,9 @@ class news_prev extends HTMLElement {
             onclick: function(){
               location.hash = '/author/'+ utils.snake_case(obj.author);
             }
-          }, obj.author),
+          }, h('span.auth-name', {
+            itemprop: 'name'
+          }, obj.author)),
           h('span.fa.fa-comment.disqus-comment-count.mr-2',{
             'data-disqus-identifier': ['news', obj.date].join('_')
           }),
@@ -304,7 +308,9 @@ class blog_his extends HTMLElement {
             onclick: function(){
               location.hash = '/author/'+ utils.snake_case(obj.author);
             }
-          }, obj.author),
+          }, h('span.auth-name', {
+            itemprop: 'name'
+          }, obj.author)),
           h('button.btn.btn-outline-primary.btn-sm.float-right.sh-95', {
             onclick: function(){
               location.hash = utils.getPostByDate(obj.id);
@@ -344,12 +350,12 @@ class blog_item extends HTMLElement {
     }
 
     nomatec_share.append(
-      h('span.share-btn.share_rss.rss',{
+      h('span.share-btn.share_rss.rss.fa.fa-rss',{
         onclick: function(){
           location.hash = '/rss_atom';
         },
         title: 'subscribe to ...'
-      }, 'Subscribe')
+      })
     )
 
     this.classList.add('post-item')
@@ -367,7 +373,7 @@ class blog_item extends HTMLElement {
         h('h3', obj.title, {
             itemprop: "name headline"
           },
-          h('h6.float-right', utils.ts2datetime(obj.date))
+          h('h6.mt-4.text-muted.text-right', utils.ts2datetime(obj.date))
         ),
         h('hr'),
         img_box,
@@ -384,7 +390,7 @@ class blog_item extends HTMLElement {
           onclick: function(){
             location.hash = '/author/'+ utils.snake_case(obj.author);
           }
-        }, h('span', {
+        }, h('span.auth-name', {
           itemprop: 'name'
         }, obj.author)),
         h('span.fa.fa-tag.mr-2', {
@@ -449,7 +455,7 @@ class news_item extends HTMLElement {
         h('h3', obj.title, {
             itemprop: "name headline"
           },
-          h('h6.float-right', utils.ts2datetime(obj.date))
+          h('h6.mt-4.text-muted.text-right', utils.ts2datetime(obj.date))
         ),
         h('hr'),
         new light_box(config.news.head_img),
@@ -466,7 +472,7 @@ class news_item extends HTMLElement {
           onclick: function(){
             location.hash = '/author/'+ utils.snake_case(obj.author);
           }
-        }, h('span', {
+        }, h('span.auth-name', {
           itemprop: 'name'
         }, obj.author)),
         h('span.fa.fa-tag.mr-2', {
@@ -498,11 +504,11 @@ class share_item extends HTMLElement {
     this.classList.add('nomatec_share');
     for (let i = 0; i < s_share.length; i++) {
       this.append(
-        h(['a', 'share-btn', s_share[i].class, s_share[i].icon].join('.'),{
+        h(['a', 'share-btn.fa', s_share[i].class, s_share[i].icon].join('.'),{
           target: '_blank',
           href: s_share[i].href + encodeURIComponent(location.href),
           title: s_share[i].title
-        }, s_share[i].text)
+        })
       )
     }
 
