@@ -66,7 +66,7 @@ const tpl = {
       h('div.container-fluid.h12',
         h('div.header-main', bc),
         h('div.head-lbl',
-          h('span#ttl.head-txt', config.navlinks[0])
+          h('span#ttl.head-txt.wow.fadeInUp', {'data-wow-delay': '1s'}, config.navlinks[0])
         )
       ),
       sidesel,
@@ -1336,7 +1336,7 @@ const tpl = {
   },
   user_contact(i){
     let item = h('div.col-12.col-md-6.col-lg-4.text-center',
-      h('div.card.mb-3.usrcrd',
+      h('div.card.mb-3.usrcrd.wow.fadeInUp',
         h('div.card-content',
           h('div.bg-white.rounded.shadow-sm.py-5.px-4',
             h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
@@ -1380,9 +1380,9 @@ const tpl = {
     }
 
     return h('div',
-      h('div.bgw',
+      h('div.bgd',
         h('div.container',
-            h('div.card',
+            h('div.card.wow.fadeInUp',
               h('div.card-body',
                 h('h3.text-center', 'Contact form'),
                 h('form.row',
@@ -1473,7 +1473,7 @@ const tpl = {
       ),
       h('div.bgd.mt-4', ele),
       h('div.map-local',
-        h('img.map-img', {src: './app/images/map_local.png'})
+        h('img.map-img.wow.fadeInUp', {src: './app/images/map_local.png'})
       )
     );
   },
@@ -1528,14 +1528,35 @@ const tpl = {
 
   },
   serviceEle(arr){
+
+    let ele = ['Up', 'Down', 'Left', 'Right'];
+    ele = utils.rnd(ele);
+
     let item = h('div.col-sm-6.col-md-6.col-lg-4',
-      h('div.al-service-box.pt-5.pb-4.px-5.text-center.sh-95',
+      h('div.al-service-box.pt-5.pb-4.px-5.text-center.sh-95.wow.fadeIn'+ ele,
         h('span.al-service-icon',
           h('i.fa.'+ arr.ico)
         ),
         h('h3.mt-3', arr.head),
         h('p.mt-3', arr.sub),
         h('a.btn.btn-outline-primary.mt-3', 'more info')
+      )
+    )
+
+    return item;
+  },
+  serviceSld(arr){
+
+    let ele = ['Up', 'Down', 'Left', 'Right'];
+    ele = utils.rnd(ele);
+
+    let item = h('div',
+      h('div.al-service-box.pt-5.pb-4.px-5.text-center.sh-95.mh-box',
+        h('span.al-service-icon',
+          h('i.fa.'+ arr.ico)
+        ),
+        h('h4.mt-3', arr.head),
+        h('p.mt-3', arr.sub)
       )
     )
 
@@ -1559,7 +1580,7 @@ const tpl = {
     return item;
   },
   about(){
-    let item = h('div.row')
+    let item = h('div.row.mb-4')
 
     utils.get('data/about', function(err, data){
       if(err){return console.error(err)}
@@ -1584,6 +1605,101 @@ const tpl = {
     })
 
     return h('div', item);
+  },
+  home(config){
+
+
+
+    let obj = config.services.home;
+
+
+    let item = h('div.row.text-center.srvs',
+      h('div.col-12',
+        h('div.al-services-header.text-center',
+          h('h2', obj.head)
+        )
+      )
+    ),
+    slides = h('ul.glide__slides')
+
+    for (let i = 0; i < obj.items.length; i++) {
+      slides.append(h('li.glide__slide', tpl.serviceSld(obj.items[i])))
+    }
+
+    item.append(h('div.col-12', h('div.glide',
+      h('glide__track', {'data-glide-el':'track'},slides),
+      h('div.glide__arrows', {'data-glide-el': 'controls'},
+        h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
+        h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
+      )
+    ),h('button.btn.btn-outline-primary', obj.sub)))
+
+    setTimeout(function(){
+      new Glide('.glide', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 3,
+        breakpoints: {
+          1024: {
+            perView: 2
+          },
+          700: {
+            perView: 1
+          }
+        },
+        autoplay: 2000
+      }).mount()
+    },1000)
+
+
+    return item;
+
+  },
+  carousel(arr){
+
+    let item = h('ol.carousel-indicators'),
+    items = h('div.carousel-inner');
+
+    for (let i = 0; i < arr.length; i++) {
+      item.append(h('li', {
+        'data-target': '#carouselExampleIndicators',
+        'data-slide-to': JSON.stringify(i),
+        onclick(){
+          if(!this.classList.contains('active')){
+
+            let dest = this.parentNode.children;
+            console.log(dest)
+            for (let j = 0; j < dest.length; j++) {
+              dest[j].classList.remove('active');
+            }
+            this.classList.add('active');
+
+            dest = this.parentNode.nextSibling.children;
+            for (let j = 0; j < dest.length; j++) {
+              dest[j].classList.remove('active');
+            }
+            dest[i].classList.add('active');
+          }
+
+        }
+      }))
+      items.append(h('div.carousel-item',
+        h('img.d-block.w-100', {src: arr[i].src}),
+        h('div.carousel-caption.d-none.d-md-block',
+          h('h5', arr[i].head),
+          h('p', arr[i].sub)
+        )
+      ))
+    }
+
+    item.firstChild.classList.add('active');
+    items.firstChild.classList.add('active');
+
+    item = h('div#carouselExampleIndicators.carousel.slide', {'data-ride':'carousel'},
+      item, items
+    )
+
+    return item;
   }
 }
 

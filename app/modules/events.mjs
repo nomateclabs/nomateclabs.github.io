@@ -97,6 +97,7 @@ const events = {
 
       let dest = location.hash.slice(2).split('/'),
       main = document.getElementById('main-content'),
+      ttl = document.getElementById('ttl'),
       bcdest = '';
 
       if(dest[0] !== config.navlinks[0]){
@@ -104,7 +105,14 @@ const events = {
       }
 
       document.getElementById('bc').innerText = bcdest;
-      document.getElementById('ttl').innerText = utils.capitalize(bcdest);
+
+      if(bcdest === ''){
+        bcdest = 'WELCOME TO NOMATEC LABS'
+      }
+
+
+      new WOW().init()
+      ttl.textContent = utils.capitalize(bcdest);
       main.innerHTML = '';
       document.title = dest[0];
       ls.set('path', dest)

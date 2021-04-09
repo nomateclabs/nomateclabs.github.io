@@ -405,6 +405,47 @@
         "sub": "What develop mobile applications.",
         "ico": "fa-code"
       }]
+    },
+    "home": {
+      "head": "Services we offer",
+      "sub": "View All",
+      "items": [{
+        "head": "Web Development",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Web Hosting",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Web admin and management",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Web framework development",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Web maintenance and updates",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Hybrid Mobile Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Hybrid Desktop Applications",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Browser plugins",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      },{
+        "head": "Single page applications (SPA)",
+        "sub": "What develop mobile applications.",
+        "ico": "fa-code"
+      }]
     }
   }
 }

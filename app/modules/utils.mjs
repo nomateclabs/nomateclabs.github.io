@@ -7,6 +7,9 @@ import { enc } from "/app/modules/enc.mjs";
 
 //utils.load_cached({index: 'cache', id: "discus_count", })
 const utils = {
+  rnd(items){
+    return items[Math.floor(Math.random()*items.length)];
+  },
   get(src, cb){
 
     fetch('./app/'+ src +'.json', {

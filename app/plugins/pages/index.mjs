@@ -22,7 +22,7 @@ let ele = h('div');
 //ele.innerHTML = ''
 
 main.append(
-    ele
+    tpl.home(config)
 );
 
 },contact: function(main, cnf){cnf({sidebar: false});
