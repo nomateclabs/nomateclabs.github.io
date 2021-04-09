@@ -17,7 +17,28 @@ const utils = {
       headers: g.headers.json
     })
     .then(function(res){
-      console.log(res)
+
+      if (res.status >= 200 && res.status < 300) {
+        return res.json().then(function(data){
+          cb(false, data)
+        });
+      } else {
+        return Promise.reject(new Error(res.statusText))
+      }
+    })
+    .catch(function(err){
+      cb(err);
+    })
+
+  },
+  rest(src, cb){
+
+    fetch('./api/'+ src +'.json', {
+      method: 'GET',
+      headers: g.headers.json
+    })
+    .then(function(res){
+
       if (res.status >= 200 && res.status < 300) {
         return res.json().then(function(data){
           cb(false, data)

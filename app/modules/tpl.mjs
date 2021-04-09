@@ -1619,7 +1619,9 @@ const tpl = {
         )
       )
     ),
-    slides = h('ul.glide__slides')
+    slides = h('ul.glide__slides'),
+    blog_lst = h('div.row'),
+    news_lst = h('div.row');
 
     for (let i = 0; i < obj.items.length; i++) {
       slides.append(h('li.glide__slide', tpl.serviceSld(obj.items[i])))
@@ -1632,6 +1634,75 @@ const tpl = {
         h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
       )
     ),h('button.btn.btn-outline-primary', obj.sub)))
+
+    item = h('div', item);
+
+    item.append(h('div.row.text-center.blnk',
+      h('div.col-12.al-services-header',
+        h('h2', 'Recent Blog'),
+        blog_lst,
+        h('button.btn.btn-outline-primary', {
+          onclick(){
+            location.hash = '/blog';
+            utils.totop(0);
+          }
+        }, 'View Blog')
+      )
+    ))
+
+    item.append(h('div.row.text-center.bgd.mb-4',
+      h('div.col-12',
+        h('h2.mb-4', 'Follow us'),
+        h('div.row',
+          h('div.col-4',
+            h('i.fa.fa-facebook.soc-itm.sh-95')
+          ),
+          h('div.col-4',
+            h('i.fa.fa-twitter.soc-itm.sh-95')
+          ),
+          h('div.col-4',
+            h('i.fa.fa-youtube.soc-itm.sh-95')
+          )
+        )
+      )
+    ))
+
+    item.append(h('div.row.text-center.blnk',
+      h('div.col-12.al-services-header',
+        h('h2', 'Recent News'),
+        news_lst,
+        h('button.btn.btn-outline-primary', {
+          onclick(){
+            location.hash = '/news';
+            utils.totop(0);
+          }
+        },'View News')
+      )
+    ))
+
+    utils.rest('feed/post_recent/blog_post_recent', function(err,res){
+      if(err){return console.error(err)}
+      console.log(res)
+      for (let i = 0; i < 3; i++) {
+        try {
+          blog_lst.append(tpl.post_lst(res[i]))
+        } catch (err) {
+          break;
+        }
+      }
+    })
+
+    utils.rest('feed/news_recent/blog_news_recent', function(err,res){
+      if(err){return console.error(err)}
+      console.log(res)
+      for (let i = 0; i < 3; i++) {
+        try {
+          news_lst.append(tpl.post_lst(res[i]))
+        } catch (err) {
+          break;
+        }
+      }
+    })
 
     setTimeout(function(){
       new Glide('.glide', {
@@ -1650,6 +1721,21 @@ const tpl = {
       }).mount()
     },1000)
 
+
+    return item;
+
+  },
+  post_lst(obj){
+
+    let item = h('div.col-sm-12.col-md-6.col-lg-4',
+      h('div.al-service-box.pt-5.pb-4.px-5.sh-95.mh-box.mb-4',
+        h('img', {src: './app/images/lg_50.png'}),
+        h('h4.mt-3', obj.title, {title: 'title'}),
+        h('small', utils.format_date(obj.date), {title: 'date'}),
+        h('p.mt-3', obj.author, {title: 'author'}),
+        h('span.cat-item', obj.category, {title: 'category'})
+      )
+    )
 
     return item;
 

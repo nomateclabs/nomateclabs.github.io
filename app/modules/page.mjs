@@ -26,6 +26,7 @@ let page = {
     }
 
     cnf({sidebar: true});
+    bgChange(false);
 
     main.append(tpl.blog(sort_order));
     pagination.init(dest, 'postlist', function(err){
@@ -35,6 +36,7 @@ let page = {
   },
   history: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     idb.get({index: 'saved', id: 'history'}, function(err,res){
       if(err || !res){res = {id: 'history', items:[]}}
       main.append(tpl.history(res));
@@ -42,6 +44,7 @@ let page = {
   },
   saved: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     idb.get({index: 'saved', id: 'favorite'}, function(err,res){
       if(err || !res){res = {id: 'favorite', items:[]}}
       main.append(tpl.history(res));
@@ -60,6 +63,7 @@ let page = {
     }
 
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.news(sort_order));
     pagination.init(dest, 'newslist', function(err){
       if(err){return g.ce(err)}
@@ -70,6 +74,7 @@ let page = {
     let auth_sel = ls.get('path')[1],
     dest = 'search/author/'+ auth_sel;
     cnf({sidebar: true});
+    bgChange(false);
     fetch('./api/data/search/author/index.json', {
       method: 'GET',
       headers: g.headers.json
@@ -103,6 +108,7 @@ let page = {
   list: function(main, cnf){
     let d_type = location.hash.split('/').pop()
     cnf({sidebar: true});
+    bgChange(false);
     fetch('./api/data/tagcat.json', {
       method: 'GET',
       headers: g.headers.json
@@ -123,6 +129,7 @@ let page = {
   categories: function(main, cnf){
     let dest = 'search/cat/'+ ls.get('path')[1];
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.categories({type: 'post'}));
     pagination.init(dest, 'postlist', function(err){
       if(err){return g.ce(err)}
@@ -133,6 +140,7 @@ let page = {
   news_categories: function(main, cnf){
     let dest = 'news/cat/'+ ls.get('path')[1];
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.categories({type: 'news'}));
     pagination.init(dest, 'newslist', function(err){
       if(err){return g.ce(err)}
@@ -143,6 +151,7 @@ let page = {
   tags: function(main, cnf){
     let dest = 'search/tag/'+ ls.get('path')[1];
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.tags());
     pagination.init(dest, 'postlist', function(err){
       if(err){return g.ce(err)}
@@ -154,6 +163,7 @@ let page = {
     let timeline = ss.get('nomatec_timeline');
     let dest = ['post', timeline[0], timeline[1]].join('/');
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.timeline());
     pagination.init(dest, 'postlist', function(err){
       if(err){return g.ce(err)}
@@ -163,12 +173,13 @@ let page = {
   },
   search: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.search());
     return;
   },
   rss_atom: function(main, cnf){
     cnf({sidebar: true});
-
+    bgChange(false);
     let f_headers = {
       method: 'GET',
       headers: g.headers.json
@@ -217,6 +228,7 @@ let page = {
   },
   api: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     fetch('./app/config/api.json', {
       method: 'GET',
       headers: g.headers.json
@@ -234,6 +246,7 @@ let page = {
   },
   post: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     let config = ls.get('config'),
     hash = location.hash,
     id = parseInt(hash.split('/').pop());
@@ -273,6 +286,7 @@ let page = {
   },
   entries: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     let config = ls.get('config'),
     hash = location.hash,
     id = parseInt(hash.split('/').pop());
@@ -307,6 +321,7 @@ let page = {
   },
   feed: function(main, cnf){
     cnf({sidebar: true});
+    bgChange(false);
     workers.fetch_item({
       type:'feed'
     });
@@ -314,6 +329,7 @@ let page = {
   },
   settings: function(main,cnf){
     cnf({sidebar: true});
+    bgChange(false);
     main.append(tpl.settings());
     return;
   },
@@ -323,7 +339,8 @@ let page = {
     return;
   },
   unsubscribe: function(main, cnf){
-    cnf({sidebar: true});
+    cnf({sidebar: false});
+    bgChange(false);
     main.append(tpl.unsubscribe());
   }
 }

@@ -593,6 +593,25 @@ color: rgb(255 255 255 / 50%)!important;
   padding-right: 10px
 }
 
+.cat-item{
+  border: 1px solid;
+      color: #000000;
+      padding: .1rem .5rem;
+      border-radius: 4px;
+      background: #9caeb9;
+}
+
+.soc-itm{
+  background: #3a3a3a;
+      box-shadow: 0 0 1rem #3a3a3a;
+      font-size: 10rem;
+      width: 15rem;
+      height: 15rem;
+      padding-top: 2.5rem;
+      border-radius: 1rem;
+      color: #02070d;
+      cursor: pointer;
+}
 #contact-form{
 
 }
@@ -875,7 +894,7 @@ padding: 3rem 0;
 
 /*counter*/
 
-.countr, .srvs{
+.countr, .srvs, .blnk{
     background: rgb(255 255 255 / 80%);
     padding-bottom: 3rem;
     padding-top: 3rem;
