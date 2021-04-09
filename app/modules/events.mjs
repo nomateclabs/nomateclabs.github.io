@@ -19,10 +19,6 @@ const events = {
       utils.add_hitcount(config, function(err){
         if(err){g.ce(err)}
 
-        console.log('start2')
-
-
-
         if(config.to_top){
           document.body.append(to_top(config.to_top_dest))
         }
@@ -78,7 +74,6 @@ const events = {
     try {
 
       window.onhashchange = function(){
-        //g.cl('hit')
         events.rerout(config);
       }
 

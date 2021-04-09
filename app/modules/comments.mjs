@@ -60,6 +60,5 @@ let comments = {
 
   }
 }
-//bebe185313$$
 
 export { comments }

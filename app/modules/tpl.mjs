@@ -107,7 +107,7 @@ const tpl = {
       window.Tawk_LoadStart = new Date();
 
       return h('script', {
-        //src: [config.tawk.url,config.tawk.api].join('/'),
+        src: [config.tawk.url,config.tawk.api].join('/'),
         charset: 'UTF-8',
         crossorigin: '*',
         defer: ''
@@ -732,7 +732,6 @@ const tpl = {
   feed_cat_item(obj){
 
     function return_dest(cat){
-      g.cl(obj.src)
       if(obj.src === 'author'){
         return [location.origin, 'api', obj.type, obj.src, 'posts', cat +'.xml'].join('/');
       }
@@ -963,7 +962,7 @@ const tpl = {
             })
             return g.cl(err)
           }
-          g.cl(res)
+
           let t_link = document.getElementById('theme'),
           release_url = t_link.href,
           new_URL = URL.createObjectURL(res.data);

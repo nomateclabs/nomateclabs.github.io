@@ -67,7 +67,7 @@
     ]
   },
   "settings": {
-    "enabled": true
+    "enabled": false
   },
   "navlinks": [
     "home",
