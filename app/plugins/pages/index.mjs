@@ -79,10 +79,12 @@ fetch('./app/config/terms.json', {
   .then(function(data) {
 
     function terms_tpl(obj) {
+      let ele = h('div');
+      ele.innerHTML = obj.info;
       return h('div',
-        h('h3', obj.title),
-        h('h5', obj.header),
-        h('p', obj.info),
+        h('h1', obj.title),
+        h('h2', obj.header),
+        ele,
         h('small.text-right', 'last updated: '+ utils.format_date(obj.date))
       )
     }
