@@ -29,9 +29,11 @@ main.append(
 bgChange(true);
 
 main.append(tpl.contact());},sitemap: function(main, cnf){cnf({sidebar: false});
+bgChange(false);
+
 let config = ls.get('config'),
   lg_obj = config.sitemap,
-  lg_main = h('div.list-group',
+  lg_main = h('div.list-group.mb-4',
     h('div.list-group-item.list-group-item-secondary.cp', {
       onclick: function() {
         let sib = this.parentNode.lastChild;
@@ -60,6 +62,9 @@ main.append(
   )
 );},terms: function(main, cnf){cnf({sidebar: false});
 let hr = h('hr');
+
+bgChange(false);
+
 fetch('./app/config/terms.json', {
     method: 'GET',
     headers: g.headers.json

@@ -546,7 +546,7 @@ class welcome_msg extends HTMLElement {
     msg = msg.replace('{{date}}', last_date)
     this.classList.add('col-6');
     this.append(
-      h('p.text-right', msg)
+      h('p.text-right.text-white.mt-2.d-md-block', msg)
     )
     utils.fade_out({ele: this, duration: 1, delay: 3, remove: true});
     return this;

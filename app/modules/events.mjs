@@ -103,6 +103,8 @@ const events = {
 
       if(bcdest === ''){
         bcdest = 'WELCOME TO NOMATEC LABS'
+      } else {
+        bcdest = bcdest.replace(/_/g, ' ')
       }
 
 

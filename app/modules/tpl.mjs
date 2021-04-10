@@ -72,7 +72,7 @@ const tpl = {
       sidesel,
       tpl.rest_signup(config.nomatec_rest),
       tpl.footer(config),
-      //tpl.analytics(config)
+      tpl.analytics(config)
     )
 
   },
@@ -710,7 +710,7 @@ const tpl = {
   },
   feed_item(obj){
     const dest = [location.origin, 'api', obj.type, obj.src +'.xml'].join('/');
-    return h('div.col-6',
+    return h('div.col-md-12.col-lg-6',
       h('h5', obj.name +' feed',
         h('small.float-right',
           h('a', {
@@ -757,7 +757,7 @@ const tpl = {
 
     newop = null;
 
-    return h('div.col-6',
+    return h('div.col-md-12.col-lg-6',
       h('h5', obj.name +' feed',
         h('small.float-right.cp',
           h('span', {
