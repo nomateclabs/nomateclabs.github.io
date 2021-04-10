@@ -39,6 +39,9 @@ body {
       overflow-x: hidden;
 }
 
+li{
+  list-style: none!important;
+}
 
 /* glide */
 
@@ -313,10 +316,10 @@ body {
 
 
 .top-bar{
+  display: none;
   background: black!important;
-/* border-bottom: 1px solid white; */
-height: 4rem;
-color: rgb(255 255 255 / 50%)!important;
+  height: 4rem;
+  color: rgb(255 255 255 / 50%)!important;
 }
 
 .top-ico{
@@ -611,7 +614,13 @@ color: rgb(255 255 255 / 50%)!important;
       border-radius: 1rem;
       color: #02070d;
       cursor: pointer;
+      margin-bottom: 3rem
 }
+
+.ofh{
+  overflow: hidden;
+}
+
 #contact-form{
 
 }
@@ -663,7 +672,7 @@ margin-left: .5rem;
       position: fixed;
   }
   bread-crumb, welcome-msg{
-    padding-top: 2rem;
+    padding-top: 5rem;
   }
   .nav-alt{
     width: 100%;

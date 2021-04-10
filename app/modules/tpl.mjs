@@ -72,7 +72,7 @@ const tpl = {
       sidesel,
       tpl.rest_signup(config.nomatec_rest),
       tpl.footer(config),
-      tpl.analytics(config)
+      //tpl.analytics(config)
     )
 
   },
@@ -89,7 +89,7 @@ const tpl = {
       }))
     }
 
-    return h('nav.navbar.top-bar',
+    return h('nav.navbar.top-bar.d-lg-flex.d-xl-flex',
       h('div.col-6',
         h('div.text-left', h('i.fa.fa-phone.mr-2'), config.app.mob)
       ),
@@ -1621,13 +1621,15 @@ const tpl = {
     ),
     slides = h('ul.glide__slides'),
     blog_lst = h('div.row'),
+    share_lst = h('div.row'),
+    share_items = config.share_block.items,
     news_lst = h('div.row');
 
     for (let i = 0; i < obj.items.length; i++) {
       slides.append(h('li.glide__slide', tpl.serviceSld(obj.items[i])))
     }
 
-    item.append(h('div.col-12', h('div.glide',
+    item.append(h('div.col-12', h('div#g1.glide.ofh',
       h('glide__track', {'data-glide-el':'track'},slides),
       h('div.glide__arrows', {'data-glide-el': 'controls'},
         h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
@@ -1638,9 +1640,11 @@ const tpl = {
     item = h('div', item);
 
     item.append(h('div.row.text-center.blnk',
-      h('div.col-12.al-services-header',
+      h('div.col-12',
         h('h2', 'Recent Blog'),
-        blog_lst,
+        h('div#g2.glide.ofh',
+          h('glide__track', {'data-glide-el':'track'},blog_lst)
+        ),        //blog_lst,
         h('button.btn.btn-outline-primary', {
           onclick(){
             location.hash = '/blog';
@@ -1653,24 +1657,25 @@ const tpl = {
     item.append(h('div.row.text-center.bgd.mb-4',
       h('div.col-12',
         h('h2.mb-4', 'Follow us'),
-        h('div.row',
-          h('div.col-4',
-            h('i.fa.fa-facebook.soc-itm.sh-95')
-          ),
-          h('div.col-4',
-            h('i.fa.fa-twitter.soc-itm.sh-95')
-          ),
-          h('div.col-4',
-            h('i.fa.fa-youtube.soc-itm.sh-95')
-          )
-        )
+        share_lst
       )
     ))
 
+    for (let i = 0; i < share_items.length; i++) {
+      share_lst.append(h('div.col-sm-12.col-lg-4',
+        h('a.fa.soc-itm.wow.fadeInUp.sh-95.'+ share_items[i].icon,{
+          href: share_items[i].href,
+          target: '_blank'
+        })
+      ))
+    }
+
     item.append(h('div.row.text-center.blnk',
-      h('div.col-12.al-services-header',
+      h('div.col-12',
         h('h2', 'Recent News'),
-        news_lst,
+        h('div#g3.glide.ofh',
+          h('glide__track', {'data-glide-el':'track'},news_lst)
+        ),
         h('button.btn.btn-outline-primary', {
           onclick(){
             location.hash = '/news';
@@ -1682,7 +1687,6 @@ const tpl = {
 
     utils.rest('feed/post_recent/blog_post_recent', function(err,res){
       if(err){return console.error(err)}
-      console.log(res)
       for (let i = 0; i < 3; i++) {
         try {
           blog_lst.append(tpl.post_lst(res[i]))
@@ -1694,7 +1698,6 @@ const tpl = {
 
     utils.rest('feed/news_recent/blog_news_recent', function(err,res){
       if(err){return console.error(err)}
-      console.log(res)
       for (let i = 0; i < 3; i++) {
         try {
           news_lst.append(tpl.post_lst(res[i]))
@@ -1705,20 +1708,22 @@ const tpl = {
     })
 
     setTimeout(function(){
-      new Glide('.glide', {
-        type: 'carousel',
-        startAt: 0,
-        perView: 3,
-        breakpoints: {
-          1024: {
-            perView: 2
+      for (let i = 1; i < 4; i++) {
+        new Glide('#g'+ i, {
+          type: 'carousel',
+          startAt: 0,
+          perView: 3,
+          breakpoints: {
+            1024: {
+              perView: 2
+            },
+            700: {
+              perView: 1
+            }
           },
-          700: {
-            perView: 1
-          }
-        },
-        autoplay: 2000
-      }).mount()
+          autoplay: 2000
+        }).mount()
+      }
     },1000)
 
 
@@ -1727,7 +1732,7 @@ const tpl = {
   },
   post_lst(obj){
 
-    let item = h('div.col-sm-12.col-md-6.col-lg-4',
+    let item = h('li.glide__slide',
       h('div.al-service-box.pt-5.pb-4.px-5.sh-95.mh-box.mb-4',
         h('img', {src: './app/images/lg_50.png'}),
         h('h4.mt-3', obj.title, {title: 'title'}),
