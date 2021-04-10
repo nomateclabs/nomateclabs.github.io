@@ -82,7 +82,7 @@ fetch('./app/config/terms.json', {
       let ele = h('div');
       ele.innerHTML = obj.info;
       return h('div',
-        h('h1', obj.title),
+        h('h1.text-muted', obj.title),
         h('h2', obj.header),
         ele,
         h('small.text-right', 'last updated: '+ utils.format_date(obj.date))
