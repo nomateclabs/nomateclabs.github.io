@@ -34,6 +34,137 @@
   font-weight:400;font-style:normal
 }
 
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('../fonts/icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-amazonaws:before {
+  content: "\e90f";
+}
+.ico-angular:before {
+  content: "\e910";
+  color: #dd0031;
+}
+.ico-apachecordova:before {
+  content: "\e911";
+  color: #e8e8e8;
+}
+.ico-atom:before {
+  content: "\e912";
+  color: #66595c;
+}
+.ico-drupal:before {
+  content: "\e913";
+  color: #0678be;
+}
+.ico-electron:before {
+  content: "\e914";
+  color: #47848f;
+}
+.ico-ghost:before {
+  content: "\e915";
+  color: #738a94;
+}
+.ico-git:before {
+  content: "\e916";
+  color: #f05032;
+}
+.ico-json:before {
+  content: "\e917";
+}
+.ico-magento:before {
+  content: "\e906";
+  color: #ee672f;
+}
+.ico-mongodb:before {
+  content: "\e907";
+  color: #47a248;
+}
+.ico-mysql:before {
+  content: "\e908";
+  color: #4479a1;
+}
+.ico-postgresql:before {
+  content: "\e909";
+  color: #336791;
+}
+.ico-prestashop:before {
+  content: "\e90a";
+  color: #df0067;
+}
+.ico-redis:before {
+  content: "\e90b";
+  color: #d82c20;
+}
+.ico-sass:before {
+  content: "\e918";
+  color: #c69;
+}
+.ico-shopify:before {
+  content: "\e90c";
+  color: #7ab55c;
+}
+.ico-stylus:before {
+  content: "\e919";
+}
+.ico-vue-dot-js:before {
+  content: "\e91a";
+  color: #4fc08d;
+}
+.ico-wordpress:before {
+  content: "\e90d";
+  color: #21759b;
+}
+.ico-joomla:before {
+  content: "\e90e";
+  color: #5091cd;
+}
+.ico-javascript:before {
+  content: "\e900";
+  color: #f7df1e;
+}
+.ico-css3:before {
+  content: "\e901";
+  color: #1572b6;
+}
+.ico-html5:before {
+  content: "\e902";
+  color: #e34f26;
+}
+.ico-php:before {
+  content: "\e903";
+  color: #777bb4;
+}
+.ico-python:before {
+  content: "\e904";
+  color: #3776ab;
+}
+.ico-nodejs:before {
+  content: "\e905";
+  color: #393;
+}
+
+
 body {
   font-family: 'Oxygen', sans-serif;
       overflow-x: hidden;
@@ -607,14 +738,14 @@ li{
 .soc-itm{
   background: #3a3a3a;
       box-shadow: 0 0 1rem #3a3a3a;
-      font-size: 10rem;
-      width: 15rem;
-      height: 15rem;
-      padding-top: 2.5rem;
+      font-size: 5rem;
+      width: 7.5rem;
+      height: 7.5rem;
+      padding-top: 1.25rem;
       border-radius: 1rem;
       color: #02070d;
       cursor: pointer;
-      margin-bottom: 3rem
+      margin-bottom: 1.5rem
 }
 
 .ofh{
@@ -737,6 +868,7 @@ margin-left: .5rem;
 
 #rest-signup{
   background: transparent;
+  margin-top: 2rem;
 }
 
 #rest-signup div.card-body{
@@ -1019,4 +1151,10 @@ padding: 3rem 0;
   opacity: .5;
   padding: 1rem;
   background: black;
+}
+
+.lang-ico{
+  text-align: center;
+font-size: 3rem;
+opacity: .7;
 }

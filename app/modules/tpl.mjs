@@ -78,7 +78,7 @@ const tpl = {
   },
   top_bar(config){
 
-    let x = h('div.col-6.text-right'),
+    let x = h('div.col-6.text-right.wow.fadeInRight'),
     arr = config.share_block.items;
 
     for (let i = 0; i < arr.length; i++) {
@@ -91,7 +91,7 @@ const tpl = {
 
     return h('nav.navbar.top-bar.d-lg-flex.d-xl-flex',
       h('div.col-6',
-        h('div.text-left', h('i.fa.fa-phone.mr-2'), config.app.mob)
+        h('div.text-left.wow.fadeInLeft', h('i.fa.fa-phone.mr-2'), config.app.mob)
       ),
       x
     )
@@ -1372,10 +1372,21 @@ const tpl = {
         msg_count.innerText = msg.length;
       }
     }),
-    ele = h('div.row.justify-content-around');
+    ele = h('div.row.justify-content-around'),
+    share_lst = h('div.row'),
+    share_items = config.share_block.items;
 
     for (let i = 0; i < config.users.length; i++) {
       ele.append(tpl.user_contact(config.users[i]))
+    }
+
+    for (let i = 0; i < share_items.length; i++) {
+      share_lst.append(h('div.col-sm-12.col-lg-4',
+        h('a.fa.soc-itm.wow.fadeInUp.sh-95.'+ share_items[i].icon,{
+          href: share_items[i].href,
+          target: '_blank'
+        })
+      ))
     }
 
     return h('div',
@@ -1473,6 +1484,10 @@ const tpl = {
       h('div.bgd.mt-4', ele),
       h('div.map-local',
         h('img.map-img.wow.fadeInUp', {src: './app/images/map_local.png'})
+      ),
+      h('div.text-center.bgd.mb-4.mt-4',
+        h('h2.mb-4', 'Follow us'),
+        share_lst
       )
     );
   },
@@ -1620,6 +1635,9 @@ const tpl = {
       )
     ),
     slides = h('ul.glide__slides'),
+    lang_lst = h('div.row.bgd.mb-4',
+      h('div.col-12.text-center.mb-4', h('h3', 'Code Specialists'))
+    ),
     blog_lst = h('div.row'),
     share_lst = h('div.row'),
     share_items = config.share_block.items,
@@ -1638,6 +1656,16 @@ const tpl = {
     ),h('button.btn.btn-outline-primary', obj.sub)))
 
     item = h('div', item);
+
+    item.append(lang_lst)
+
+    let lang_arr = ['nodejs', 'javascript', 'python', 'html5','css3','php'];
+
+    for (let i = 0; i < lang_arr.length; i++) {
+      lang_lst.append(h('div.col-6.col-md-2',
+        h('div.sh-95.mb-4.lang-ico.ico-'+ lang_arr[i], {title: lang_arr[i]})
+      ))
+    }
 
     item.append(h('div.row.text-center.blnk',
       h('div.col-12',
