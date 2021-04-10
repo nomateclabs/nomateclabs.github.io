@@ -1643,7 +1643,11 @@ const tpl = {
       h('div.col-12',
         h('h2', 'Recent Blog'),
         h('div#g2.glide.ofh',
-          h('glide__track', {'data-glide-el':'track'},blog_lst)
+          h('glide__track', {'data-glide-el':'track'},blog_lst),
+          h('div.glide__arrows', {'data-glide-el': 'controls'},
+            h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
+            h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
+          )
         ),        //blog_lst,
         h('button.btn.btn-outline-primary', {
           onclick(){
@@ -1674,7 +1678,11 @@ const tpl = {
       h('div.col-12',
         h('h2', 'Recent News'),
         h('div#g3.glide.ofh',
-          h('glide__track', {'data-glide-el':'track'},news_lst)
+          h('glide__track', {'data-glide-el':'track'},news_lst),
+          h('div.glide__arrows', {'data-glide-el': 'controls'},
+            h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
+            h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
+          )
         ),
         h('button.btn.btn-outline-primary', {
           onclick(){
