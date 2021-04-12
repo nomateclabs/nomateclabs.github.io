@@ -208,9 +208,9 @@
     "enabled": true,
     "div_id": "disqus_thread",
     "settings": {
-      "src": "blog-4l5uws4c2a",
+      "src": "nomateclabs",
       "language": "en",
-      "site_base_url": "https://localhost"
+      "site_base_url": "https://nomateclabs.com"
     }
   },
   "share": {

@@ -4290,7 +4290,9 @@ li{
 
 .auth-name{
   font-family: 'Oxygen', sans-serif;
-margin-left: .5rem;
+  margin-left: .5rem;
+  cursor: pointer;
+  color: #5454cc;
 }
 
 @media (max-width: 992px){
@@ -4343,7 +4345,6 @@ margin-left: .5rem;
   left: -300px;
   width: 300px;
   height: 100%;
-  background: white;
   box-shadow: 0 0 6px;
   top: 74px;
   overflow: scroll;
@@ -4354,8 +4355,11 @@ margin-left: .5rem;
 
 #sidebar-nav.show{
   left: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background-color: rgb(14 14 14 / 70%);
+  color: #737373;
+  text-shadow: 0 0 1px;
 }
+
 .sb_nav_head{
   border-bottom: 1px solid;
     display: inline-block;
@@ -4733,4 +4737,19 @@ opacity: .7;
 .fadeInUpHalf {
   -webkit-animation-name: fadeInUpHalf;
   animation-name: fadeInUpHalf
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.err-txt{
+    color: #1ff042;
+    animation: blink .1s infinite
 }

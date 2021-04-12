@@ -12,6 +12,8 @@ import { bot_net, rest_range, bread_crumb, welcome_msg, search_box, blog_prev } 
 
 const tpl = {
   build(config){
+
+
     let sidesel = h('div.row'),
     contype = 'container-fluid',
     bc = h('div.row',
@@ -184,7 +186,7 @@ const tpl = {
     sb_nav.append(
       h('div.sb_nav_head',
         h('img.img-fluid.img-logo', {
-          src: config.logo.dark
+          src: config.logo.base
         })
       )
     )
@@ -688,7 +690,17 @@ const tpl = {
     )
   },
   error(){
-    return h('p', 'page not found!')
+    let txt = h('h4.err-txt'),
+    item = h('div.bgd.text-center.p-4',txt),
+    errtxt = 'page not found. have a nice day!!!'.split('');
+
+    for (let i = 0; i < errtxt.length; i++) {
+      setTimeout(function(){
+        txt.textContent+= errtxt[i]
+      },i*250)
+    }
+
+    return item
   },
   footer_links(i,e){
     for (let item in e) {
@@ -1380,7 +1392,7 @@ const tpl = {
 
     return h('div',
       h('div.bgd.mt-4', ele),
-      h('div.row.bgd.p-4.mb-4',
+      h('div.row.bgd.p-4.mb-2.mt-4',
         h('div.col-md-6',
           h('video.img-fluid.special-vid', {
               autoplay: 'autoplay',

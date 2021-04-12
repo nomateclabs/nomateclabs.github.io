@@ -342,10 +342,8 @@ let page = {
   },
   error: function(main, cnf){
     cnf({sidebar: false});
-    if(!pageCache.error){
-      pageCache.error = tpl.error();
-    }
-    main.append(pageCache.error);
+    bgChange(true);
+    main.append(tpl.error());
     return;
   },
   unsubscribe: function(main, cnf){
