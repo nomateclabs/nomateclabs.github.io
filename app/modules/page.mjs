@@ -227,22 +227,29 @@ let page = {
     })
   },
   api: function(main, cnf){
-    cnf({sidebar: true});
+    cnf({sidebar: false});
     bgChange(false);
-    fetch('./app/config/api.json', {
-      method: 'GET',
-      headers: g.headers.json
-    }).then(function(res) {
-      if (res.status >= 200 && res.status < 300) {
-        return res.json();
-      } else {
-        return Promise.reject(new Error(res.statusText))
-      }
-    }).then(function(data) {
-      main.append(tpl.api(data));
-    }).catch(function(err){
-      console.log('Request failed', err)
-    })
+
+    if(!pageCache.api){
+      fetch('./app/config/api.json', {
+        method: 'GET',
+        headers: g.headers.json
+      }).then(function(res) {
+        if (res.status >= 200 && res.status < 300) {
+          return res.json();
+        } else {
+          return Promise.reject(new Error(res.statusText))
+        }
+      }).then(function(data) {
+        pageCache.api = tpl.api(data)
+        main.append(pageCache.api);
+      }).catch(function(err){
+        console.log('Request failed', err)
+      })
+    } else {
+      main.append(pageCache.api);
+    }
+
   },
   post: function(main, cnf){
     cnf({sidebar: true});
@@ -334,8 +341,11 @@ let page = {
     return;
   },
   error: function(main, cnf){
-    cnf({sidebar: true});
-    main.append(tpl.error());
+    cnf({sidebar: false});
+    if(!pageCache.error){
+      pageCache.error = tpl.error();
+    }
+    main.append(pageCache.error);
     return;
   },
   unsubscribe: function(main, cnf){

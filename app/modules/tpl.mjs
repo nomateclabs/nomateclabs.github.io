@@ -1047,143 +1047,152 @@ const tpl = {
       h('div.card-body.wow.fadeInUp',
         h('div.row',
           h('div.col-md-6.align-self-center',
-            h('h3.text-center.text-white', 'signup to our news letter')
+            h('video.img-fluid.signup-vid', {
+                autoplay: 'autoplay',
+                loop: true,
+                muted: true
+              },
+              h('source', {src: './app/mov/x.mp4'})
+            )
           ),
-          h('div.col-md-6',
-            h('form',
-              h('div.form-group.form-group-sm.mb-3',
-                h('input.form-control.tinput', {
-                  type: 'email',
-                  placeholder: 'enter email...'
-                })
-              )
-            ),
-            h('div.w-100',
-              h('button.btn.btn-outline-primary.btn-sm.btn-block', {
-                onclick(){
-                  let dest = this.parentNode;
-                  this.setAttribute('disabled', true);
-                  utils.empty(this);
-                  this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
-                  setTimeout(function(){
-                    utils.empty(dest);
-                    dest.append(new rest_range())
-                  },3000)
-                }
-              },'i am not a robot')
-            ),
-            h('input.bnet', {
-              type: 'text',
-              onchange(){
-                ls.set('is_bot', true);
-              }
-            }),
-            h('button#rest-submit.btn.btn-outline-primary.btn-block.btn-sm.hidden', {
-              type: 'button',
-              onclick(){
-                if(ls.get('is_bot')){
-                  return;
-                }
-                if(this.previousSibling.value !== ''){
-                  return ls.set('is_bot', true);
-                }
-
-                let $this = this,
-                obj = {
-                  name: $this.parentNode.firstChild.firstChild.lastChild.value,
-                  email: $this.parentNode.firstChild.lastChild.lastChild.value
-                },
-                hdiv = $this.nextSibling;
-
-                if(!utils.is_email(obj.email)){
-                  hdiv.style.color = 'red';
-                  return hdiv.innerText = 'invalid email address';
-                }
-
-                if(!utils.is_letters(obj.name)){
-                  hdiv.style.color = 'red';
-                  return hdiv.innerText = 'name can only contain letters';
-                }
-
-                this.setAttribute('disabled', true);
-
-                utils.empty(this);
-                this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Encrypting...')
-
-                fetch('./app/config/cert.json', {
-                  method: 'GET',
-                  headers: g.headers.json
-                }).then(function(res) {
-                  if (res.status >= 200 && res.status < 300) {
-                    return res.json();
-                  } else {
-                    return Promise.reject(new Error(res.statusText));
+          h('div.col-md-6.d-flex.align-items-center.justify-content-center',
+            h('span',
+              h('form',
+                h('h3.text-center.text-white', 'signup to our news letter'),
+                h('div.form-group.form-group-sm.mb-3',
+                  h('input.form-control.tinput', {
+                    type: 'email',
+                    placeholder: 'enter email...'
+                  })
+                )
+              ),
+              h('div.w-100',
+                h('button.btn.btn-outline-primary.btn-sm.btn-block', {
+                  onclick(){
+                    let dest = this.parentNode;
+                    this.setAttribute('disabled', true);
+                    utils.empty(this);
+                    this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
+                    setTimeout(function(){
+                      utils.empty(dest);
+                      dest.append(new rest_range())
+                    },3000)
                   }
-                }).then(function(rsakey) {
-                  rsakey = rsakey.RSA_OAEP.subscribe;
+                },'i am not a robot')
+              ),
+              h('input.bnet', {
+                type: 'text',
+                onchange(){
+                  ls.set('is_bot', true);
+                }
+              }),
+              h('button#rest-submit.btn.btn-outline-primary.btn-block.btn-sm.hidden', {
+                type: 'button',
+                onclick(){
+                  if(ls.get('is_bot')){
+                    return;
+                  }
+                  if(this.previousSibling.value !== ''){
+                    return ls.set('is_bot', true);
+                  }
 
-                  enc.rsa_oaep_enc(rsakey, {data: JSON.stringify(obj), u8: false, sha: '512'}, function(err, ctext){
-                    if(err){
-                      g.ce(err)
-                      return $this.innerHTML = 'unable to subscribe';
-                    }
-                    obj = {
-                      data: enc.u82hex(ctext)
-                    }
+                  let $this = this,
+                  obj = {
+                    name: $this.parentNode.firstChild.firstChild.lastChild.value,
+                    email: $this.parentNode.firstChild.lastChild.lastChild.value
+                  },
+                  hdiv = $this.nextSibling;
 
-                    enc.sha({data: navigator.userAgent, hash: 256}, function(err, res){
+                  if(!utils.is_email(obj.email)){
+                    hdiv.style.color = 'red';
+                    return hdiv.innerText = 'invalid email address';
+                  }
+
+                  if(!utils.is_letters(obj.name)){
+                    hdiv.style.color = 'red';
+                    return hdiv.innerText = 'name can only contain letters';
+                  }
+
+                  this.setAttribute('disabled', true);
+
+                  utils.empty(this);
+                  this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Encrypting...')
+
+                  fetch('./app/config/cert.json', {
+                    method: 'GET',
+                    headers: g.headers.json
+                  }).then(function(res) {
+                    if (res.status >= 200 && res.status < 300) {
+                      return res.json();
+                    } else {
+                      return Promise.reject(new Error(res.statusText));
+                    }
+                  }).then(function(rsakey) {
+                    rsakey = rsakey.RSA_OAEP.subscribe;
+
+                    enc.rsa_oaep_enc(rsakey, {data: JSON.stringify(obj), u8: false, sha: '512'}, function(err, ctext){
                       if(err){
                         g.ce(err)
                         return $this.innerHTML = 'unable to subscribe';
                       }
-                      obj.key = config.mail.subscribe + res;
-                      setTimeout(function(){
-                        utils.empty($this);
-                        $this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...')
+                      obj = {
+                        data: enc.u82hex(ctext)
+                      }
 
-                        fetch([config.base_url,'subscribe'].join('/'), {
-                          method: 'POST',
-                          headers: g.headers.json_cors,
-                          body: JSON.stringify(obj)
-                        }).then(function(res) {
-                          if (res.status >= 200 && res.status < 300) {
-                            return res.json();
-                          } else {
-                            return Promise.reject(new Error(res.statusText))
-                          }
-                        }).then(function(data) {
-                          if(data.msg && data.msg !== ''){
-                            setTimeout(function(){
-                              $this.innerHTML = data.msg;
-                              setTimeout(function(){
-                                document.getElementById('rest-signup').remove();
-                              },3000)
-                            },1000)
-                          } else {
-                            $this.innerHTML = 'unable to subscribe'
-                          }
-
-                          if(data.success){
-                            ls.set('is_subscribed', true)
-                          }
-                        }).catch(function(err){
+                      enc.sha({data: navigator.userAgent, hash: 256}, function(err, res){
+                        if(err){
                           g.ce(err)
-                          $this.innerHTML = 'unable to subscribe'
-                        })
-                      },1000)
+                          return $this.innerHTML = 'unable to subscribe';
+                        }
+                        obj.key = config.mail.subscribe + res;
+                        setTimeout(function(){
+                          utils.empty($this);
+                          $this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...')
+
+                          fetch([config.base_url,'subscribe'].join('/'), {
+                            method: 'POST',
+                            headers: g.headers.json_cors,
+                            body: JSON.stringify(obj)
+                          }).then(function(res) {
+                            if (res.status >= 200 && res.status < 300) {
+                              return res.json();
+                            } else {
+                              return Promise.reject(new Error(res.statusText))
+                            }
+                          }).then(function(data) {
+                            if(data.msg && data.msg !== ''){
+                              setTimeout(function(){
+                                $this.innerHTML = data.msg;
+                                setTimeout(function(){
+                                  document.getElementById('rest-signup').remove();
+                                },3000)
+                              },1000)
+                            } else {
+                              $this.innerHTML = 'unable to subscribe'
+                            }
+
+                            if(data.success){
+                              ls.set('is_subscribed', true)
+                            }
+                          }).catch(function(err){
+                            g.ce(err)
+                            $this.innerHTML = 'unable to subscribe'
+                          })
+                        },1000)
 
 
+                      })
                     })
+
+                  }).catch(function(err){
+                    g.ce(err)
+                    $this.innerHTML = 'unable to subscribe'
                   })
 
-                }).catch(function(err){
-                  g.ce(err)
-                  $this.innerHTML = 'unable to subscribe'
-                })
-
-              }
-            }, 'signup'),
-            h('small.mt-2')
+                }
+              }, 'signup'),
+              h('small.mt-2')
+            )
           )
         )
       )
@@ -1371,8 +1380,25 @@ const tpl = {
 
     return h('div',
       h('div.bgd.mt-4', ele),
+      h('div.row.bgd.p-4.mb-4',
+        h('div.col-md-6',
+          h('video.img-fluid.special-vid', {
+              autoplay: 'autoplay',
+              loop: true,
+              muted: true
+            },
+            h('source', {src: './app/mov/contact.mp4'})
+          )
+        ),
+        h('div.col-md-6.d-flex.align-items-center.justify-content-center',
+          h('span.text-center.text-md-right.p-4',
+            h('h2.light-txt', 'Contact us'),
+            h('h3', 'We are a on standbye and awaiting to hear from you.')
+          )
+        )
+      ),
       h('div.map-local',
-        h('img.map-img.wow.fadeInUp', {src: './app/images/map_local.png'})
+        h('img.map-img.wow.fadeInUpHalf', {src: './app/images/map_local.png'})
       ),
       h('div.text-center.bgd.mb-4.mt-4',
         h('h2.mb-4', 'Follow us'),
@@ -1494,31 +1520,73 @@ const tpl = {
     return item;
   },
   about(){
-    let item = h('div.row.mb-4')
+    let item = h('div.row.mb-4.mt-4'),
+    vid = h('div.row.bgd.p-4.mb-4',
+      h('div.col-md-6.d-flex.align-items-center.justify-content-center',
+        h('span.text-center.text-md-left.p-4',
+          h('h2.light-txt.mb-2', 'Web Specialists'),
+          h('h3', 'We are a global software development company that specializes in web-technologies')
+        )
+      ),
+      h('div.col-md-6',
+        h('video.img-fluid.op-1', {
+            autoplay: 'autoplay',
+            loop: true,
+            muted: true
+          },
+          h('source', {src: './app/mov/world.mp4'})
+        )
+      )
+    ),
+    vid2 = h('div.row.bgd.p-4.mb-4',
+      h('div.col-md-6',
+        h('video.img-fluid.op-1', {
+            autoplay: 'autoplay',
+            loop: true,
+            muted: true
+          },
+          h('source', {src: './app/mov/world2.mp4'})
+        )
+      ),
+      h('div.col-md-6.d-flex.align-items-center.justify-content-center',
+        h('span.text-center.text-md-right.p-4',
+          h('h2.light-txt', 'Some header'),
+          h('h3', 'We are a global software development company that specializes in web-technologies')
+        )
+      )
+    )
 
     utils.get('data/about', function(err, data){
       if(err){return console.error(err)}
       item.append(
-        h('div.col-md-12.col-lg-6.text-center.light-sec.wow.fadeInLeft',
-          h('h3.mb-4', data.sect1.head),
-          h('p', data.sect1.txt)
+        h('div.col-md-12.col-lg-6.text-center.wow.fadeInLeft.p-2',
+          h('div.light-sec',
+            h('h3.mb-4', data.sect1.head),
+            h('p', data.sect1.txt)
+          )
         ),
-        h('div.col-md-12.col-lg-6.text-center.dark-sec.wow.fadeInDown',
-          h('h3.mb-4', data.sect2.head),
-          h('p', data.sect2.txt)
+        h('div.col-md-12.col-lg-6.text-center.wow.fadeInDown.p-2',
+          h('div.dark-sec',
+            h('h3.mb-4', data.sect2.head),
+            h('p', data.sect2.txt)
+          )
         ),
-        h('div.col-md-12.col-lg-6.text-center.dark-sec.wow.fadeInUp',
-          h('h3.mb-4', data.sect3.head),
-          h('p', data.sect3.txt)
+        h('div.col-md-12.col-lg-6.text-center.wow.fadeInUp.p-2',
+          h('div.dark-sec',
+            h('h3.mb-4', data.sect3.head),
+            h('p', data.sect3.txt)
+          )
         ),
-        h('div.col-md-12.col-lg-6.text-center.light-sec.wow.fadeInRight',
-          h('h3.mb-4', data.sect4.head),
-          h('p', data.sect4.txt)
+        h('div.col-md-12.col-lg-6.text-center.wow.fadeInRight.p-2',
+          h('div.light-sec',
+            h('h3.mb-4', data.sect4.head),
+            h('p', data.sect4.txt)
+          )
         )
       )
     })
 
-    return h('div', item);
+    return h('div', vid, item, vid2);
   },
   home(config){
 

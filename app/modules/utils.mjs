@@ -6,6 +6,7 @@ import { idb } from "/app/modules/idb.mjs";
 import { enc } from "/app/modules/enc.mjs";
 
 //utils.load_cached({index: 'cache', id: "discus_count", })
+
 const utils = {
   rnd(items){
     return items[Math.floor(Math.random()*items.length)];

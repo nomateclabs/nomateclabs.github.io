@@ -107,8 +107,6 @@ const events = {
         bcdest = bcdest.replace(/_/g, ' ')
       }
 
-
-      //new WOW().init()
       ttl.textContent = utils.capitalize(bcdest);
       main.innerHTML = '';
       document.title = dest[0];

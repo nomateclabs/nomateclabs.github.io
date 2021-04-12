@@ -4675,13 +4675,62 @@ padding: 3rem 0;
 }
 .map-img{
   width: 100%;
-  opacity: .5;
   padding: 1rem;
   background: black;
+  opacity: .5;
 }
 
 .lang-ico{
   text-align: center;
 font-size: 3rem;
 opacity: .7;
+}
+
+.signup-vid{
+  opacity: .5;
+}
+
+.special-vid{
+  opacity: .3;
+}
+
+.op-1{
+  opacity: .1;
+}
+
+.light-txt{
+  color: #c7c7c7
+}
+
+@-webkit-keyframes fadeInUpHalf {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+
+  to {
+    opacity: .5;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+@keyframes fadeInUpHalf {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+
+  to {
+    opacity: .5;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+.fadeInUpHalf {
+  -webkit-animation-name: fadeInUpHalf;
+  animation-name: fadeInUpHalf
 }
