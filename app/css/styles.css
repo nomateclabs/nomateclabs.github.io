@@ -4560,6 +4560,7 @@ padding: 3rem 0;
     padding-bottom: 3rem;
     padding-top: 3rem;
     margin-bottom: 3rem;
+        box-shadow: 0 0 12px rgb(255 255 255 / 80%);
 }
 
 .srv-ico{
