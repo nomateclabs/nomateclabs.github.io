@@ -1553,7 +1553,11 @@ const tpl = {
         h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
         h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
       )
-    ),h('button.btn.btn-outline-primary', obj.sub)))
+    ),h('button.btn.btn-outline-dark', obj.sub,{
+      onclick(){
+        location.hash = '/services'
+      }
+    })))
 
     item = h('div', item);
 
