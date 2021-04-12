@@ -1,1 +1,3 @@
-navigator.serviceWorker.register('./sw.js').then(function(reg){location.reload();})
+navigator.serviceWorker.register('./sw.js').then(function(reg){
+  location.reload();
+})

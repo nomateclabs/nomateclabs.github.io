@@ -1,21 +1,19 @@
-{
+[{
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "name": "Site name",
-  "url": "http://example.com",
-  "sameAs": ["https://facebook.com/page", "https://plus.google.com/site", "https://twitter.com/name"],
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "http://example.com/pages/search_results?q={search_term}",
-    "query-input": "required name=search_term"
-  },
+  "name": "Nomatec Labs",
+  "url": "https://www.nomateclabs.com",
+  "sameAs": ["https://www.nomateclabs.com.au"]
+},
+{
+"@context": "http://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1,
       "item": {
         "@type": "WebSite",
-        "@id": "https://example.com",
+        "@id": "https://nomateclabs.com",
         "name": "Website Name"
       }
     },
@@ -24,8 +22,8 @@
       "position": 2,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/blog",
-        "name": "Blog"
+        "@id": "https://nomateclabs.com/#/services",
+        "name": "About"
       }
     },
     {
@@ -33,8 +31,8 @@
       "position": 3,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/news/",
-        "name": "News"
+        "@id": "https://nomateclabs.com/#/about",
+        "name": "About"
       }
     },
     {
@@ -42,7 +40,7 @@
       "position": 4,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/sitemap",
+        "@id": "https://nomateclabs.com/#/sitemap",
         "name": "Sitemap"
       }
     },
@@ -51,7 +49,7 @@
       "position": 5,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/api",
+        "@id": "https://nomateclabs.com/#/api",
         "name": "Api"
       }
     },
@@ -60,7 +58,7 @@
       "position": 6,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/rss_atom",
+        "@id": "https://nomateclabs.com/#/rss_atom",
         "name": "RSS/ATOM"
       }
     },
@@ -69,7 +67,7 @@
       "position": 7,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/feed",
+        "@id": "https://nomateclabs.com/#/feed",
         "name": "Feed"
       }
     },
@@ -78,7 +76,7 @@
       "position": 8,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/contact",
+        "@id": "https://nomateclabs.com/#/contact",
         "name": "Contact"
       }
     },
@@ -87,7 +85,7 @@
       "position": 9,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/list/categories",
+        "@id": "https://nomateclabs.com/#/list/categories",
         "name": "Categories"
       }
     },
@@ -96,9 +94,70 @@
       "position": 10,
       "item": {
         "@type": "WebPage",
-        "@id": "https://example.com/#/list/tags",
+        "@id": "https://nomateclabs.com/#/list/tags",
         "name": "Tags"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://nomateclabs.com/#/blog",
+        "name": "Blog"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://nomateclabs.com/#/news",
+        "name": "News"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://nomateclabs.com/#/terms",
+        "name": "Terms"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "WebPage",
+        "@id": "https://nomateclabs.com/#/home",
+        "name": "Home"
       }
     }
   ]
-}
+},{
+  "@context": "http://schema.org/",
+  "@type": "ProfessionalService",
+  "@id": "https://www.nomateclabs.com",
+  "name": "Nomatec Labs",
+  "image": "https://www.nomateclabs.com/app/images/logo_1280x640.png",
+  "telephone": "+61477590110",
+  "url": "https://www.nomateclabs.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7 AITKEN CRES",
+    "addressLocality": "Melbourne",
+    "addressRegion": "Victoria",
+    "postalCode": "3000",
+    "addressCountry": "Australia"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "02:00"
+    }
+  ],
+  "sameAs": ["https://www.facebook.com/Nomatec-Labs-102083311959313", "https://twitter.com/nomateclabs"]
+}]

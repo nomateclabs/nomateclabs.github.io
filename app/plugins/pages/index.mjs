@@ -105,6 +105,7 @@ let config = ls.get('config');
 
 main.append(
     tpl.services(config.services.main),
+    tpl.serviceEles(config.service_ico),
     tpl.countr(config.counters.main)
 );},about: function(main, cnf){cnf({sidebar: false});bgChange(true);
 

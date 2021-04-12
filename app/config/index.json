@@ -258,7 +258,7 @@
       },
       {
         "title": "follow us on youtube",
-        "href": "https://youtube.com/nomateclabs",
+        "href": "https://www.youtube.com/channel/UC9QK0rA-lNkpZM4ErqFuOZQ",
         "icon": "fa-youtube",
         "class": "share_youtube"
       }
@@ -447,5 +447,31 @@
         "ico": "fa-code"
       }]
     }
-  }
+  },
+  "service_ico": [
+    "amazonaws","angular","apachecordova","atom","drupal",
+    "electron","ghost","git","json","magento","mongodb",
+    "mysql","postgresql","prestashop","redis","sass","shopify",
+    "stylus","vue-js","wordpress","joomla","javascript",
+    "css3","html5","php","python","nodejs","adobe","algolia",
+    "amazonalexa","amazon","android","apache","apple","applepay",
+    "archlinux","arduino","baidu","babel","bing","bitbucket",
+    "bitcoin","blogger","bootstrap","bower","centos","cisco",
+    "cloudflare","codacy","coffeescript","composer","cpanel",
+    "curl","dot-js","debian","digitalocean","directus","discord",
+    "discourse","disqus","django","docker","ebay","elasticsearch",
+    "ember-js","facebook","fedora","firebase","flask","flickr",
+    "foursquare","freebsd","github","gitlab","gnome","google",
+    "googleanalytics","googlecloud","googlepay","googleplay",
+    "grav","gravatar","greensock","gulp","heroku","hexo","homeassistant",
+    "instagram","ionic","ios","jekyll","jinja","jquery","jsdelivr",
+    "kubernetes","laravel","launchpad","letsencrypt","linkedin","linux",
+    "linuxmint","mailchimp","markdown","microsoftazure","minutemailer",
+    "nginx","node-red","nodemon","npm","openssl","opensuse","openvpn",
+    "oracle","paypal","pinterest","raspberrypi","react","redhat",
+    "redux","rss","socket-io","soundcloud","spotify","squarespace",
+    "strapi","stripe","tencentqq","tencentweibo","tor","twitter",
+    "typescript","typo3","ubuntu","uikit","webpack","wechat","whatsapp",
+    "windows","wish","wix","youtube"
+  ]
 }

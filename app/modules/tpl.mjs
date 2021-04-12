@@ -83,8 +83,9 @@ const tpl = {
 
     for (let i = 0; i < arr.length; i++) {
       x.append(h('i.top-ico.sh-95.fa.'+ arr[i].icon, {
-        href: arr[i].href,
-        target: '_blank',
+        onclick(){
+          window.open(arr[i].href)
+        },
         title: arr[i].title
       }))
     }
@@ -1337,7 +1338,7 @@ const tpl = {
     let item = h('div.col-12.col-md-6.col-lg-4.text-center',
       h('div.card.mb-3.usrcrd.wow.fadeInUp',
         h('div.card-content',
-          h('div.bg-white.rounded.shadow-sm.py-5.px-4',
+          h('div.rounded.shadow-sm.py-5.px-4',
             h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
             h('h5.mb-0',i.name,),
             h('h3.small.text-uppercase.text-muted', i.title),
@@ -1351,27 +1352,6 @@ const tpl = {
   contact(){
 
     let config = ls.get('config'),
-    name_imp = h('input.form-control', {
-      type: 'text',
-      placeholder: 'enter name'
-    }),
-    email_imp = h('input.form-control', {
-      type: 'email',
-      placeholder: 'enter email'
-    }),
-    msg_count = h('small.form-text.text-muted', '0'),
-    msg_imp = h('textarea.form-control', {
-      rows: 6,
-      placeholder: 'enter message',
-      onchange: function(){
-        let msg = this.value;
-        msg_count.innerText = msg.length;
-      },
-      onkeyup: function(){
-        let msg = this.value;
-        msg_count.innerText = msg.length;
-      }
-    }),
     ele = h('div.row.justify-content-around'),
     share_lst = h('div.row'),
     share_items = config.share_block.items;
@@ -1390,97 +1370,6 @@ const tpl = {
     }
 
     return h('div',
-      h('div.bgd',
-        h('div.container',
-            h('div.card.wow.fadeInUp',
-              h('div.card-body',
-                h('h3.text-center', 'Contact form'),
-                h('form.row',
-                  h('div.col-md-6',
-                    h('div.form-group',
-                      name_imp
-                    )
-                  ),
-                  h('div.col-md-6',
-                    h('div.form-group',
-                      email_imp
-                    )
-                  ),
-                  h('div.col-12',
-                    h('div.form-group',
-                      msg_imp,
-                      msg_count
-                    )
-                  ),
-                  h('div.col-12',
-                    h('button.btn.btn-outline-primary.btn-block', {
-                      onclick: function(){
-                        let dest = this.parentNode;
-                        this.setAttribute('disabled', true);
-                        utils.empty(this);
-                        this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Loading...')
-                        setTimeout(function(){
-                          utils.empty(dest);
-                          dest.append(new rest_range())
-                        },3000)
-                      }
-                    },'i am not a robot')
-                  ),
-                  h('input.bnet', {
-                    type: 'text',
-                    onchange: function(){
-                      ls.set('is_bot', true);
-                    }
-                  }),
-                  h('button#rest-submit.btn.btn-outline-primary.btn-block.hidden', {
-                    type: 'button',
-                    onclick: function(){
-                      if(ls.get('is_bot')){
-                        return;
-                      }
-                      if(this.previousSibling.value !== ''){
-                        return ls.set('is_bot', true);
-                      }
-
-                      let $this = this,
-                      max_len = config.nomatec_rest.contact.max_len,
-                      min_len = config.nomatec_rest.contact.min_len,
-                      obj = {
-                        name: name_imp.value,
-                        email: email_imp.value,
-                        msg: msg_imp.value
-                      },
-                      hdiv = $this.nextSibling;
-
-
-                      if(!utils.is_email(obj.email)){
-                        hdiv.style.color = 'red';
-                        return hdiv.innerText = 'invalid email address';
-                      }
-
-                      if(!utils.is_letters(obj.name)){
-                        hdiv.style.color = 'red';
-                        return hdiv.innerText = 'name can only contain letters';
-                      }
-
-                      if(obj.msg.length <  min_len || obj.msg.length > max_len){
-                        hdiv.style.color = 'red';
-                        return hdiv.innerText = 'message must be between '+ min_len +' - '+ max_len + ' characters';
-                      }
-
-                      this.setAttribute('disabled', true);
-                      utils.empty(this);
-                      this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'sending message...');
-
-
-                    }
-                  }, 'send'),
-                  h('small.mt-2')
-                )
-              )
-            )
-          )
-      ),
       h('div.bgd.mt-4', ele),
       h('div.map-local',
         h('img.map-img.wow.fadeInUp', {src: './app/images/map_local.png'})
@@ -1508,7 +1397,7 @@ const tpl = {
       ))
     }
 
-
+    setTimeout(function(){
       var waypoint = new Waypoint({
         element: item,
         handler: function(direction) {
@@ -1535,8 +1424,7 @@ const tpl = {
         },
         offset: '50%'
       })
-
-
+    },2000)
 
     return item;
 
@@ -1573,6 +1461,18 @@ const tpl = {
         h('p.mt-3', arr.sub)
       )
     )
+
+    return item;
+  },
+  serviceEles(arr){
+
+    let item = h('div.row.text-center.justify-content-center.bgd.mb-4')
+
+    for (let i = 0; i < arr.length; i++) {
+      item.append(h('div.col-sm-4.col-md-3.col-lg-2',
+        h('i.srv-ico.wow.fadeIn.ico-'+arr[i],{title: arr[i]})
+      ))
+    }
 
     return item;
   },
