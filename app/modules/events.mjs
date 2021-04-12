@@ -108,7 +108,7 @@ const events = {
       }
 
 
-      new WOW().init()
+      //new WOW().init()
       ttl.textContent = utils.capitalize(bcdest);
       main.innerHTML = '';
       document.title = dest[0];

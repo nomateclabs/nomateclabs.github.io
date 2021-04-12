@@ -1469,7 +1469,7 @@ const tpl = {
     let item = h('div.row.text-center.justify-content-center.bgd.mb-4')
 
     for (let i = 0; i < arr.length; i++) {
-      item.append(h('div.col-sm-4.col-md-3.col-lg-2',
+      item.append(h('div.col-4.col-md-3.col-lg-2',
         h('i.srv-ico.wow.fadeIn.ico-'+arr[i],{title: arr[i]})
       ))
     }
