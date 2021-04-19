@@ -12,17 +12,20 @@
     "url": "https://embed.tawk.to",
     "api": "604ab4ae385de407571f3cab/1f0ht3ivf"
   },
-  "users": [{
-    "name": "Ben Eaves",
-    "img": "./app/images/author/avatar.jpeg",
-    "title": "CEO | Founder | Lead Developer",
-    "contact": "support@nomateclabs.com"
-  },{
-    "name": "Andrew Laird",
-    "img": "./app/images/author/avatar.jpeg",
-    "title": "CEO | Founder | Sales",
-    "contact": "contact@nomateclabs.com"
-  }],
+  "users": [
+    {
+      "name": "Ben Eaves",
+      "img": "./app/images/author/avatar.jpeg",
+      "title": "CEO | Founder | Lead Developer",
+      "contact": "support@nomateclabs.com"
+    },
+    {
+      "name": "Andrew Laird",
+      "img": "./app/images/author/avatar.jpeg",
+      "title": "CEO | Founder | Sales",
+      "contact": "contact@nomateclabs.com"
+    }
+  ],
   "seo": {
     "org": {
       "name": "Nomatec Labs",
@@ -79,18 +82,18 @@
   ],
   "footer_nav": {
     "left": {
-      "contact": "contact",
       "history": "history",
       "saved": "saved",
       "categories": "categories",
-      "tags": "tags"
+      "tags": "tags",
+      "api": "api"
     },
     "right": {
-      "api": "api",
-      "feed": "feed",
-      "rss_atom": "rss/atom",
+      "faq": "faq",
       "sitemap": "sitemap",
-      "terms": "terms"
+      "terms": "terms",
+      "feed": "feed",
+      "rss_atom": "rss/atom"
     }
   },
   "logo": {
@@ -309,173 +312,330 @@
     "Categories": "list/categories",
     "Tags": "list/tags"
   },
-  "counters":{
+  "counters": {
     "main": {
       "title": "",
-      "count": [6666, 4573, 99999, 7777],
-      "items": [{
-        "txt": "Happy customers.",
-        "ico": "fa-heart"
-      },{
-        "txt": "Websites hosted.",
-        "ico": "fa-cloud"
-      },{
-        "txt": "Hours worked.",
-        "ico": "fa-clock-o"
-      },{
-        "txt": "Happy customers.",
-        "ico": "fa-cogs"
-      }]
+      "count": [
+        6666,
+        4573,
+        99999,
+        7777
+      ],
+      "items": [
+        {
+          "txt": "Happy customers.",
+          "ico": "fa-heart"
+        },
+        {
+          "txt": "Websites hosted.",
+          "ico": "fa-cloud"
+        },
+        {
+          "txt": "Hours worked.",
+          "ico": "fa-clock-o"
+        },
+        {
+          "txt": "Happy customers.",
+          "ico": "fa-cogs"
+        }
+      ]
     }
   },
-  "services":{
+  "services": {
     "main": {
       "head": "Services",
       "sub": "Services we offer.",
-      "items": [{
-        "head": "Web Development",
-        "sub": "We specialize in all areas of web development.",
-        "ico": "fa-code"
-      },{
-        "head": "Web Hosting",
-        "sub": "We have web hosting solutions to suit all of your hosting needs.",
-        "ico": "fa-server"
-      },{
-        "head": "Web admin and management",
-        "sub": "We can fully manage your web and app based needs.",
-        "ico": "fa-laptop"
-      },{
-        "head": "Web framework development",
-        "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
-        "ico": "fa-code"
-      },{
-        "head": "Web maintenance and updates",
-        "sub": "We offer services to setup, automate and maintain your web and app based needs.",
-        "ico": "fa-wrench"
-      },{
-        "head": "Hybrid Mobile Applications",
-        "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
-        "ico": "fa-mobile"
-      },{
-        "head": "Hybrid Desktop Applications",
-        "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
-        "ico": "fa-laptop"
-      },{
-        "head": "Browser plugins",
-        "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
-        "ico": "fa-chrome"
-      },{
-        "head": "Single page applications (SPA)",
-        "sub": "We specialize in the development of single page applications.",
-        "ico": "fa-file-code-o"
-      },{
-        "head": "Progressive web applications (PWA)",
-        "sub": "We specialize in the development of Progressive web applications, for both online and offline usage",
-        "ico": "fa-file-code-o"
-      },{
-        "head": "Ecommerce / Forum / Blog",
-        "sub": "We develop mobile, desktop and websites/applications for all of your Ecommerce/Forum/Blog needs. We can integrate your cms of choice or create one tailored to your specific needs",
-        "ico": "fa-wordpress"
-      },{
-        "head": "SEO",
-        "sub": "We offer SEO services on a per site basis designed to maximize or minimize your web coverage.",
-        "ico": "fa-line-chart"
-      },{
-        "head": "Database management",
-        "sub": "We offer a fully managed database management and backup service.",
-        "ico": "fa-database"
-      },{
-        "head": "Database migrations",
-        "sub": "We offer a service to handle migrations between different database types and/or code re-write for database compatibility.",
-        "ico": "fa-database"
-      },{
-        "head": "Code migrations",
-        "sub": "We offer a service for complete code re-writes from one code lanuage to another.",
-        "ico": "fa-code"
-      },{
-        "head": "Security hardening",
-        "sub": "We offer security hardening reviews and code re-writes for select front-end and back-end code languages.",
-        "ico": "fa-shield"
-      },{
-        "head": "Penetration testing",
-        "sub": "We offer a penetration testing service using the latest technologies.",
-        "ico": "fa-flash"
-      },{
-        "head": "Reverse Engineering",
-        "sub": "Lost your source code or have been locked out of your app or service? We offer reverse engineering solutions to recreate your app or service.",
-        "ico": "fa-code"
-      },{
-        "head": "Consultations",
-        "sub": "We offer a variety of free and paid consultation services.",
-        "ico": "fa-thumbs-o-up"
-      }]
+      "items": [
+        {
+          "head": "Web Development",
+          "sub": "We specialize in all areas of web development.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web Hosting",
+          "sub": "We have web hosting solutions to suit all of your hosting needs.",
+          "ico": "fa-server"
+        },
+        {
+          "head": "Web admin and management",
+          "sub": "We can fully manage your web and app based needs.",
+          "ico": "fa-laptop"
+        },
+        {
+          "head": "Web framework development",
+          "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web maintenance and updates",
+          "sub": "We offer services to setup, automate and maintain your web and app based needs.",
+          "ico": "fa-wrench"
+        },
+        {
+          "head": "Hybrid Mobile Applications",
+          "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
+          "ico": "fa-mobile"
+        },
+        {
+          "head": "Hybrid Desktop Applications",
+          "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
+          "ico": "fa-laptop"
+        },
+        {
+          "head": "Browser plugins",
+          "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
+          "ico": "fa-chrome"
+        },
+        {
+          "head": "Single page applications (SPA)",
+          "sub": "We specialize in the development of single page applications.",
+          "ico": "fa-file-code-o"
+        },
+        {
+          "head": "Progressive web applications (PWA)",
+          "sub": "We specialize in the development of Progressive web applications, for both online and offline usage",
+          "ico": "fa-file-code-o"
+        },
+        {
+          "head": "Ecommerce / Forum / Blog",
+          "sub": "We develop mobile, desktop and websites/applications for all of your Ecommerce/Forum/Blog needs. We can integrate your cms of choice or create one tailored to your specific needs",
+          "ico": "fa-wordpress"
+        },
+        {
+          "head": "SEO",
+          "sub": "We offer SEO services on a per site basis designed to maximize or minimize your web coverage.",
+          "ico": "fa-line-chart"
+        },
+        {
+          "head": "Database management",
+          "sub": "We offer a fully managed database management and backup service.",
+          "ico": "fa-database"
+        },
+        {
+          "head": "Database migrations",
+          "sub": "We offer a service to handle migrations between different database types and/or code re-write for database compatibility.",
+          "ico": "fa-database"
+        },
+        {
+          "head": "Code migrations",
+          "sub": "We offer a service for complete code re-writes from one code lanuage to another.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Security hardening",
+          "sub": "We offer security hardening reviews and code re-writes for select front-end and back-end code languages.",
+          "ico": "fa-shield"
+        },
+        {
+          "head": "Penetration testing",
+          "sub": "We offer a penetration testing service using the latest technologies.",
+          "ico": "fa-flash"
+        },
+        {
+          "head": "Reverse Engineering",
+          "sub": "Lost your source code or have been locked out of your app or service? We offer reverse engineering solutions to recreate your app or service.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Consultations",
+          "sub": "We offer a variety of free and paid consultation services.",
+          "ico": "fa-thumbs-o-up"
+        }
+      ]
     },
     "home": {
       "head": "Services we offer",
       "sub": "View All",
-      "items": [{
-        "head": "Web Development",
-        "sub": "We specialize in all areas of web development.",
-        "ico": "fa-code"
-      },{
-        "head": "Web Hosting",
-        "sub": "We have web hosting solutions to suit all of your hosting needs.",
-        "ico": "fa-code"
-      },{
-        "head": "Web admin and management",
-        "sub": "We can fully manage your web and app based needs.",
-        "ico": "fa-code"
-      },{
-        "head": "Web framework development",
-        "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
-        "ico": "fa-code"
-      },{
-        "head": "Web maintenance and updates",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
-      },{
-        "head": "Hybrid Mobile Applications",
-        "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
-        "ico": "fa-code"
-      },{
-        "head": "Hybrid Desktop Applications",
-        "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
-        "ico": "fa-code"
-      },{
-        "head": "Browser plugins",
-        "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
-        "ico": "fa-code"
-      },{
-        "head": "Single page applications (SPA)",
-        "sub": "We specialize in the development of single page applications.",
-        "ico": "fa-code"
-      }]
+      "items": [
+        {
+          "head": "Web Development",
+          "sub": "We specialize in all areas of web development.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web Hosting",
+          "sub": "We have web hosting solutions to suit all of your hosting needs.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web admin and management",
+          "sub": "We can fully manage your web and app based needs.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web framework development",
+          "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Web maintenance and updates",
+          "sub": "What develop mobile applications.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Hybrid Mobile Applications",
+          "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Hybrid Desktop Applications",
+          "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Browser plugins",
+          "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
+          "ico": "fa-code"
+        },
+        {
+          "head": "Single page applications (SPA)",
+          "sub": "We specialize in the development of single page applications.",
+          "ico": "fa-code"
+        }
+      ]
     }
   },
   "service_ico": [
-    "amazonaws","angular","apachecordova","atom","drupal",
-    "electron","ghost","git","json","magento","mongodb",
-    "mysql","postgresql","prestashop","redis","sass","shopify",
-    "stylus","vue-js","wordpress","joomla","javascript",
-    "css3","html5","php","python","nodejs","adobe","algolia",
-    "amazonalexa","amazon","android","apache","apple","applepay",
-    "archlinux","arduino","baidu","babel","bing","bitbucket",
-    "bitcoin","blogger","bootstrap","bower","centos","cisco",
-    "cloudflare","codacy","coffeescript","composer","cpanel",
-    "curl","dot-js","debian","digitalocean","directus","discord",
-    "discourse","disqus","django","docker","ebay","elasticsearch",
-    "ember-js","facebook","fedora","firebase","flask","flickr",
-    "foursquare","freebsd","github","gitlab","gnome","google",
-    "googleanalytics","googlecloud","googlepay","googleplay",
-    "grav","gravatar","greensock","gulp","heroku","hexo","homeassistant",
-    "instagram","ionic","ios","jekyll","jinja","jquery","jsdelivr",
-    "kubernetes","laravel","launchpad","letsencrypt","linkedin","linux",
-    "linuxmint","mailchimp","markdown","microsoftazure","minutemailer",
-    "nginx","node-red","nodemon","npm","openssl","opensuse","openvpn",
-    "oracle","paypal","pinterest","raspberrypi","react","redhat",
-    "redux","rss","socket-io","soundcloud","spotify","squarespace",
-    "strapi","stripe","tencentqq","tencentweibo","tor","twitter",
-    "typescript","typo3","ubuntu","uikit","webpack","wechat","whatsapp",
-    "windows","wish","wix","youtube"
+    "amazonaws",
+    "angular",
+    "apachecordova",
+    "atom",
+    "drupal",
+    "electron",
+    "ghost",
+    "git",
+    "json",
+    "magento",
+    "mongodb",
+    "mysql",
+    "postgresql",
+    "prestashop",
+    "redis",
+    "sass",
+    "shopify",
+    "stylus",
+    "vue-js",
+    "wordpress",
+    "joomla",
+    "javascript",
+    "css3",
+    "html5",
+    "php",
+    "python",
+    "nodejs",
+    "adobe",
+    "algolia",
+    "amazonalexa",
+    "amazon",
+    "android",
+    "apache",
+    "apple",
+    "applepay",
+    "archlinux",
+    "arduino",
+    "baidu",
+    "babel",
+    "bing",
+    "bitbucket",
+    "bitcoin",
+    "blogger",
+    "bootstrap",
+    "bower",
+    "centos",
+    "cisco",
+    "cloudflare",
+    "codacy",
+    "coffeescript",
+    "composer",
+    "cpanel",
+    "curl",
+    "dot-js",
+    "debian",
+    "digitalocean",
+    "directus",
+    "discord",
+    "discourse",
+    "disqus",
+    "django",
+    "docker",
+    "ebay",
+    "elasticsearch",
+    "ember-js",
+    "facebook",
+    "fedora",
+    "firebase",
+    "flask",
+    "flickr",
+    "foursquare",
+    "freebsd",
+    "github",
+    "gitlab",
+    "gnome",
+    "google",
+    "googleanalytics",
+    "googlecloud",
+    "googlepay",
+    "googleplay",
+    "grav",
+    "gravatar",
+    "greensock",
+    "gulp",
+    "heroku",
+    "hexo",
+    "homeassistant",
+    "instagram",
+    "ionic",
+    "ios",
+    "jekyll",
+    "jinja",
+    "jquery",
+    "jsdelivr",
+    "kubernetes",
+    "laravel",
+    "launchpad",
+    "letsencrypt",
+    "linkedin",
+    "linux",
+    "linuxmint",
+    "mailchimp",
+    "markdown",
+    "microsoftazure",
+    "minutemailer",
+    "nginx",
+    "node-red",
+    "nodemon",
+    "npm",
+    "openssl",
+    "opensuse",
+    "openvpn",
+    "oracle",
+    "paypal",
+    "pinterest",
+    "raspberrypi",
+    "react",
+    "redhat",
+    "redux",
+    "rss",
+    "socket-io",
+    "soundcloud",
+    "spotify",
+    "squarespace",
+    "strapi",
+    "stripe",
+    "tencentqq",
+    "tencentweibo",
+    "tor",
+    "twitter",
+    "typescript",
+    "typo3",
+    "ubuntu",
+    "uikit",
+    "webpack",
+    "wechat",
+    "whatsapp",
+    "windows",
+    "wish",
+    "wix",
+    "youtube"
   ]
 }

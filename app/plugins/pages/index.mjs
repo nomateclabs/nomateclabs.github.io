@@ -122,6 +122,11 @@ if(!pageCache.about){
     pageCache.about = tpl.about();
 }
 
-main.append(pageCache.about);}
+main.append(pageCache.about);},faq: function(main, cnf){cnf({sidebar: false});
+let config = ls.get('config');
+
+bgChange(false);
+
+main.append(tpl.faq(config));}
 }
 export { pages }

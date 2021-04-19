@@ -1825,6 +1825,23 @@ const tpl = {
     )
 
     return item;
+  },
+  faq(config){
+
+    let item = h('div.list-group');
+
+    utils.get('config/faq', function(err,res){
+      if(err){return console.error(err)}
+
+      for (let i = 0; i < res.length; i++) {
+        item.append(
+          h('div.list-group-item.list-group-item-primary.wow.fadeInUp', 'Question: '+ res[i].q),
+          h('div.list-group-item.list-group-item.wow.fadeInUp', 'Answer: '+ res[i].a)
+        )
+      }
+
+    })
+    return h('div.p-3', item);
   }
 }
 
