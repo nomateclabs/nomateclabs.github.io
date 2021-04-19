@@ -26,7 +26,7 @@
   "seo": {
     "org": {
       "name": "Nomatec Labs",
-      "img": "https://localhost.com/app/images/lg_50.png",
+      "img": "https://www.nomateclabs.com/app/images/lg_50.png",
       "width": "50",
       "height": "50"
     }
@@ -210,7 +210,7 @@
     "settings": {
       "src": "nomateclabs",
       "language": "en",
-      "site_base_url": "https://nomateclabs.com"
+      "site_base_url": "https://www.nomateclabs.com"
     }
   },
   "share": {
@@ -270,7 +270,7 @@
   },
   "nomatec_rest": {
     "enabled": true,
-    "base_url": "https://localhost:5500/blog",
+    "base_url": "https://www.nomateclabs.com/blog",
     "hitcount": {
       "enabled": false,
       "api": "b81c04950f25897b4087b8c6ee83647a",
