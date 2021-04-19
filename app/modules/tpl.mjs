@@ -1478,8 +1478,7 @@ const tpl = {
           h('i.fa.'+ arr.ico)
         ),
         h('h3.mt-3', arr.head),
-        h('p.mt-3', arr.sub),
-        h('a.btn.btn-outline-primary.mt-3', 'more info')
+        h('p.mt-3', arr.sub)
       )
     )
 
@@ -1640,7 +1639,7 @@ const tpl = {
     })))
 
     item = h('div',
-      
+
       item
     );
 
