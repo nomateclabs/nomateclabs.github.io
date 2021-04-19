@@ -102,12 +102,12 @@ const events = {
       document.getElementById('bc').innerText = bcdest;
 
       if(bcdest === ''){
-        bcdest = 'WELCOME TO NOMATEC LABS'
+        bcdest = '<h2>WELCOME TO NOMATEC LABS</h2><h3>WEB SPECIALISTS</h3>';
       } else {
-        bcdest = bcdest.replace(/_/g, ' ')
+        bcdest = utils.capitalize(bcdest.replace(/_/g, ' '));
       }
 
-      ttl.textContent = utils.capitalize(bcdest);
+      ttl.innerHTML = bcdest;
       main.innerHTML = '';
       document.title = dest[0];
       ls.set('path', dest)

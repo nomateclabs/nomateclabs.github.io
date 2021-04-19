@@ -1639,17 +1639,33 @@ const tpl = {
       }
     })))
 
-    item = h('div', item);
+    item = h('div',
+      
+      item
+    );
 
     item.append(lang_lst)
 
-    let lang_arr = ['nodejs', 'javascript', 'python', 'html5','css3','php'];
+    let lang_arr = ['nodejs', 'javascript', 'python', 'html5','css3','php'],
+    rnd = 0,
+    eles, ico;
 
     for (let i = 0; i < lang_arr.length; i++) {
       lang_lst.append(h('div.col-6.col-md-2',
         h('div.sh-95.mb-4.lang-ico.ico-'+ lang_arr[i], {title: lang_arr[i]})
       ))
     }
+
+    setInterval(function(){
+      if(location.hash === '#/home'){
+        rnd = utils.rnd([1,2,3,4,5,6]);
+        ico = utils.rnd(config.service_ico)
+        eles = lang_lst.children;
+        eles[rnd].firstChild.removeAttribute('class');
+        eles[rnd].firstChild.title = ico;
+        eles[rnd].firstChild.classList.add('sh-95', 'mb-4', 'lang-ico', 'ico-'+ ico)
+      }
+    },1000)
 
     item.append(h('div.row.text-center.blnk',
       h('div.col-12',
