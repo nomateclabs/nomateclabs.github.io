@@ -334,76 +334,80 @@
       "sub": "Services we offer.",
       "items": [{
         "head": "Web Development",
-        "sub": "What develop mobile applications.",
+        "sub": "We specialize in all areas of web development.",
         "ico": "fa-code"
       },{
         "head": "Web Hosting",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We have web hosting solutions to suit all of your hosting needs.",
+        "ico": "fa-server"
       },{
         "head": "Web admin and management",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We can fully manage your web and app based needs.",
+        "ico": "fa-laptop"
       },{
         "head": "Web framework development",
-        "sub": "What develop mobile applications.",
+        "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
         "ico": "fa-code"
       },{
         "head": "Web maintenance and updates",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer services to setup, automate and maintain your web and app based needs.",
+        "ico": "fa-wrench"
       },{
         "head": "Hybrid Mobile Applications",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
+        "ico": "fa-mobile"
       },{
         "head": "Hybrid Desktop Applications",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
+        "ico": "fa-laptop"
       },{
         "head": "Browser plugins",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
+        "ico": "fa-chrome"
       },{
         "head": "Single page applications (SPA)",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We specialize in the development of single page applications.",
+        "ico": "fa-file-code-o"
       },{
         "head": "Progressive web applications (PWA)",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We specialize in the development of Progressive web applications, for both online and offline usage",
+        "ico": "fa-file-code-o"
       },{
         "head": "Ecommerce / Forum / Blog",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We develop mobile, desktop and websites/applications for all of your Ecommerce/Forum/Blog needs. We can integrate your cms of choice or create one tailored to your specific needs",
+        "ico": "fa-wordpress"
       },{
         "head": "SEO",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer SEO services on a per site basis designed to maximize or minimize your web coverage.",
+        "ico": "fa-line-chart"
       },{
         "head": "Database management",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer a fully managed database management and backup service.",
+        "ico": "fa-database"
       },{
         "head": "Database migrations",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer a service to handle migrations between different database types and/or code re-write for database compatibility.",
+        "ico": "fa-database"
       },{
         "head": "Code migrations",
-        "sub": "What develop mobile applications.",
+        "sub": "We offer a service for complete code re-writes from one code lanuage to another.",
         "ico": "fa-code"
       },{
         "head": "Security hardening",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer security hardening reviews and code re-writes for select front-end and back-end code languages.",
+        "ico": "fa-shield"
       },{
         "head": "Penetration testing",
-        "sub": "What develop mobile applications.",
+        "sub": "We offer a penetration testing service using the latest technologies.",
+        "ico": "fa-flash"
+      },{
+        "head": "Reverse Engineering",
+        "sub": "Lost your source code or have been locked out of your app or service? We offer reverse engineering solutions to recreate your app or service.",
         "ico": "fa-code"
       },{
         "head": "Consultations",
-        "sub": "What develop mobile applications.",
-        "ico": "fa-code"
+        "sub": "We offer a variety of free and paid consultation services.",
+        "ico": "fa-thumbs-o-up"
       }]
     },
     "home": {
@@ -411,19 +415,19 @@
       "sub": "View All",
       "items": [{
         "head": "Web Development",
-        "sub": "What develop mobile applications.",
+        "sub": "We specialize in all areas of web development.",
         "ico": "fa-code"
       },{
         "head": "Web Hosting",
-        "sub": "What develop mobile applications.",
+        "sub": "We have web hosting solutions to suit all of your hosting needs.",
         "ico": "fa-code"
       },{
         "head": "Web admin and management",
-        "sub": "What develop mobile applications.",
+        "sub": "We can fully manage your web and app based needs.",
         "ico": "fa-code"
       },{
         "head": "Web framework development",
-        "sub": "What develop mobile applications.",
+        "sub": "We can develop web, mobile, desktop and server based frameworks to suit your needs.",
         "ico": "fa-code"
       },{
         "head": "Web maintenance and updates",
@@ -431,19 +435,19 @@
         "ico": "fa-code"
       },{
         "head": "Hybrid Mobile Applications",
-        "sub": "What develop mobile applications.",
+        "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
         "ico": "fa-code"
       },{
         "head": "Hybrid Desktop Applications",
-        "sub": "What develop mobile applications.",
+        "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
         "ico": "fa-code"
       },{
         "head": "Browser plugins",
-        "sub": "What develop mobile applications.",
+        "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
         "ico": "fa-code"
       },{
         "head": "Single page applications (SPA)",
-        "sub": "What develop mobile applications.",
+        "sub": "We specialize in the development of single page applications.",
         "ico": "fa-code"
       }]
     }
