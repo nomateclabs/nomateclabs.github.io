@@ -4754,3 +4754,7 @@ opacity: .7;
     color: #1ff042;
     animation: blink .1s infinite
 }
+
+cattag-link{
+  font-family: 'Oxygen', sans-serif;
+}

@@ -707,7 +707,6 @@ class side_menu extends HTMLElement {
       sb_item.innerText = obj.items[i];
       sb_item.onclick = function(){
         window.location.hash = '/' + obj.items[i];
-        console.log(location.hash.slice(1))
       }
       sb_body.append(sb_item)
     }

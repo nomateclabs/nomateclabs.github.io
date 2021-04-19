@@ -24,7 +24,6 @@ detect.init(function(err, config){
       let pluggin = config.pluggins.misc;
       events.rout(config, function(err){
         if(err){return g.ce('page not found')};
-        console.log(config)
         workers.init(config, function(){
           events.remove_botnet(config.botnet);
 

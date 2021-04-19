@@ -96,7 +96,6 @@ let page = {
       pagination.init(dest, 'postlist', function(err){
         if(err){return g.ce(err)}
         workers.fetch_item({type:'postlist', page: 1, dest: dest});
-        g.cl(obj)
       });
     }).catch(function(err) {
       console.log('Request failed', err);
@@ -120,7 +119,6 @@ let page = {
         return Promise.reject(new Error(res.statusText))
       }
     }).then(function(data) {
-      g.cl(data)
       main.append(tpl.list({type: d_type, data: data}));
     }).catch(function(err){
       console.log('Request failed', err)
@@ -354,7 +352,6 @@ let page = {
 }
 
 for (let i in pages) {
-  g.cl(i)
   page[i] = pages[i];
 }
 

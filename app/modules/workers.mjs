@@ -131,7 +131,7 @@ const workers = {
       }
 
       if(data.type === 'newslist'){
-        g.cl(data.data)
+    
         let items = data.data,
         item = h('div#newslist');
 

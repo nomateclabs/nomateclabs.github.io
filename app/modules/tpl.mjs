@@ -1130,76 +1130,7 @@ const tpl = {
                   utils.empty(this);
                   this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Encrypting...')
 
-                  fetch('./app/config/cert.json', {
-                    method: 'GET',
-                    headers: g.headers.json
-                  }).then(function(res) {
-                    if (res.status >= 200 && res.status < 300) {
-                      return res.json();
-                    } else {
-                      return Promise.reject(new Error(res.statusText));
-                    }
-                  }).then(function(rsakey) {
-                    rsakey = rsakey.RSA_OAEP.subscribe;
 
-                    enc.rsa_oaep_enc(rsakey, {data: JSON.stringify(obj), u8: false, sha: '512'}, function(err, ctext){
-                      if(err){
-                        g.ce(err)
-                        return $this.innerHTML = 'unable to subscribe';
-                      }
-                      obj = {
-                        data: enc.u82hex(ctext)
-                      }
-
-                      enc.sha({data: navigator.userAgent, hash: 256}, function(err, res){
-                        if(err){
-                          g.ce(err)
-                          return $this.innerHTML = 'unable to subscribe';
-                        }
-                        obj.key = config.mail.subscribe + res;
-                        setTimeout(function(){
-                          utils.empty($this);
-                          $this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...')
-
-                          fetch([config.base_url,'subscribe'].join('/'), {
-                            method: 'POST',
-                            headers: g.headers.json_cors,
-                            body: JSON.stringify(obj)
-                          }).then(function(res) {
-                            if (res.status >= 200 && res.status < 300) {
-                              return res.json();
-                            } else {
-                              return Promise.reject(new Error(res.statusText))
-                            }
-                          }).then(function(data) {
-                            if(data.msg && data.msg !== ''){
-                              setTimeout(function(){
-                                $this.innerHTML = data.msg;
-                                setTimeout(function(){
-                                  document.getElementById('rest-signup').remove();
-                                },3000)
-                              },1000)
-                            } else {
-                              $this.innerHTML = 'unable to subscribe'
-                            }
-
-                            if(data.success){
-                              ls.set('is_subscribed', true)
-                            }
-                          }).catch(function(err){
-                            g.ce(err)
-                            $this.innerHTML = 'unable to subscribe'
-                          })
-                        },1000)
-
-
-                      })
-                    })
-
-                  }).catch(function(err){
-                    g.ce(err)
-                    $this.innerHTML = 'unable to subscribe'
-                  })
 
                 }
               }, 'signup'),
@@ -1439,7 +1370,6 @@ const tpl = {
       var waypoint = new Waypoint({
         element: item,
         handler: function(direction) {
-          console.log(this.id + ' hit');
 
           let ele = document.getElementsByClassName('count-number');
 
@@ -1567,7 +1497,7 @@ const tpl = {
       )
     )
 
-    utils.get('data/about', function(err, data){
+    utils.get('config/about', function(err, data){
       if(err){return console.error(err)}
       item.append(
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInLeft.p-2',
@@ -1634,7 +1564,8 @@ const tpl = {
       )
     ),h('button.btn.btn-outline-dark', obj.sub,{
       onclick(){
-        location.hash = '/services'
+        location.hash = '/services';
+        utils.totop(0);
       }
     })))
 
@@ -1793,7 +1724,7 @@ const tpl = {
           if(!this.classList.contains('active')){
 
             let dest = this.parentNode.children;
-            console.log(dest)
+
             for (let j = 0; j < dest.length; j++) {
               dest[j].classList.remove('active');
             }

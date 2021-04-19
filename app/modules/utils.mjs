@@ -245,7 +245,7 @@ const utils = {
       headers: g.headers.css_cors
     })
     .then(function(res){
-      console.log(res)
+
       if (res.status >= 200 && res.status < 300) {
         return res.text();
       } else {
@@ -289,7 +289,7 @@ const utils = {
         }
       })
       .then(function(data) {
-        console.log(data)
+
         let obj = {
           bot_div: h('div#bot-net'),
           bot_link: h('a'),
@@ -562,7 +562,7 @@ const utils = {
 
     idb.get({index: 'saved', id: 'history'}, function(err,res){
       if(err || !res){res = {id: 'history', items:[]}}
-      console.log(res)
+
       if(!ls.get('history') && res.items.length < 1){
         arr = [];
       } else {

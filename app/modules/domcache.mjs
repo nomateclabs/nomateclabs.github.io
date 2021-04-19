@@ -7,7 +7,6 @@ const domcache = {
           pages:[]
         };
       }
-      console.log(window.domcache)
       cb(false)
     } catch (err) {
       if(err){return cb(err)}
