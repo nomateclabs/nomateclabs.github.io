@@ -255,7 +255,9 @@ const tpl = {
             )
           ),
           h('span',
-            h('span.anc-m.d-lg-none.d-xl-none', 'Nomatec Labs')
+            h('div.anc-m.d-lg-none.d-xl-none',
+              h('img.img-fluid', {src: './app/images/logo_main_light.png'})
+            )
           )
         ),
         navul

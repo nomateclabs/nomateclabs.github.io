@@ -97,9 +97,9 @@
     }
   },
   "logo": {
-    "base": "./app/images/logo_full_light.png",
+    "base": "./app/images/logo_main_light.png",
     "dark": "./app/images/logo_full_dark.png",
-    "min": "./app/images/logo.png"
+    "min": "./app/images/logo/lg_512.png"
   },
   "news": {
     "head_img": "./app/images/blog/default.png",
