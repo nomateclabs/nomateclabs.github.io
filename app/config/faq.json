@@ -1,5 +1,5 @@
 [{
-    "q": "test question",
-    "a": "test answer",
+    "q": "What payment methods do you accept?",
+    "a": "Paypal, Gpay, Skrill, Paysafecard, Paxum, poli payments, wire transfer",
     "h": false
 }]
