@@ -5,7 +5,7 @@ import { sidebar } from '/app/modules/sidebar.mjs';
 import { workers } from "/app/modules/workers.mjs";
 import { events } from "/app/modules/events.mjs";
 import { enc } from "/app/modules/enc.mjs";
-import { ls } from  "/app/modules/storage.mjs";
+import { ls, ss } from  "/app/modules/storage.mjs";
 import { countUp } from  "/app/modules/countUp.mjs";
 import { Waypoint } from  "/app/modules/waypoint.mjs";
 import { bot_net, rest_range, bread_crumb, welcome_msg, search_box, blog_prev } from "/app/modules/components.mjs";
@@ -50,13 +50,13 @@ const tpl = {
 
     if(config.welcome_back && ls.get('welcome_msg')){
       bc.append(new welcome_msg(config.welcome_back_msg, ls.get('welcome_msg')))
+      ss.set('firstView', 0)
     } else {
-      if(config.user_config){
-        //bc.append(new user_cnf(ls.get('nomatec_user_cnf')))
-      }
+      ss.set('firstView', 1)
+      ls.set('welcome_msg', Date.now());
     }
 
-    ls.set('welcome_msg', Date.now());
+
 
     return h('div',
       new bot_net(),

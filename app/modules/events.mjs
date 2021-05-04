@@ -102,7 +102,16 @@ const events = {
       document.getElementById('bc').innerText = bcdest;
 
       if(bcdest === ''){
-        bcdest = '<h2>WELCOME TO NOMATEC LABS</h2><h3>WEB SPECIALISTS</h3>';
+        let txt = '<h2>WELCOME ',
+        isNew = ls.get('welcome_msg');
+
+        if(ss.get('firstView') === 0){
+          txt+= 'BACK ';
+        }
+
+        txt+= 'TO NOMATEC LABS</h2><h3>WEB SPECIALISTS</h3>';
+
+        bcdest = txt;
       } else {
         bcdest = utils.capitalize(bcdest.replace(/_/g, ' '));
       }

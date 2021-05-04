@@ -250,7 +250,7 @@
     "items": [
       {
         "title": "follow us on facebook",
-        "href": "https://www.facebook.com/Nomatec-Labs-102083311959313",
+        "href": "https://www.facebook.com/nomatec.inc",
         "icon": "fa-facebook",
         "class": "share_facebook"
       },
@@ -456,12 +456,12 @@
         {
           "head": "Web Hosting",
           "sub": "We have web hosting solutions to suit all of your hosting needs.",
-          "ico": "fa-code"
+          "ico": "fa-server"
         },
         {
           "head": "Web admin and management",
           "sub": "We can fully manage your web and app based needs.",
-          "ico": "fa-code"
+          "ico": "fa-laptop"
         },
         {
           "head": "Web framework development",
@@ -470,28 +470,23 @@
         },
         {
           "head": "Web maintenance and updates",
-          "sub": "What develop mobile applications.",
-          "ico": "fa-code"
+          "sub": "We offer services to setup, automate and maintain your web and app based needs.",
+          "ico": "fa-wrench"
         },
         {
           "head": "Hybrid Mobile Applications",
           "sub": "We specialize in the development of hybrid mobile applications, enabling you to maintain just one mobile app across all mobile platforms",
-          "ico": "fa-code"
+          "ico": "fa-mobile"
         },
         {
           "head": "Hybrid Desktop Applications",
           "sub": "We specialize in the development of hybrid desktop applications, enabling you to maintain just one desktop app across all desktop platforms",
-          "ico": "fa-code"
+          "ico": "fa-laptop"
         },
         {
           "head": "Browser plugins",
           "sub": "We develop cross-browser compatible browser plugins across all major browsers.",
-          "ico": "fa-code"
-        },
-        {
-          "head": "Single page applications (SPA)",
-          "sub": "We specialize in the development of single page applications.",
-          "ico": "fa-code"
+          "ico": "fa-chrome"
         }
       ]
     }
