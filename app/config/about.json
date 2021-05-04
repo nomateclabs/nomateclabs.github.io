@@ -1,18 +1,13 @@
 {
-  "sect1": {
-    "head": "Who we are",
-    "txt": "Lorem ipsum dolor sit amet, consectetur ardentius altera. Invidia de criminibus, altera viderent nihil generis quam bonum corporis animi inveterata quarum collegerunt enim videbatur. Differunt vitam diffidenter partim ardentius sapienter in, re tris qua, possit esse satis nisi? Ingeniis quod quandam partitionem qui voluisse et qua! Reliquarum per dicendo sermone distributionem honeste in, libertatemque nec maximis. Societatem quarum distributionem ad libertatemque sic fore foris consequamur partitionem. Considero elaborandum quam dolore, virtutes sit homini nos propositum esse vacare seditiose per totam facilius invidiae eas. In quam et rationem quam et et, etiam voluissent invidia. In elaborandum dicitis quod quandam. Difficultatis non iam non esse videtur condicionem et virtutes! Dixerim neque adiuvet dicendi moderatisque nisi et et eiusdem posse vos est putem! Communis quem perspicio tris id doctrina honeste sunt maturius. Societatem et sapienter iudices. Arbitrantur ceteras vivi iustituiam subterfugere diligentiam mandaremus seditiose in dicendi vehementer."
-  },
-  "sect2": {
-    "head": "What we stand for",
-    "txt": "Lorem ipsum dolor sit amet, consectetur ardentius altera. Invidia de criminibus, altera viderent nihil generis quam bonum corporis animi inveterata quarum collegerunt enim videbatur. Differunt vitam diffidenter partim ardentius sapienter in, re tris qua, possit esse satis nisi? Ingeniis quod quandam partitionem qui voluisse et qua! Reliquarum per dicendo sermone distributionem honeste in, libertatemque nec maximis. Societatem quarum distributionem ad libertatemque sic fore foris consequamur partitionem. Considero elaborandum quam dolore, virtutes sit homini nos propositum esse vacare seditiose per totam facilius invidiae eas. In quam et rationem quam et et, etiam voluissent invidia. In elaborandum dicitis quod quandam. Difficultatis non iam non esse videtur condicionem et virtutes! Dixerim neque adiuvet dicendi moderatisque nisi et et eiusdem posse vos est putem! Communis quem perspicio tris id doctrina honeste sunt maturius. Societatem et sapienter iudices. Arbitrantur ceteras vivi iustituiam subterfugere diligentiam mandaremus seditiose in dicendi vehementer."
-  },
-  "sect3": {
-    "head": "Our services",
-    "txt": "Lorem ipsum dolor sit amet, consectetur ardentius altera. Invidia de criminibus, altera viderent nihil generis quam bonum corporis animi inveterata quarum collegerunt enim videbatur. Differunt vitam diffidenter partim ardentius sapienter in, re tris qua, possit esse satis nisi? Ingeniis quod quandam partitionem qui voluisse et qua! Reliquarum per dicendo sermone distributionem honeste in, libertatemque nec maximis. Societatem quarum distributionem ad libertatemque sic fore foris consequamur partitionem. Considero elaborandum quam dolore, virtutes sit homini nos propositum esse vacare seditiose per totam facilius invidiae eas. In quam et rationem quam et et, etiam voluissent invidia. In elaborandum dicitis quod quandam. Difficultatis non iam non esse videtur condicionem et virtutes! Dixerim neque adiuvet dicendi moderatisque nisi et et eiusdem posse vos est putem! Communis quem perspicio tris id doctrina honeste sunt maturius. Societatem et sapienter iudices. Arbitrantur ceteras vivi iustituiam subterfugere diligentiam mandaremus seditiose in dicendi vehementer."
-  },
-  "sect4": {
-    "head": "Our promise",
-    "txt": "Lorem ipsum dolor sit amet, consectetur ardentius altera. Invidia de criminibus, altera viderent nihil generis quam bonum corporis animi inveterata quarum collegerunt enim videbatur. Differunt vitam diffidenter partim ardentius sapienter in, re tris qua, possit esse satis nisi? Ingeniis quod quandam partitionem qui voluisse et qua! Reliquarum per dicendo sermone distributionem honeste in, libertatemque nec maximis. Societatem quarum distributionem ad libertatemque sic fore foris consequamur partitionem. Considero elaborandum quam dolore, virtutes sit homini nos propositum esse vacare seditiose per totam facilius invidiae eas. In quam et rationem quam et et, etiam voluissent invidia. In elaborandum dicitis quod quandam. Difficultatis non iam non esse videtur condicionem et virtutes! Dixerim neque adiuvet dicendi moderatisque nisi et et eiusdem posse vos est putem! Communis quem perspicio tris id doctrina honeste sunt maturius. Societatem et sapienter iudices. Arbitrantur ceteras vivi iustituiam subterfugere diligentiam mandaremus seditiose in dicendi vehementer."
+  "img":["./app/mov/world.mp4","./app/mov/world2.mp4"],
+  "items": {
+    "sect1": {
+      "head": "Who we are",
+      "txt": "<div class='text-left'><p>We are a global software development company that specializes in web-technologies.</p><br><p>Based in Melbourne Australia, we deal in areas including:</p><ul class='dls'><li>Web Development</li><li>Software Development</li><li>Web Hosting</li><li>Ecommerce</li><li>Home automation</li></ul><br><p>We have a multitude of sites and services globally that are dedicated to providing consumers with top level results.</p></div>"
+    },
+    "sect2": {
+      "head": "What we stand for",
+      "txt": "<div class='text-right'><p>At Nomatec Labs, we believe in a practical implementation of ideas that result in the introduction of new goods or services and the ability to improve the offering of current goods or services.</p><br><p>Making use if our highly trained professionals, We aim to provide the highest level of quality services for you, the consumer.</p><br></div>"
+    }
   }
 }

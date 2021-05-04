@@ -1464,6 +1464,8 @@ const tpl = {
   },
   about(){
     let item = h('div.row.mb-4.mt-4'),
+    img0 = h('source'),
+    img1 = h('source'),
     vid = h('div.row.bgd.p-4.mb-4',
       h('div.col-md-6.d-flex.align-items-center.justify-content-center',
         h('span.text-center.text-md-left.p-4',
@@ -1477,7 +1479,7 @@ const tpl = {
             loop: true,
             muted: true
           },
-          h('source', {src: './app/mov/world.mp4'})
+          img0
         )
       )
     ),
@@ -1488,7 +1490,7 @@ const tpl = {
             loop: true,
             muted: true
           },
-          h('source', {src: './app/mov/world2.mp4'})
+          img1
         )
       ),
       h('div.col-md-6.d-flex.align-items-center.justify-content-center',
@@ -1501,29 +1503,29 @@ const tpl = {
 
     utils.get('config/about', function(err, data){
       if(err){return console.error(err)}
+
+      img0.src = data.img[0].play();
+      img1.src = data.img[1];
+
       item.append(
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInLeft.p-2',
           h('div.light-sec',
-            h('h3.mb-4', data.sect1.head),
-            h('p', data.sect1.txt)
+            h('h3.mb-4', data.items.sect1.head),
+            function(){
+              let ele = h('p');
+              ele.innerHTML = data.items.sect1.txt
+              return ele;
+            }
           )
         ),
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInDown.p-2',
           h('div.dark-sec',
-            h('h3.mb-4', data.sect2.head),
-            h('p', data.sect2.txt)
-          )
-        ),
-        h('div.col-md-12.col-lg-6.text-center.wow.fadeInUp.p-2',
-          h('div.dark-sec',
-            h('h3.mb-4', data.sect3.head),
-            h('p', data.sect3.txt)
-          )
-        ),
-        h('div.col-md-12.col-lg-6.text-center.wow.fadeInRight.p-2',
-          h('div.light-sec',
-            h('h3.mb-4', data.sect4.head),
-            h('p', data.sect4.txt)
+            h('h3.mb-4', data.items.sect2.head),
+            function(){
+              let ele = h('p');
+              ele.innerHTML = data.items.sect2.txt
+              return ele;
+            }
           )
         )
       )
