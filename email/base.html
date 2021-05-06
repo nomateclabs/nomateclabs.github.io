@@ -1,27 +1,30 @@
 
 
-<div style="font-family:sans;width:100%;font-size: 1rem;">
+<div style="font-family:sans;width:100%;font-size:1rem;">
   <div style="text-align:center;">
     <img style="max-width:300px;" src="https://raw.githubusercontent.com/nomateclabs/nomateclabs.github.io/main/app/images/logo_full_dark.png" alt="Nomatec Labs">
   </div>
   <hr style="width:80%;margin-left:10%;margin-right:10%">
   <div style="width:80%;margin-left:10%;margin-right:10%;margin-top:2rem;margin-bottom:2rem;">
     <div style="text-align:left;font-size:0.8rem;">
-      <p><b>TO: </b>{{data.to}}</p>
-      <p><b>Regarding: </b>{{data.regarding}}</p>
-
-      {{data.title}}
+      <p><b>TO: </b>{{data.to}}.</p>
+      <p><b>Regarding: </b>{{data.regarding}}.</p>
     </div>
 
-    <div style="text-align: center">
+    <div style="text-align:left;margin-top:2rem;margin-bottom:2rem;">
       {{data.message}}
     </div>
 
     <div style="text-align:left;font-size:0.8rem">
-      <p>Thank you for your time,</p>
-      <p>{{data.from}}</p>
+      <div style="font-size:1.2rem">
+        <p>Thank you for your time,</p>
+        <p>{{data.from}}.</p>
+        <p>{{data.jobtitle}}.</p>
+      </div>
+
+      <p><img style="max-width:230px;margin-top:2rem" src="https://raw.githubusercontent.com/nomateclabs/nomateclabs.github.io/main/app/images/sig/sig001.png" alt="Nomatec Labs SIG"></p>
+      <p><b>Nomatec Labs.</b></p>
       <p>{{data.date}}</p>
-      <b>Nomatec Labs.</b>
     </div>
   </div>
 

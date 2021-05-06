@@ -1464,8 +1464,8 @@ const tpl = {
   },
   about(){
     let item = h('div.row.mb-4.mt-4'),
-    img0 = h('source'),
-    img1 = h('source'),
+    img0 = h('div.col-md-6'),
+    img1 = h('div.col-md-6'),
     vid = h('div.row.bgd.p-4.mb-4',
       h('div.col-md-6.d-flex.align-items-center.justify-content-center',
         h('span.text-center.text-md-left.p-4',
@@ -1473,26 +1473,10 @@ const tpl = {
           h('h3', 'We are a global software development company that specializes in web-technologies')
         )
       ),
-      h('div.col-md-6',
-        h('video.img-fluid.op-1', {
-            autoplay: 'autoplay',
-            loop: true,
-            muted: true
-          },
-          img0
-        )
-      )
+      img0
     ),
     vid2 = h('div.row.bgd.p-4.mb-4',
-      h('div.col-md-6',
-        h('video.img-fluid.op-1', {
-            autoplay: 'autoplay',
-            loop: true,
-            muted: true
-          },
-          img1
-        )
-      ),
+      img1,
       h('div.col-md-6.d-flex.align-items-center.justify-content-center',
         h('span.text-center.text-md-right.p-4',
           h('h2.light-txt', 'Some header'),
@@ -1504,8 +1488,21 @@ const tpl = {
     utils.get('config/about', function(err, data){
       if(err){return console.error(err)}
 
-      img0.src = data.img[0].play();
-      img1.src = data.img[1];
+      img0.append(h('video.img-fluid.op-1', {
+          autoplay: 'autoplay',
+          loop: true,
+          muted: true
+        },
+        h('source', {src: data.img[0]}),
+      ))
+
+      img1.append(h('video.img-fluid.op-1', {
+          autoplay: 'autoplay',
+          loop: true,
+          muted: true
+        },
+        h('source', {src: data.img[1]}),
+      ))
 
       item.append(
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInLeft.p-2',
