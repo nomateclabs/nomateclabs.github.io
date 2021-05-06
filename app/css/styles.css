@@ -3684,8 +3684,9 @@
 
 
 body {
+  color: #656565;
   font-family: 'Oxygen', sans-serif;
-      overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 li{
@@ -4761,4 +4762,8 @@ cattag-link{
 
 .dls li{
   list-style: circle!important;
+}
+
+.abt{
+  min-height: 30rem;
 }

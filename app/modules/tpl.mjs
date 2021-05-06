@@ -1475,8 +1475,8 @@ const tpl = {
       img1,
       h('div.col-md-6.d-flex.align-items-center.justify-content-center',
         h('span.text-center.text-md-right.p-4',
-          h('h2.light-txt', 'Some header'),
-          h('h3', 'We are a global software development company that specializes in web-technologies')
+          h('h2.light-txt', 'Guaranteed excellence'),
+          h('h3', 'We take pride in our work. You can count on us to take care of all your cloud based needs.')
         )
       )
     )
@@ -1502,7 +1502,7 @@ const tpl = {
 
       item.append(
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInLeft.p-2',
-          h('div.light-sec',
+          h('div.light-sec.abt',
             h('h3.mb-4', data.items.sect1.head),
             function(){
               let ele = h('p');
@@ -1512,7 +1512,7 @@ const tpl = {
           )
         ),
         h('div.col-md-12.col-lg-6.text-center.wow.fadeInDown.p-2',
-          h('div.dark-sec',
+          h('div.dark-sec.abt',
             h('h3.mb-4', data.items.sect2.head),
             function(){
               let ele = h('p');
