@@ -231,7 +231,7 @@ const tpl = {
             location.hash = '/'+ lnks[i];
             utils.totop(0);
           }
-        },config.navlinks[i])
+        }, utils.capitalize(config.navlinks[i]))
       )
     }
 
@@ -1112,7 +1112,6 @@ const tpl = {
 
                   let $this = this,
                   obj = {
-                    name: $this.parentNode.firstChild.firstChild.lastChild.value,
                     email: $this.parentNode.firstChild.lastChild.lastChild.value
                   },
                   hdiv = $this.nextSibling;
@@ -1122,17 +1121,14 @@ const tpl = {
                     return hdiv.innerText = 'invalid email address';
                   }
 
-                  if(!utils.is_letters(obj.name)){
-                    hdiv.style.color = 'red';
-                    return hdiv.innerText = 'name can only contain letters';
-                  }
-
                   this.setAttribute('disabled', true);
 
                   utils.empty(this);
-                  this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Encrypting...')
-
-
+                  this.append(h('span.spinner-grow.spinner-grow-sm.mr-1'), 'Sending...')
+                  setTimeout(function(){
+                    utils.empty($this);
+                    $this.textContent = 'Done';
+                  },3000)
 
                 }
               }, 'signup'),
@@ -1600,20 +1596,20 @@ const tpl = {
 
     item.append(h('div.row.text-center.blnk',
       h('div.col-12',
-        h('h2', 'Recent Blog'),
-        h('div#g2.glide.ofh',
-          h('glide__track', {'data-glide-el':'track'},blog_lst),
+        h('h2', 'Recent News'),
+        h('div#g3.glide.ofh',
+          h('glide__track', {'data-glide-el':'track'},news_lst),
           h('div.glide__arrows', {'data-glide-el': 'controls'},
             h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
             h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
           )
-        ),        //blog_lst,
+        ),
         h('button.btn.btn-outline-primary', {
           onclick(){
-            location.hash = '/blog';
+            location.hash = '/news';
             utils.totop(0);
           }
-        }, 'View Blog')
+        },'View News')
       )
     ))
 
@@ -1632,25 +1628,26 @@ const tpl = {
         })
       ))
     }
-
+/*
     item.append(h('div.row.text-center.blnk',
       h('div.col-12',
-        h('h2', 'Recent News'),
-        h('div#g3.glide.ofh',
-          h('glide__track', {'data-glide-el':'track'},news_lst),
+        h('h2', 'Recent Blog'),
+        h('div#g2.glide.ofh',
+          h('glide__track', {'data-glide-el':'track'},blog_lst),
           h('div.glide__arrows', {'data-glide-el': 'controls'},
             h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
             h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
           )
-        ),
+        ),        //blog_lst,
         h('button.btn.btn-outline-primary', {
           onclick(){
-            location.hash = '/news';
+            location.hash = '/blog';
             utils.totop(0);
           }
-        },'View News')
+        }, 'View Blog')
       )
     ))
+
 
     utils.rest('feed/post_recent/blog_post_recent', function(err,res){
       if(err){return console.error(err)}
@@ -1662,7 +1659,7 @@ const tpl = {
         }
       }
     })
-
+*/
     utils.rest('feed/news_recent/blog_news_recent', function(err,res){
       if(err){return console.error(err)}
       for (let i = 0; i < 3; i++) {
@@ -1676,20 +1673,25 @@ const tpl = {
 
     setTimeout(function(){
       for (let i = 1; i < 4; i++) {
-        new Glide('#g'+ i, {
-          type: 'carousel',
-          startAt: 0,
-          perView: 3,
-          breakpoints: {
-            1024: {
-              perView: 2
+        try {
+          new Glide('#g'+ i, {
+            type: 'carousel',
+            startAt: 0,
+            perView: 3,
+            breakpoints: {
+              1024: {
+                perView: 2
+              },
+              700: {
+                perView: 1
+              }
             },
-            700: {
-              perView: 1
-            }
-          },
-          autoplay: 2000
-        }).mount()
+            autoplay: 2000
+          }).mount()
+        } catch (err) {
+
+        }
+
       }
     },1000)
 

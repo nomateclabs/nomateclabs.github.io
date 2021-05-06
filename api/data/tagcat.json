@@ -1,1 +1,1 @@
-{"tag":["tag0","tag1","tag5","tag2"],"cat":["cat4","cat2","cat1"],"tag_len":[{"item":"tag0","count":4},{"item":"tag1","count":4},{"item":"tag5","count":1},{"item":"tag2","count":3}],"cat_len":[{"item":"cat4","count":1},{"item":"cat2","count":1},{"item":"cat1","count":2}],"news_len":[{"item":"specials","count":2},{"item":"general","count":2}]}
+{"tag":["event"],"cat":["general"],"tag_len":[{"item":"event","count":1}],"cat_len":[{"item":"general","count":1}],"news_len":[{"item":"specials","count":2},{"item":"general","count":2}]}
