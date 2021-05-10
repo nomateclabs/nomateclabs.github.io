@@ -1302,7 +1302,18 @@ const tpl = {
   contact(){
 
     let config = ls.get('config'),
-    ele = h('div.row.justify-content-around'),
+    ele = h('div.row.justify-content-around',
+      h('div.col-12.text-center',
+        h('div.card.my-4.usrcrd.wow.fadeInUp.mx-4',
+          h('div.card-content',
+            h('div.rounded.shadow-sm.py-5.px-4',
+              h('h5.mb-3.cdb', 'Contact Methods'),
+              h('cite', 'Please feel free to contact us via our site messenger or email admin directly using one of the below listed email addresses.')
+            )
+          )
+        )
+      )
+    ),
     share_lst = h('div.row'),
     share_items = config.share_block.items;
 
