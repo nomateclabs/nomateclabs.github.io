@@ -36,7 +36,7 @@ const workers = {
         dest = document.getElementById('search-btn');
         setTimeout(function(){
           utils.empty(dest);
-          dest.classList.add('fa fa-search');
+          dest.classList.add('fa','fa-search');
           dest.removeAttribute('disabled');
 
           if(data.code){
@@ -131,7 +131,7 @@ const workers = {
       }
 
       if(data.type === 'newslist'){
-    
+
         let items = data.data,
         item = h('div#newslist');
 

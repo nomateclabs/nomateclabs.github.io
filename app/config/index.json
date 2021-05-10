@@ -133,7 +133,7 @@
   "list_pagination": true,
   "list_paginate_max": 1000,
   "search": {
-    "enabled": true,
+    "enabled": false,
     "timeout": false,
     "timeout_sec": 60,
     "timeout_msg": "seconds till next search",

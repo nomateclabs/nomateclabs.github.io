@@ -4296,6 +4296,10 @@ li{
   color: #5454cc;
 }
 
+.ffo{
+  font-family: 'Oxygen', sans-serif;
+}
+
 @media (max-width: 992px){
   .navbar-nav.nav-lnks{
     display: none!important;
@@ -4770,4 +4774,15 @@ cattag-link{
 
 .cdb{
   color: #2196f3
+}
+
+
+.card-header {
+    background-color: rgb(0 0 0);
+    border-bottom: 1px solid rgb(0 0 0);
+}
+
+.badge-secondary {
+    background-color: #000000;
+        padding: .3rem .4rem .4rem;
 }

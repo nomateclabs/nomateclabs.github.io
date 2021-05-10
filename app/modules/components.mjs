@@ -302,7 +302,7 @@ class blog_his extends HTMLElement {
     this.append(
       h('div.media.mb-3',
         h('div.media-body',
-          h('h6', obj.title, h('small.float-right.fa.fa-calendar', utils.ts2date(obj.id))),
+          h('h6', obj.title, h('small.float-right.fa.fa-calendar', h('span.ml-2.ffo', utils.ts2date(obj.id)))),
           h('span.fa.fa-user.mt-2.float-left.cp', {
             title: 'author',
             onclick: function(){
