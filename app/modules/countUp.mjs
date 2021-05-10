@@ -255,7 +255,7 @@ function countUp(x,y){
       if (!j.error) {
         j.start();
       } else {
-        throw j.error;
+        //throw j.error;
       }
     }
   } catch(err){

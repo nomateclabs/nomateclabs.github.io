@@ -35,7 +35,12 @@ detect.init(function(err, config){
         if(err){return g.ce('page not found')};
         workers.init(config, function(){
           events.remove_botnet(config.botnet);
+          setTimeout(function(){
 
+            console.log('%cDo you represent a charity or want to collaborate on a project? contact me at: %csupport@nomateclabs.com\n', 'color:#007bff;font-size:1rem', 'color:lime;font-size:1rem');
+
+            console.log('%cDONE %cAND %cDONE%c!!!', 'color:magenta;font-size:2rem', 'color:#ff5722;font-size:3rem', 'color:magenta;font-size:2rem', 'color:lime;font-size:1.4rem');
+          },3000)
         });
       });
     });

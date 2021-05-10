@@ -1290,7 +1290,7 @@ const tpl = {
         h('div.card-content',
           h('div.rounded.shadow-sm.py-5.px-4',
             h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
-            h('h5.mb-0',i.name,),
+            h('h5.cdb',i.name),
             h('h3.small.text-uppercase.text-muted', i.title),
             h('a.small', {href: 'mailto://'+ i.contact}, i.contact)
           )
@@ -1309,6 +1309,18 @@ const tpl = {
     for (let i = 0; i < config.users.length; i++) {
       ele.append(tpl.user_contact(config.users[i]))
     }
+
+    ele.append(h('div.col-12.text-center',
+      h('div.card.my-4.usrcrd.wow.fadeInUp.mx-4',
+        h('div.card-content',
+          h('div.rounded.shadow-sm.py-5.px-4',
+            h('h5.mb-3.cdb', 'Charity Services'),
+            h('h3.small.text-muted', 'Nomatec Labs offer free web hosting, web management, consultations, web development, mobile and desktop app development services to a limited number of registered charities each year. Contact us to enquire about your situation.'),
+            h('a.small', {href: 'mailto://charity@nomateclabs.com'}, 'charity@nomateclabs.com')
+          )
+        )
+      )
+    ))
 
     for (let i = 0; i < share_items.length; i++) {
       share_lst.append(h('div.col-sm-12.col-lg-4',

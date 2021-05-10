@@ -4279,9 +4279,9 @@ li{
   width: 100%
 }
 
-.tinput{
+.tinput, .tinput:focus{
   background: transparent;
-  color: white
+  color: white;
 }
 
 
@@ -4766,4 +4766,8 @@ cattag-link{
 
 .abt{
   min-height: 30rem;
+}
+
+.cdb{
+  color: #2196f3
 }

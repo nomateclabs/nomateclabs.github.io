@@ -438,6 +438,11 @@
           "ico": "fa-code"
         },
         {
+          "head": "Smart Home",
+          "sub": "We offer a service to plan, code, setup and maintain all your smart home automation needs.",
+          "ico": "fa-home"
+        },
+        {
           "head": "Consultations",
           "sub": "We offer a variety of free and paid consultation services.",
           "ico": "fa-thumbs-o-up"
