@@ -118,7 +118,7 @@ const events = {
 
       ttl.innerHTML = bcdest;
       main.innerHTML = '';
-      document.title = 'Nomatec Labs | '+ utils.capitalize(dest[0]);
+      document.title = [config.app.title, utils.capitalize(dest[0])].join(' | ');
       ls.set('path', dest)
     try {
       page[dest[0]](main, function(cnf){

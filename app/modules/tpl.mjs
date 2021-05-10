@@ -1315,7 +1315,13 @@ const tpl = {
         h('div.card-content',
           h('div.rounded.shadow-sm.py-5.px-4',
             h('h5.mb-3.cdb', 'Charity Services'),
-            h('h3.small.text-muted', 'Nomatec Labs offer free web hosting, web management, consultations, web development, mobile and desktop app development services to a limited number of registered charities each year. Contact us to enquire about your situation.'),
+            h('h6.text-muted', 'Nomatec Labs offers free static web hosting, web management, consultations, web development, hybrid mobile and desktop application development services to a limited number of registered charities each year. It is best to book these services in advance before another charity does.'),
+            h('br'),
+            h('h6.text-muted', 'All medical based ecommerce sites owned by Nomatec Labs have a permanent 10% of profit pledge that is donated to a medical based charity of the customers choice. Positions are limited and subject to change annually. Contact us to add your medical based charity to the list.'),
+            h('br'),
+            h('h6.text-muted', 'All web-hosting sites owned by Nomatec Labs offer discount prices for domain names and special services to an unlimited number of charities all year round.'),
+            h('br'),
+            h('h6.text-muted', 'Contact us to enquire about your situation.'),
             h('a.small', {href: 'mailto://charity@nomateclabs.com'}, 'charity@nomateclabs.com')
           )
         )
