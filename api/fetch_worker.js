@@ -1,5 +1,5 @@
 importScripts('./worker/global.js','./worker/utils.js');
-cl('fetch worker online')
+cl('%cFetch-worker: %conline', 'color:cyan', 'color:lime');
 
 onmessage = function(e) {
   let data = e.data;
@@ -124,7 +124,6 @@ onmessage = function(e) {
   }
 
   if(data.type === 'postitem'){
-    cl(data.page)
     utils.get(data.page, function(err,res){
       if(err){
         return err_msg('unable get post item');
@@ -134,7 +133,6 @@ onmessage = function(e) {
   }
 
   if(data.type === 'newsentry'){
-    cl(data.page)
     utils.get(data.page, function(err,res){
       if(err){
         return err_msg('unable fetch news item');

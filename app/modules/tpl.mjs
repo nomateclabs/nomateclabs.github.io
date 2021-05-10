@@ -1628,38 +1628,8 @@ const tpl = {
         })
       ))
     }
-/*
-    item.append(h('div.row.text-center.blnk',
-      h('div.col-12',
-        h('h2', 'Recent Blog'),
-        h('div#g2.glide.ofh',
-          h('glide__track', {'data-glide-el':'track'},blog_lst),
-          h('div.glide__arrows', {'data-glide-el': 'controls'},
-            h('button.glide__arrow.glide__arrow--left', {type: 'button', 'data-glide-dir': '<'}, 'Back'),
-            h('button.glide__arrow.glide__arrow--right', {type: 'button', 'data-glide-dir': '>'}, 'Next')
-          )
-        ),        //blog_lst,
-        h('button.btn.btn-outline-primary', {
-          onclick(){
-            location.hash = '/blog';
-            utils.totop(0);
-          }
-        }, 'View Blog')
-      )
-    ))
 
 
-    utils.rest('feed/post_recent/blog_post_recent', function(err,res){
-      if(err){return console.error(err)}
-      for (let i = 0; i < 3; i++) {
-        try {
-          blog_lst.append(tpl.post_lst(res[i]))
-        } catch (err) {
-          break;
-        }
-      }
-    })
-*/
     utils.rest('feed/news_recent/blog_news_recent', function(err,res){
       if(err){return console.error(err)}
       for (let i = 0; i < 3; i++) {

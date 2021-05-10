@@ -2,16 +2,16 @@
   "name": "nomatec-labs",
   "short_name": "nomatec-labs",
   "serviceworker": {
-    "src": "./pwa.js",
+    "src": "./sw.js",
     "scope": "/",
-    "type": "",
     "update_via_cache": "none"
   },
   "start_url": ".",
   "lang": "en-US",
   "display": "standalone",
-  "background_color": "#fff",
-  "description": "nomatec blog app.",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Web development, hybrid mobile and desktop application specialists.",
   "icons": [{
     "src": "./app/images/logo/lg_48.png",
     "sizes": "48x48",

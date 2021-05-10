@@ -1,3 +1,12 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+  .then(function(reg){
+    console.log('%cService-worker: %conline', 'color:cyan', 'color:lime');
+  }).catch(function(error){
+    console.log('%cService-worker: %cfailed', 'color:cyan', 'color:red');
+  });
+}
+
 import { global as g } from  "/app/modules/global.mjs";
 import { detect } from "/app/modules/detect.mjs";
 import { tpl } from "/app/modules/tpl.mjs";
