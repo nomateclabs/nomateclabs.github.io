@@ -113,8 +113,9 @@ const tpl = {
         src: [config.tawk.url,config.tawk.api].join('/'),
         charset: 'UTF-8',
         crossorigin: '*',
-        defer: ''
+        async: 'true'
       })
+
 
 
   },
@@ -1336,6 +1337,12 @@ const tpl = {
             h('a.small', {href: 'mailto://charity@nomateclabs.com'}, 'charity@nomateclabs.com')
           )
         )
+      )
+    ))
+
+    ele.append(h('div.col-12.text-center',
+      h('div.card.my-4.usrcrd.wow.fadeInUp.mx-4',
+        h('iframe.chat-frame', {src: 'https://tawk.to/chat/609d1939185beb22b30ce49d/1f5iql2vt'})
       )
     ))
 

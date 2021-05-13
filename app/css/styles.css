@@ -4786,3 +4786,8 @@ cattag-link{
     background-color: #000000;
         padding: .3rem .4rem .4rem;
 }
+
+.chat-frame {
+    border: none;
+    height: 100vh;
+}
