@@ -11,7 +11,7 @@
     }
   },
   "img": {
-    "bg": "./app/images/bg.jpg"
+    "bg": "./app/images/bg.png"
   },
   "tawk": {
     "url": "https://embed.tawk.to",

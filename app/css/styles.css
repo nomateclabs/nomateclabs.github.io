@@ -4301,6 +4301,9 @@ li{
 }
 
 @media (max-width: 992px){
+  #para {
+    max-width: 100%!important;
+  }
   .navbar-nav.nav-lnks{
     display: none!important;
   }
