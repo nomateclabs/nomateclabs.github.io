@@ -65,7 +65,7 @@ const tpl = {
       tpl.top_bar(config),
       tpl.navbar(config),
 
-      h('div.container-fluid.h12',
+      h('div.container-fluid.h12.scheck',
         h('div.header-main', bc),
         h('div.head-lbl',
           h('span#ttl.head-txt.wow.fadeInUp', {'data-wow-delay': '1s'}, config.navlinks[0])

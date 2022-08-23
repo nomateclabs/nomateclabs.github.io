@@ -4467,6 +4467,13 @@ li{
       right: 300px;
       z-index: 998;
   }
+
+  .scheck{
+    padding:0!important;
+  }
+  welcome-msg {
+    display: none!important;
+  }
 }
 
 .container-fluid {
