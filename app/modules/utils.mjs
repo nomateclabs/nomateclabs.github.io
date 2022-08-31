@@ -27,7 +27,6 @@ const utils = {
       headers: g.headers.json
     })
     .then(function(res){
-
       if (res.status >= 200 && res.status < 300) {
         return res.json().then(function(data){
           cb(false, data)
@@ -284,6 +283,9 @@ const utils = {
     })
   },
   detect_crawler(cb){
+
+    return cb();
+    /*
     let bot_test = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|linkedin|Facebot|Twitterbot/i.test(navigator.userAgent);
     if(bot_test){
       fetch('./app/config/crawler.json', {
@@ -321,6 +323,8 @@ const utils = {
     } else {
       return cb();
     }
+    */
+    
   },
   prop_meta(i,e){
     return h('meta', {
