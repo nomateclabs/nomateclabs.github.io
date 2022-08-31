@@ -77,6 +77,10 @@ const events = {
         events.rerout(config);
       }
 
+      if(location.pathname.length > 1){
+        history.replaceState({}, '', '/#' + location.pathname.split('.')[0]);
+      }
+
       if(location.hash !== ''){
         events.rerout(config);
       } else {
