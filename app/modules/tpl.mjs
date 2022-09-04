@@ -1293,7 +1293,7 @@ const tpl = {
             h('img.img-fluid.rounded-circle.mb-3 img-thumbnail.shadow-sm', {src: i.img}),
             h('h5.cdb',i.name),
             h('h3.small.text-uppercase.text-muted', i.title),
-            h('a.small', {href: 'mailto://'+ i.contact}, i.contact)
+            h('a.small', {href: 'mailto:'+ i.contact}, i.contact)
           )
         )
       )
@@ -1334,7 +1334,7 @@ const tpl = {
             h('h6.text-muted', 'All web-hosting sites owned by Nomatec Labs offer discount prices for domain names and special services to an unlimited number of charities all year round.'),
             h('br'),
             h('h6.text-muted', 'Contact us to enquire about your situation.'),
-            h('a.small', {href: 'mailto://charity@nomateclabs.com'}, 'charity@nomateclabs.com')
+            h('a.small', {href: 'mailto:charity@nomateclabs.com'}, 'charity@nomateclabs.com')
           )
         )
       )
