@@ -243,7 +243,7 @@ const utils = {
       document.head.append(item)
     }
 
-    cb()
+    return cb();
 
   },
   update_theme(src, title, cb){
@@ -285,6 +285,7 @@ const utils = {
   detect_crawler(cb){
 
     return cb();
+
     /*
     let bot_test = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|linkedin|Facebot|Twitterbot/i.test(navigator.userAgent);
     if(bot_test){
@@ -324,7 +325,7 @@ const utils = {
       return cb();
     }
     */
-    
+
   },
   prop_meta(i,e){
     return h('meta', {
