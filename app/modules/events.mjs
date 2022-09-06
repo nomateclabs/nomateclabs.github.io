@@ -79,7 +79,10 @@ const events = {
 
       if(location.pathname.length > 1){
         utils.detect_crawler(function(isbot){
-          if(isbot){return;}
+          if(isbot){
+            document.body.append(h('h1', document.title));
+            return;
+          }
           history.replaceState({}, '', '/#' + location.pathname.split('.')[0]);
         })
       }
