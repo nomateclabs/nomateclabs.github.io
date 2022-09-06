@@ -286,45 +286,14 @@ const utils = {
 
     return cb();
 
-    /*
+
     let bot_test = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|linkedin|Facebot|Twitterbot/i.test(navigator.userAgent);
     if(bot_test){
-      fetch('./app/config/crawler.json', {
-        method: 'GET',
-        headers: g.headers.json
-      })
-      .then(function(res) {
-        if (res.status >= 200 && res.status < 300) {
-          return res.json();
-        } else {
-          return Promise.reject(new Error(res.statusText))
-        }
-      })
-      .then(function(data) {
-
-        let obj = {
-          bot_div: h('div#bot-net'),
-          bot_link: h('a'),
-          orig: location.origin,
-          clone_link: null
-        }
-        for (let i = 0; i < data.length; i++) {
-          obj.clone_link = obj.bot_link.cloneNode();
-          obj.clone_link.href = obj.orig + data[i];
-          obj.bot_div.append(obj.clone_link);
-        }
-        document.body.append(obj.bot_div);
-        //obj = null;
-        ss.set('is_bot', true);
-        cb();
-      })
-      .catch(function(err) {
-        console.log('Request failed', err);
-      });
+      cb(true)
     } else {
       return cb();
     }
-    */
+
 
   },
   prop_meta(i,e){

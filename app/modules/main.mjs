@@ -25,7 +25,6 @@ ss.del('sidebar')
 detect.init(function(err, config){
   if(err){return g.cl(err)};
 
-  utils.detect_crawler(function(isbot){
 
     events.init(config, function(err){
       if(err){return g.ce(err)};
@@ -44,5 +43,5 @@ detect.init(function(err, config){
         });
       });
     });
-  })
+
 });

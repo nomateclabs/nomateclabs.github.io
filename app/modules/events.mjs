@@ -78,7 +78,10 @@ const events = {
       }
 
       if(location.pathname.length > 1){
-        history.replaceState({}, '', '/#' + location.pathname.split('.')[0]);
+        utils.detect_crawler(function(isbot){
+          if(isbot){return;}
+          history.replaceState({}, '', '/#' + location.pathname.split('.')[0]);
+        })
       }
 
       if(location.hash !== ''){
