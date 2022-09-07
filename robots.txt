@@ -1,3 +1,4 @@
 User-agent: *
-Crawl-delay: 20
+disallow: /app/js/pre.js
+disallow: /app/modules/main.mjs
 Sitemap: https://www.nomateclabs.com/sitemap.xml
